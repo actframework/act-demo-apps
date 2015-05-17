@@ -6,7 +6,7 @@ import org.osgl.oms.boot.app.RunApp;
 import java.net.URL;
 
 /**
- *
+ * The simple helloworld app
  */
 public class HelloWorldApp {
     @GetAction("/hello")
