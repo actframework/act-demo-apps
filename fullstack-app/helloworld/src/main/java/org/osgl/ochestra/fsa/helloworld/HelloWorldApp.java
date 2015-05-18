@@ -1,8 +1,10 @@
 package org.osgl.ochestra.fsa.helloworld;
 
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.result.Result;
 import org.osgl.oms.boot.app.RunApp;
 
+import static org.osgl.oms.controller.Controller.Util.render;
 import static org.osgl.oms.controller.Controller.Util.text;
 
 /**
@@ -14,12 +16,17 @@ import static org.osgl.oms.controller.Controller.Util.text;
 public class HelloWorldApp {
     @GetAction("/hello")
     public String sayHello() {
-        return "Hello Ochestra!";
+        return "Hello Jband!";
     }
 
     @GetAction("/bye")
     public void byePlay() {
         text("bye Play!");
+    }
+
+    @GetAction("/greeting")
+    public Result greeting(String who) {
+        return render(who);
     }
 
     public static void main(String[] args) throws Exception {
