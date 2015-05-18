@@ -22,7 +22,7 @@
   <groupId>org.osgl</groupId>
   <artifactId>ochestra-fsa-helloworld</artifactId>
   <packaging>jar</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.0.1-SNAPSHOT</version>
 
   <name>ochestra fullstack app demo - hello world</name>
   <description>demonstrate a minimal hello world application for ochestra framework in fullstack app mode</description>
@@ -107,7 +107,7 @@
     <dependency>
       <groupId>org.osgl</groupId>
       <artifactId>osgl-mvc-server</artifactId>
-      <version>0.1-SNAPSHOT</version>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
