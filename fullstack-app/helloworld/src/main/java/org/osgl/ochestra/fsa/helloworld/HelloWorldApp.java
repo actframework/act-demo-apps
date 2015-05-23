@@ -18,21 +18,28 @@ import static org.osgl.oms.controller.Controller.Util.text;
  */
 public class HelloWorldApp {
 
+    AppContext context;
+
+    public HelloWorldApp() {
+        System.out.println("The controller initialized");
+    }
+
     @Before
-    public void mockFormat(String fmt, AppContext context) {
+    public void mockFormat(String fmt) {
         if ("json".equals(fmt)) {
             context.format(H.Format.json);
         }
+        context.session().put("foo", "bar");
     }
 
     @GetAction("/hello")
     public String sayHello() {
-        return "Hello Jband!";
+        return "Hello Ying!";
     }
 
     @GetAction("/bye")
-    public void byePlay() {
-        text("bye Play!");
+    public void byePlayAndSpring() {
+        text("bye Play and Spring!");
     }
 
     @GetAction("/greeting")
@@ -40,7 +47,13 @@ public class HelloWorldApp {
         return render(who, age);
     }
 
+    @GetAction("/thank")
+    public static String thankYou() {
+        return "thank you!";
+    }
+
     public static void main(String[] args) throws Exception {
         RunApp.start(HelloWorldApp.class);
     }
+
 }
