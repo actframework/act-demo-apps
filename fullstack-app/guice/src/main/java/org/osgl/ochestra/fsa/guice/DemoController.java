@@ -1,13 +1,20 @@
 package org.osgl.ochestra.fsa.guice;
 
+import org.osgl.http.H;
+import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.oms.app.AppContext;
 
 import javax.inject.Inject;
 
 public class DemoController {
 
-    public DemoController() {
-        System.out.println("Controller initialized");
+    @Before
+    public void mockFormat(String fmt, AppContext context) {
+        if ("json".equals(fmt)) {
+            context.format(H.Format.json);
+        }
+        context.session().put("foo", "bar");
     }
 
     @Inject
@@ -17,4 +24,5 @@ public class DemoController {
     public String greeting() {
         return service.greeting();
     }
+
 }
