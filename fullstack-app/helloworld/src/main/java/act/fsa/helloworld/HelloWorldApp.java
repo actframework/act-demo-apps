@@ -1,14 +1,12 @@
-package org.osgl.ochestra.fsa.helloworld;
+package act.fsa.helloworld;
 
+import act.app.AppContext;
+import act.boot.app.RunApp;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
-import org.osgl.oms.app.AppContext;
-import org.osgl.oms.boot.app.RunApp;
-
-import static org.osgl.oms.controller.Controller.Util.render;
-import static org.osgl.oms.controller.Controller.Util.text;
+import static act.controller.Controller.Util.*;
 
 /**
  * The simple hello world app.
@@ -19,10 +17,6 @@ import static org.osgl.oms.controller.Controller.Util.text;
 public class HelloWorldApp {
 
     AppContext context;
-
-    public HelloWorldApp() {
-        System.out.println("The controller initialized");
-    }
 
     @Before
     public void mockFormat(String fmt) {

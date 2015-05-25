@@ -1,9 +1,9 @@
-package org.osgl.ochestra.fsa.guice;
+package act.fsa.guice;
 
+import act.app.AppContext;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
-import org.osgl.oms.app.AppContext;
 
 import javax.inject.Inject;
 

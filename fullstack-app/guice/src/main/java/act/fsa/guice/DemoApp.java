@@ -1,6 +1,6 @@
-package org.osgl.ochestra.fsa.guice;
+package act.fsa.guice;
 
-import org.osgl.oms.boot.app.RunApp;
+import act.boot.app.RunApp;
 
 public class DemoApp {
 

@@ -1,4 +1,4 @@
-package org.osgl.ochestra.fsa.guice;
+package act.fsa.guice;
 
 public interface DemoService {
     String greeting();
