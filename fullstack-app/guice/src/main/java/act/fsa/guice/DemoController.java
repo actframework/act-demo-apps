@@ -1,11 +1,14 @@
 package act.fsa.guice;
 
 import act.app.AppContext;
+import act.controller.Controller;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 
 import javax.inject.Inject;
+
+import static act.controller.Controller.Util.text;
 
 public class DemoController {
 
@@ -18,11 +21,26 @@ public class DemoController {
     }
 
     @Inject
-    DemoService service;
+    GreetingService greeting;
+
+    @Inject
+    HiService hi;
+
+    @Inject
+    ByeService bye;
 
     @GetAction("/greeting")
     public String greeting() {
-        return service.greeting();
+        return greeting.greeting();
     }
 
+    @GetAction("/hi")
+    public void hi(String who) {
+        text(hi.sayHi(who));
+    }
+
+    @GetAction("/bye")
+    public void bye(String who) {
+        text(bye.bye(who));
+    }
 }

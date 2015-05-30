@@ -16,10 +16,8 @@ import static act.controller.Controller.Util.*;
  */
 public class HelloWorldApp {
 
-    AppContext context;
-
     @Before
-    public void mockFormat(String fmt) {
+    public void mockFormat(String fmt, AppContext context) {
         if ("json".equals(fmt)) {
             context.format(H.Format.json);
         }
@@ -33,12 +31,12 @@ public class HelloWorldApp {
 
     @GetAction("/bye")
     public void byePlayAndSpring() {
-        text("bye Play and Spring!");
+        text("bye Play and Spring!!");
     }
 
     @GetAction("/greeting")
-    public Result greeting(String who, int age) {
-        return render(who, age);
+    public void greeting(String who, int age) {
+        render(who, age);
     }
 
     @GetAction("/thank")

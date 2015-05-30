@@ -1,5 +1,5 @@
 package act.fsa.guice;
 
-public interface DemoService {
+public interface GreetingService {
     String greeting();
 }
