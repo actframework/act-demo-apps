@@ -1,7 +1,6 @@
 package act.fsa.guice;
 
 import act.app.AppContext;
-import act.controller.Controller;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
