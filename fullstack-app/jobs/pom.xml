@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-helloworld</artifactId>
+  <artifactId>demo-fsa-jobs</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
 
@@ -90,7 +90,7 @@
             </execution>
           </executions>
           <configuration>
-            <mainClass>act.fsa.helloworld.HelloWorldApp</mainClass>
+            <mainClass>act.fsa.jobs.JobApp</mainClass>
             <classpathScope>test</classpathScope>
           </configuration>
         </plugin>

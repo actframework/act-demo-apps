@@ -2,7 +2,10 @@ package act.fsa.helloworld;
 
 import act.app.AppContext;
 import act.boot.app.RunApp;
+import act.job.OnAppStart;
 import org.osgl.http.H;
+import org.osgl.logging.L;
+import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
@@ -19,7 +22,7 @@ public class HelloWorldApp {
     @Before
     public void mockFormat(String fmt, AppContext context) {
         if ("json".equals(fmt)) {
-            context.format(H.Format.json);
+            context.accept(H.Format.json);
         }
         context.session().put("foo", "bar");
     }
