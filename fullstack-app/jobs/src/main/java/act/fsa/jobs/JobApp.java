@@ -13,10 +13,7 @@ import org.osgl.mvc.result.Result;
 import static act.controller.Controller.Util.*;
 
 /**
- * The simple hello world app.
- * <p>Run this app, try to update some of the code, then
- * press F5 in the browser to watch the immediate change
- * in the browser!</p>
+ * Demonstrate Job annotations
  */
 public class JobApp {
 
@@ -26,38 +23,12 @@ public class JobApp {
         //logger.info(new RuntimeException(), "JobApp initialized");
     }
 
-    @Before
-    public void mockFormat(String fmt, AppContext context) {
-        if ("json".equals(fmt)) {
-            context.accept(H.Format.json);
+    @GetAction("/")
+    public static Result home(AppContext context) {
+        if (context.isAjax()) {
+            return json(JobLog.logs());
         }
-        context.session().put("foo", "bar");
-    }
-
-    @GetAction("/hello")
-    public String sayHello(AppContext context) {
-        context.app().jobManager().start(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Hello world!");
-            }
-        });
-        return "Hello Ying!";
-    }
-
-    @GetAction("/bye")
-    public void byePlayAndSpring() {
-        text("bye Play and Spring!!");
-    }
-
-    @GetAction("/greeting")
-    public void greeting(String who, int age) {
-        render(who, age);
-    }
-
-    @GetAction("/thank")
-    public static String thankYou() {
-        return "thank you!";
+        return render();
     }
 
     public static void main(String[] args) throws Exception {
@@ -66,11 +37,11 @@ public class JobApp {
 
     @OnAppStart(async = true)
     public void onAppStartAsync() {
-        logger.info("onAppStartAsync called");
+        JobLog.log("onAppStartAsync called");
     }
 
     @OnAppStart
     public static void onAppStartSync() {
-        logger.info("onAppStartSync called");
+        JobLog.log("onAppStartSync called");
     }
 }

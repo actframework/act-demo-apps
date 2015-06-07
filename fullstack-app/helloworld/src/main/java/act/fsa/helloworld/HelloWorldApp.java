@@ -3,12 +3,16 @@ package act.fsa.helloworld;
 import act.app.AppContext;
 import act.boot.app.RunApp;
 import act.job.OnAppStart;
+import org.osgl._;
 import org.osgl.http.H;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
+import org.osgl.util.C;
+import org.osgl.util.N;
+
 import static act.controller.Controller.Util.*;
 
 /**
@@ -27,9 +31,14 @@ public class HelloWorldApp {
         context.session().put("foo", "bar");
     }
 
+    @GetAction("/")
+    public Result home() {
+        return render();
+    }
+
     @GetAction("/hello")
     public String sayHello() {
-        return "Hello Ying!";
+        return "Hello Act!";
     }
 
     @GetAction("/bye")
@@ -42,9 +51,11 @@ public class HelloWorldApp {
         render(who, age);
     }
 
-    @GetAction("/thank")
-    public static String thankYou() {
-        return "thank you!";
+    @GetAction("/product/{catalog}/{prod}/price")
+    public Result price(String catalog, String prod) {
+        int n = _.random(C.range(100, 400));
+        String price = n + ".99";
+        return render(catalog, prod, price);
     }
 
     public static void main(String[] args) throws Exception {

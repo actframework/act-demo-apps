@@ -1,12 +1,6 @@
-<!DOCTYPE html>
 @args String who, int age
-<html>
-<head>
-</head>
-<body>
+@extends(_base)
 <h1>Happy birthday @who! You are @age years now!</h1>
 <div>
-Session ID:  @_session.id()
+Your Session ID:  @_session.id()
 </div>
-</body>
-</html>

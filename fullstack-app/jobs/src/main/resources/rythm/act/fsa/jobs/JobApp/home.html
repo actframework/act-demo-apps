@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+@args String who, int age
+<html>
+<head>
+  <script src="/asset/js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<h1>JobApp Job Status</h1>
+<ol id="job-log"></ol>
+</body>
+<script>
+  var showLog = function() {
+    $.get("/", function(data) {
+      $('#job-log').html('');
+      for (var i = 0, j = data.length; i < j; ++i) {
+        $('<li>' + data[i] + '</li>').appendTo($('#job-log'));
+      }
+    })
+  };
+  setInterval(showLog, 5000);
+  showLog();
+</script>
+</html>

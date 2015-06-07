@@ -1,0 +1,23 @@
+@extends(_base)
+<h1>Welcome to ACT Framework Hello World Demo</h1>
+<p>Menu</p>
+<ul>
+  <li><a href="/hello">Say Hello</a></li>
+  <li><a href="/hello?fmt=json">Say Hello in JSON response</a></li>
+  <li><a href="/bye">Say Bye</a></li>
+  <li><a href="/greeting?who=Rythm&age=3">Greeting</a></li>
+  <li><a href="/greeting?fmt=json">Greeting in JSON response</a></li>
+  <li>
+    <span>Show price of</span>
+    <span><input id="catalog" placeholder="input catalog" value="framework"></span>
+    <span><input id="prod" placeholder="input product" value="ACT"></span>
+    <span><button id="btn-show-price">submit</button></span>
+  </li>
+</ul>
+
+<script>
+  $('#btn-show-price').on('click', function() {
+    var url = '/product/' + $('#catalog').val() + '/' + $('#prod').val() + '/price';
+    location.href = url;
+  })
+</script>
