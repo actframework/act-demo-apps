@@ -5,6 +5,7 @@ import act.boot.app.RunApp;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.result.Result;
 
 import static act.controller.Controller.Util.*;
 
@@ -42,6 +43,11 @@ public class AppConfigDemoApp {
     @GetAction("/thank")
     public static String thankYou() {
         return "thank you!";
+    }
+
+    @GetAction("/setting")
+    public static Result showAppSettings() {
+        return render();
     }
 
     public static void main(String[] args) throws Exception {

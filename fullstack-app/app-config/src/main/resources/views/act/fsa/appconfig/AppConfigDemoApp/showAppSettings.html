@@ -1,0 +1,33 @@
+@import act.fsa.appconfig.AppSettings
+@extends(_base)
+
+@section("style") {
+<style>
+  .setting-item {margin: 5px;}
+  .label {background-color: #efece6; padding: 1px 8px;min-width: 100px; display: inline-block;text-align: right}
+  .val {border-bottom: 1px solid #efece6;min-width: 200px;display: inline-block}
+</style>
+}
+
+@def item(String label, Object val) {
+<div class="setting-item">
+  <span class="label">@label</span>
+  <span class="val">@val</span>
+</div>
+}
+
+<h1>App Settings</h1>
+<h4>Foo</h4>
+@item("foo.bar", AppSettings.foo.bar)
+@item("foo.zee", AppSettings.foo.zee)
+
+<h4>DB</h4>
+@item("db.host", AppSettings.db.host)
+@item("db.port", AppSettings.db.port)
+@item("db.db", AppSettings.db.db)
+
+<h4>git</h4>
+@item("git.protocol", AppSettings.git.protocol)
+@item("git.repository", AppSettings.git.repository)
+@item("git.username", AppSettings.git.username)
+@item("git.password", AppSettings.git.password)

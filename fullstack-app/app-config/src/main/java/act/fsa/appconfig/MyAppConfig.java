@@ -1,16 +1,13 @@
 package act.fsa.appconfig;
 
-import act.app.*;
-import org.osgl.http.H;
-
 /**
  * Application could be configured using code if configuration file
  * is not your favorite. Just create a public class that extends
- * {@link AppConfigurator} and override the {@link AppConfigurator#configure()}
+ * {@link act.app.conf.AppConfigurator} and override the {@link act.app.conf.AppConfigurator#configure()}
  * method. ACT framework will sense your code base configuration and load it
  * during bootstrap process
  */
-public class MyAppConfig extends AppConfigurator<MyAppConfig> {
+public class MyAppConfig extends act.app.conf.AppConfigurator<MyAppConfig> {
 
     // So override the configure() method
     // to do our code based configurations
@@ -18,6 +15,7 @@ public class MyAppConfig extends AppConfigurator<MyAppConfig> {
     public void configure() {
         configureTemplateHome();
         configureRoutes();
+        configureAppProps();
     }
 
     private void configureTemplateHome() {
@@ -44,6 +42,18 @@ public class MyAppConfig extends AppConfigurator<MyAppConfig> {
         // this will remap "/hello" from AppConfigDemoApp.sayHello to AppConfigDemoApp.greeting
         // the mapping is on all supported HTTP methods
         route("/hello").to(AppConfigDemoApp.class, "greeting");
+    }
+
+    private void configureAppProps() {
+        prop("app.foo.bar", 5);
+        prop("app.foo.zee", "foo");
+        prop("app.db.host", "127.0.0.1");
+        prop("app.db.port", "1234");
+        prop("app.db.db", "catfish");
+        prop("app.git.protocol", "git");
+        prop("app.git.repository", "github.com/actframework/actframework");
+        prop("app.git.username", "tomcat");
+        prop("app.git.password", "$%FVSFAFdhdd07sf#!<()");
     }
 
 }
