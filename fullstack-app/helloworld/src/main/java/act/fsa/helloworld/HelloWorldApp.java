@@ -36,7 +36,7 @@ public class HelloWorldApp {
         return render();
     }
 
-    @GetAction("/hello")
+    @GetAction({"/hello", "/hi"})
     public String sayHello() {
         return "Hello Act!";
     }

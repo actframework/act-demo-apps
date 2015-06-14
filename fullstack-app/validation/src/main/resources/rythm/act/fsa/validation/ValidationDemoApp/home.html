@@ -1,0 +1,13 @@
+@extends(_base)
+<h1>Welcome to ACT Framework Violation Demo</h1>
+<p>Menu</p>
+<ul>
+  <li><a href="/notNull">NotNull with violation</a></li>
+  <li><a href="/notNull?who=ACT">NotNull</a></li>
+  <li><a href="/size?text=abcdef&list=2">Size with violations</a></li>
+  <li><a href="/size?text=abcde&list=1&list=2&list=3">Size</a></li>
+  <li><a href="/digits?str=123.1&num=2.3">Digits with violations</a></li>
+  <li><a href="/digits?str=2123.54&num=33">Digits</a></li>
+  <li><a href="/max?max=101">Max with violations</a></li>
+  <li><a href="/max?max=90">Max</a></li>
+</ul>
