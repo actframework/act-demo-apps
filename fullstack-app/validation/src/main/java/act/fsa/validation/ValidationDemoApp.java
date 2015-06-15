@@ -41,19 +41,19 @@ public class ValidationDemoApp {
     }
 
     @GetAction("/notNull")
-    public Result notNull(@NotNull String who) {
+    public Result notNull(@NotNull H.Format fmt) {
         if (context.hasViolation()) {
             return text("Error(s): \n%s", context.violationMessage());
         }
-        return text("not null success with %s", who);
+        return text("not null success with %s", fmt);
     }
 
     @GetAction("/size")
-    public void size(@Size(max = 5) String text, @Size(min = 2) List<Integer> list) {
+    public void size(@Size(max = 5) String text, @Size(min = 2) List<H.Format> list) {
         if (context.hasViolation()) {
             text("Error(s): \n%s", context.violationMessage());
         }
-        text("size success with %s and %s", text, list);
+        text("size success with %s and %s", text, _.toString2(list));
     }
 
     @GetAction("/digits")
@@ -65,7 +65,7 @@ public class ValidationDemoApp {
     }
 
     @GetAction("/max")
-    public void max(@Max(100) Integer max) {
+    public void max(@Max(100) int max) {
         if (context.hasViolation()) {
             text("Error(s): \n%s", context.violationMessage());
         }
