@@ -1,6 +1,8 @@
 package act.fsa.guice;
 
+import act.app.App;
 import act.app.AppContext;
+import act.fsa.guice.impl.bye.ByeServiceImpl2;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
@@ -25,6 +27,9 @@ public class DemoController {
     GreetingService greeting;
 
     @Inject
+    App app;
+
+    @Inject
     HiService hi;
 
     @Inject
@@ -32,6 +37,9 @@ public class DemoController {
 
     @Inject
     HomeService home;
+
+    @Inject
+    ByeServiceImpl2 bye2;
 
     @GetAction("/")
     public Result welcome() {
@@ -51,5 +59,11 @@ public class DemoController {
     @PostAction("/bye")
     public void bye(String who) {
         text(bye.bye(who));
+    }
+
+    @GetAction("/zaijian")
+    public void zaijian() {
+        ByeServiceImpl2 b2 = app.newInstance(ByeServiceImpl2.class);
+        text(b2.zaijian());
     }
 }

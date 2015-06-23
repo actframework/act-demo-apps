@@ -20,12 +20,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-jobs</artifactId>
+  <artifactId>demo-todo</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>actframework fullstack app demo - hello world</name>
-  <description>demonstrate a minimal hello world application for actframework in fullstack app mode</description>
+  <name>actframework fullstack app demo - TODO</name>
+  <description>TODO demo application for actframework in fullstack app mode</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -90,7 +90,7 @@
             </execution>
           </executions>
           <configuration>
-            <mainClass>act.fsa.todo.JobApp</mainClass>
+            <mainClass>act.fsa.todo.TodoApp</mainClass>
             <classpathScope>test</classpathScope>
           </configuration>
         </plugin>
@@ -111,6 +111,18 @@
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
       <version>0.0.2-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-guice</artifactId>
+      <version>0.0.2-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-morphia</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>
