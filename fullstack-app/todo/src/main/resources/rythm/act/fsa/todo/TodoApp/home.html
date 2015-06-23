@@ -37,7 +37,7 @@
       $('#list').html('');
       for (var i = 0, j = data.list.length; i < j; ++i) {
         var todo = data.list[i];
-        var $li = $('<li id="' + todo.id + '">' + todo.desc + '&nbsp;&nbsp;<a class="edit btn">edit</a>&nbsp;<a class="delete btn">delete</a></li>');
+        var $li = $('<li id="' + todo.id + '"><a class="edit btn">edit</a>&nbsp;<a class="delete btn">delete</a>&nbsp;&nbsp;<span>' + todo.desc + '</span></li>');
         $li.appendTo($('#list'));
       }
     })
@@ -58,12 +58,13 @@
   });
 
   $('body').on('click', '.btn.edit', function() {
-    var desc = prompt("Type in new description");
+    var id = $(this).parent().attr('id');
+    var desc0 = $(this).parent().children('span').text();
+    var desc = prompt("Type in new description", desc0);
     if (!desc) {
       alert("Todo description required");
       return;
     }
-    var id = $(this).parent().attr('id');
     $.put('/list/' + id, {desc: desc}, refresh);
   });
 
