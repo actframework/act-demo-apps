@@ -16,7 +16,7 @@ import static act.controller.Controller.Util.ok;
 import static act.controller.Controller.Util.render;
 
 /**
- * Demonstrate Job annotations
+ * A Simple Todo application controller
  */
 public class TodoApp {
 
