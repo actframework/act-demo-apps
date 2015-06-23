@@ -21,11 +21,7 @@ import static act.controller.Controller.Util.render;
 public class TodoApp {
 
     @Inject
-    public TodoItemDao dao;
-
-    public TodoApp() {
-        //logger.info(new RuntimeException(), "JobApp initialized");
-    }
+    private TodoItemDao dao;
 
     @GetAction("/")
     public Result home() {
