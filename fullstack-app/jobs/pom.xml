@@ -82,16 +82,15 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>exec-maven-plugin</artifactId>
           <version>1.2.1</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>java</goal>
-              </goals>
-            </execution>
-          </executions>
           <configuration>
-            <mainClass>act.fsa.todo.JobApp</mainClass>
-            <classpathScope>test</classpathScope>
+            <executable>java</executable>
+            <arguments>
+              <argument>-Xms512m</argument>
+              <argument>-Xmx512m</argument>
+              <argument>-classpath</argument>
+              <classpath/>
+              <argument>act.fsa.todo.JobApp</argument>
+            </arguments>
           </configuration>
         </plugin>
       </plugins>

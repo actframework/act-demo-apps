@@ -87,10 +87,6 @@
             <arguments>
               <argument>-Xms512m</argument>
               <argument>-Xmx512m</argument>
-              <argument>-XX:NewRatio=3</argument>
-              <argument>-XX:+PrintGCTimeStamps</argument>
-              <argument>-XX:+PrintGCDetails</argument>
-              <argument>-Xloggc:gc.log</argument>
               <argument>-classpath</argument>
               <classpath/>
               <argument>act.fsa.transaction.TransactionEbeanApp</argument>
