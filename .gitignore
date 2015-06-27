@@ -2,5 +2,6 @@
 target
 .idea
 classes
+*.log
 *.DS_Store
 tmp/
