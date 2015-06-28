@@ -1,4 +1,4 @@
-package act.fsa.todo;
+package act.fsa.todo_ebean;
 
 import act.db.ebean.EbeanDao;
 

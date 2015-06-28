@@ -1,4 +1,4 @@
-package act.fsa.todo;
+package act.fsa.todo_morphia;
 
 import act.boot.app.RunApp;
 import org.bson.types.ObjectId;

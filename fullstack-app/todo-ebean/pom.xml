@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.todo.TodoEbeanApp</argument>
+              <argument>act.fsa.todo_ebean.TodoEbeanApp</argument>
             </arguments>
           </configuration>
         </plugin>

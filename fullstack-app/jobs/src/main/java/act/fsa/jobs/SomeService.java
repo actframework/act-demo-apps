@@ -1,4 +1,4 @@
-package act.fsa.todo;
+package act.fsa.jobs;
 
 import act.job.Cron;
 import act.job.Every;
@@ -22,7 +22,7 @@ public class SomeService {
         JobLog.log("SomeService.prepare");
     }
 
-    @InvokeAfter("act.fsa.todo.SomeService.prepare")
+    @InvokeAfter("act.fsa.jobs.SomeService.prepare")
     public void afterPrepare() {
         JobLog.log("SomeService.afterPrepare");
     }

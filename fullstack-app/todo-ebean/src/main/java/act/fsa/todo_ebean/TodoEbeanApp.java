@@ -1,4 +1,4 @@
-package act.fsa.todo;
+package act.fsa.todo_ebean;
 
 import act.boot.app.RunApp;
 import org.avaje.agentloader.AgentLoader;
@@ -39,7 +39,7 @@ public class TodoEbeanApp {
     }
 
     @PostAction("/list")
-    public Result add(String desc) {
+    public Result post(String desc) {
         TodoItem item = new TodoItem(desc);
         dao.save(item);
         return ok();

@@ -1,4 +1,4 @@
-package act.fsa.todo;
+package act.fsa.todo_morphia;
 
 import act.db.morphia.MorphiaDao;
 import org.bson.types.ObjectId;

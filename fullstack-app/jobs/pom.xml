@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.todo.JobApp</argument>
+              <argument>act.fsa.jobs.JobApp</argument>
             </arguments>
           </configuration>
         </plugin>

@@ -1,4 +1,4 @@
-package act.fsa.todo;
+package act.fsa.todo_ebean;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
