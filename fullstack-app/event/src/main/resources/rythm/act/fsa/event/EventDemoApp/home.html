@@ -1,0 +1,13 @@
+@extends(_base)
+<h1>Welcome to ACT Framework Event Demo</h1>
+<p>Once submit button is hit, please check the console log to see the event handling sequence</p>
+<form action="/welcome" method="post">
+  <h2>Welcome event</h2>
+  <input type="text" name="who" placeholder="who do you want to welcome?">
+  <button>Submit</button>
+</form>
+<form action="/bye" method="post">
+  <h2>Bye event</h2>
+  <input type="text" name="who" placeholder="who do you want to bye?">
+  <button>Submit</button>
+</form>
