@@ -11,7 +11,10 @@ import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
+import org.osgl.util.E;
 import org.osgl.util.N;
+
+import javax.validation.constraints.Null;
 
 import static act.controller.Controller.Util.*;
 
@@ -56,6 +59,11 @@ public class HelloWorldApp {
         int n = _.random(C.range(100, 400));
         String price = n + ".99";
         return render(catalog, prod, price);
+    }
+
+    @GetAction("/this/will/trigger/internal/error")
+    public void internalError() {
+        throw new NullPointerException();
     }
 
     public static void main(String[] args) throws Exception {
