@@ -2,19 +2,25 @@ package act.fsa.helloworld;
 
 import act.app.AppContext;
 import act.boot.app.RunApp;
+import act.event.ActEventListenerBase;
 import act.job.OnAppStart;
+import act.view.ActForbidden;
 import org.osgl._;
 import org.osgl.http.H;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.result.Forbidden;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
 import org.osgl.util.E;
 import org.osgl.util.N;
 
 import javax.validation.constraints.Null;
+
+import java.util.EventListener;
+import java.util.EventObject;
 
 import static act.controller.Controller.Util.*;
 
@@ -64,6 +70,11 @@ public class HelloWorldApp {
     @GetAction("/this/will/trigger/internal/error")
     public void internalError() {
         throw new NullPointerException();
+    }
+
+    @GetAction("/this/will/trigger/permission/denied/error")
+    public Result noAccess() {
+        return new ActForbidden();
     }
 
     public static void main(String[] args) throws Exception {
