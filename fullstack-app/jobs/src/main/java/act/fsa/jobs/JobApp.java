@@ -1,6 +1,6 @@
 package act.fsa.jobs;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.job.OnAppStart;
 import org.osgl.logging.L;
@@ -21,7 +21,7 @@ public class JobApp {
     }
 
     @GetAction("/")
-    public static Result home(AppContext context) {
+    public static Result home(ActionContext context) {
         if (context.isAjax()) {
             return json(JobLog.logs());
         }

@@ -1,6 +1,6 @@
 package act.fsa.guice.impl.greeting;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.fsa.guice.GreetingService;
 
 import javax.inject.Inject;
@@ -8,7 +8,7 @@ import javax.inject.Inject;
 public class GreetingServiceImpl implements GreetingService {
 
     @Inject
-    AppContext context;
+    ActionContext context;
 
     @Override
     public String greeting() {

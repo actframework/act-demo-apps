@@ -1,6 +1,6 @@
 package act.fsa.guice.impl.bye;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.conf.AppConfig;
 import act.fsa.guice.ByeService;
 import org.osgl.util.E;
@@ -10,10 +10,10 @@ import javax.inject.Inject;
 
 public class ByeServiceImpl2 implements ByeService {
 
-    private AppContext context;
+    private ActionContext context;
 
     @Inject
-    public ByeServiceImpl2(AppContext context) {
+    public ByeServiceImpl2(ActionContext context) {
         E.NPE(context);
         this.context = context;
     }

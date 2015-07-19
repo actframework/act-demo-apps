@@ -22,7 +22,7 @@
   <groupId>org.actframework</groupId>
   <artifactId>demo-fsa-validation</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
 
   <name>actframework fullstack app demo - Validation</name>
   <description>a simple app demonstrate validation in ACT framework</description>
@@ -109,7 +109,7 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.3-SNAPSHOT</version>
     </dependency>
 
     <dependency>

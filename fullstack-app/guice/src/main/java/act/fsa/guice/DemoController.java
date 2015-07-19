@@ -1,7 +1,7 @@
 package act.fsa.guice;
 
 import act.app.App;
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.fsa.guice.impl.bye.ByeServiceImpl2;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
@@ -16,7 +16,7 @@ import static act.controller.Controller.Util.text;
 public class DemoController {
 
     @Before
-    public void mockFormat(String fmt, AppContext context) {
+    public void mockFormat(String fmt, ActionContext context) {
         if ("json".equals(fmt)) {
             context.accept(H.Format.json);
         }

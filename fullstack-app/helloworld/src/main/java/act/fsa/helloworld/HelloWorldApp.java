@@ -1,28 +1,17 @@
 package act.fsa.helloworld;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
-import act.event.ActEventListenerBase;
-import act.job.OnAppStart;
 import act.view.ActForbidden;
 import org.osgl._;
 import org.osgl.http.H;
-import org.osgl.logging.L;
-import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.result.Forbidden;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
-import org.osgl.util.E;
-import org.osgl.util.N;
 
-import javax.validation.constraints.Null;
-
-import java.util.EventListener;
-import java.util.EventObject;
-
-import static act.controller.Controller.Util.*;
+import static act.controller.Controller.Util.render;
+import static act.controller.Controller.Util.text;
 
 /**
  * The simple hello world app.
@@ -33,7 +22,7 @@ import static act.controller.Controller.Util.*;
 public class HelloWorldApp {
 
     @Before
-    public void mockFormat(String fmt, AppContext context) {
+    public void mockFormat(String fmt, ActionContext context) {
         if ("json".equals(fmt)) {
             context.accept(H.Format.json);
         }

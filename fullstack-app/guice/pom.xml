@@ -22,7 +22,7 @@
   <groupId>org.actframework</groupId>
   <artifactId>fsa-guice-demo</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
 
   <name>actframework fullstack app demo - Guice demo</name>
   <description>demonstrate dependency injection with guice in actframework in full stack app mode</description>
@@ -106,12 +106,12 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.3-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-guice</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.3-SNAPSHOT</version>
     </dependency>
 
     <dependency>

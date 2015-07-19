@@ -1,6 +1,6 @@
 package act.fsa.appconfig;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
@@ -18,7 +18,7 @@ import static act.controller.Controller.Util.*;
 public class AppConfigDemoApp {
 
     @Before
-    public void mockFormat(String fmt, AppContext context) {
+    public void mockFormat(String fmt, ActionContext context) {
         if ("json".equals(fmt)) {
             context.accept(H.Format.json);
         }

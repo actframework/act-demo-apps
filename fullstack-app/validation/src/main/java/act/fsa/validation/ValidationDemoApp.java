@@ -1,29 +1,20 @@
 package act.fsa.validation;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
-import act.job.OnAppStart;
 import org.osgl._;
 import org.osgl.http.H;
-import org.osgl.logging.L;
-import org.osgl.logging.Logger;
-import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
-import org.osgl.util.C;
-import org.osgl.util.N;
-import org.osgl.util.S;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 import java.util.List;
-import java.util.Set;
 
-import static act.controller.Controller.Util.*;
+import static act.controller.Controller.Util.render;
+import static act.controller.Controller.Util.text;
 
 /**
  * The simple hello world app.
@@ -33,7 +24,7 @@ import static act.controller.Controller.Util.*;
  */
 public class ValidationDemoApp {
 
-    AppContext context;
+    ActionContext context;
 
     @GetAction("/")
     public Result home() {

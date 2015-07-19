@@ -1,6 +1,6 @@
 package act.fsa.transaction;
 
-import act.app.AppContext;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.job.OnAppStart;
 import org.avaje.agentloader.AgentLoader;
@@ -42,7 +42,7 @@ public class TransactionEbeanApp {
     }
 
     @PostAction("/transfer")
-    public Result transfer(int amount, boolean btnA2B, boolean btnB2A, AppContext context) {
+    public Result transfer(int amount, boolean btnA2B, boolean btnB2A, ActionContext context) {
         boolean success;
         if (btnA2B) {
             success = dao.transfer(amount, ACC_A, ACC_B);

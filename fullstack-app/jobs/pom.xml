@@ -22,7 +22,7 @@
   <groupId>org.actframework</groupId>
   <artifactId>demo-fsa-jobs</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
 
   <name>actframework fullstack app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework in fullstack app mode</description>
@@ -109,7 +109,7 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.3-SNAPSHOT</version>
     </dependency>
 
     <dependency>
