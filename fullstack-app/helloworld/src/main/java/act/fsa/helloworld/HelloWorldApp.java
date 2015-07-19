@@ -9,9 +9,9 @@ import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
+import org.osgl.util.S;
 
-import static act.controller.Controller.Util.render;
-import static act.controller.Controller.Util.text;
+import static act.controller.Controller.Util.*;
 
 /**
  * The simple hello world app.
@@ -56,6 +56,12 @@ public class HelloWorldApp {
         return render(catalog, prod, price);
     }
 
+    @GetAction("/this/might/trigger/not/found/error")
+    public void might404(String id) {
+        notFoundIf(S.blank(id));
+        redirect("/");
+    }
+
     @GetAction("/this/will/trigger/internal/error")
     public void internalError() {
         throw new NullPointerException();
@@ -63,7 +69,7 @@ public class HelloWorldApp {
 
     @GetAction("/this/will/trigger/permission/denied/error")
     public Result noAccess() {
-        return new ActForbidden();
+        return forbidden();
     }
 
     public static void main(String[] args) throws Exception {

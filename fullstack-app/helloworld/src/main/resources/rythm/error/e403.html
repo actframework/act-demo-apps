@@ -1,0 +1,9 @@
+@extends(errorPage, header: "403 Forbidden")
+
+@{
+act.route.RouteInfo req = act.route.RouteInfo.of(_ctx);
+}
+
+@section(description) {
+Permission denied accessing <code>@req.method() @req.path()</code>:
+}
