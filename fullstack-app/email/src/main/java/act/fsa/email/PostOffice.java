@@ -5,11 +5,11 @@ import act.mail.Mailer;
 
 import static act.mail.Mailer.Util.*;
 
-@Mailer("default")
+@Mailer
 public class PostOffice {
 
     public void sendWelcome(String who) {
-        to(emailOf(who));
+        mailer().to(emailOf(who)).subject("Welcome");
         send(who);
     }
 
@@ -19,10 +19,10 @@ public class PostOffice {
     }
 
     private static String emailOf(String who) {
-        return who + "@xxx.com";
+        return "greenlaw110+" + who + "@gmail.com";
     }
 
-    @Every("10s")
+    @Every("120s")
     @Mailer("notification")
     public void sendNotification() {
         send();

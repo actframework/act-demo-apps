@@ -7,5 +7,6 @@ public class MyAppConfig extends AppConfigurator<MyAppConfig> {
     public void configure() {
         prop("mailer", "notification");
         prop("mailer.notification.to", "user1@xxx.com, user2@xxx.com");
+        prop("mailer.notification.subject", "notification");
     }
 }
