@@ -1,8 +1,14 @@
 package act.fsa.email;
 
+import javax.inject.Inject;
+
 public class EmailByeEventProcessor extends ByeEventProcessor {
+
+    @Inject
+    PostOffice postOffice;
+
     @Override
     public void on(ByeEvent event) {
-        new PostOffice().sendBye(event.source().who());
+        postOffice.sendBye(event.source().who());
     }
 }

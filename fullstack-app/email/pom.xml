@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.event.EventDemoApp</argument>
+              <argument>act.fsa.email.EmailDemoApp</argument>
             </arguments>
           </configuration>
         </plugin>
