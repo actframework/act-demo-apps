@@ -21,7 +21,7 @@
 
   <groupId>org.actframework</groupId>
   <artifactId>demo-fsa-helloworld</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>0.0.3-SNAPSHOT</version>
 
   <name>actframework fullstack app demo - hello world</name>
