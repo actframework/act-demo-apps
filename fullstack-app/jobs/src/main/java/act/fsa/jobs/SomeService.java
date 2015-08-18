@@ -7,8 +7,8 @@ import act.job.OnAppStart;
 import org.osgl.util.S;
 
 /**
- * This class demonstrate who to use annotation to schedule jobs
- * running with ActFramework
+ * This class demonstrate how to use annotation to schedule jobs
+ * in an ActFramework application
  */
 public class SomeService {
 
