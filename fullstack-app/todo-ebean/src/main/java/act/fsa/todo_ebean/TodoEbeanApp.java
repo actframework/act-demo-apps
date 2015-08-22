@@ -34,7 +34,7 @@ public class TodoEbeanApp {
 
     @GetAction("/list")
     public Result list() {
-        List<TodoItem> list = C.list(dao.findAll());
+        List<TodoItem> list = dao.findAllAsList();
         return render(list);
     }
 

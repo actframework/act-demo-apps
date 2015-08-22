@@ -15,6 +15,23 @@ import static act.controller.Controller.Util.text;
 
 public class DemoController {
 
+    App app;
+    GreetingService greeting;
+    HiService hi;
+    ByeService bye;
+    HomeService home;
+    ByeServiceImpl2 bye2;
+
+    @Inject
+    public DemoController(App app, GreetingService greeting, HiService hi, ByeService bye, HomeService home, ByeServiceImpl2 bye2) {
+        this.app = app;
+        this.greeting = greeting;
+        this.hi = hi;
+        this.bye = bye;
+        this.home = home;
+        this.bye2 = bye2;
+    }
+
     @Before
     public void mockFormat(String fmt, ActionContext context) {
         if ("json".equals(fmt)) {
@@ -23,23 +40,6 @@ public class DemoController {
         context.session().put("foo", "bar");
     }
 
-    @Inject
-    GreetingService greeting;
-
-    @Inject
-    App app;
-
-    @Inject
-    HiService hi;
-
-    @Inject
-    ByeService bye;
-
-    @Inject
-    HomeService home;
-
-    @Inject
-    ByeServiceImpl2 bye2;
 
     @GetAction("/")
     public Result welcome() {
@@ -63,7 +63,6 @@ public class DemoController {
 
     @GetAction("/zaijian")
     public void zaijian() {
-        ByeServiceImpl2 b2 = app.newInstance(ByeServiceImpl2.class);
-        text(b2.zaijian());
+        text(bye2.zaijian());
     }
 }

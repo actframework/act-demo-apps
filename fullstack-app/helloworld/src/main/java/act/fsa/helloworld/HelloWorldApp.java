@@ -46,9 +46,7 @@ public class HelloWorldApp {
 
     @GetAction("/greeting")
     public void greeting(String who, int age) {
-        //render(who, age);
-        who = null;
-        render(who);
+        render(who, age);
     }
 
     @GetAction("/product/{catalog}/{prod}/price")
