@@ -47,6 +47,7 @@ public class MyAppConfig extends act.app.conf.AppConfigurator<MyAppConfig> {
     private void configureAppProps() {
         prop("app.foo.bar", 5);
         prop("app.foo.zee", "foo");
+        prop("app.foo.auth_code", "apple");
         prop("app.db.host", "127.0.0.1");
         prop("app.db.port", "1234");
         prop("app.db.db", "catfish");
@@ -54,6 +55,7 @@ public class MyAppConfig extends act.app.conf.AppConfigurator<MyAppConfig> {
         prop("app.git.repository", "github.com/actframework/actframework");
         prop("app.git.username", "tomcat");
         prop("app.git.password", "$%FVSFAFdhdd07sf#!<()");
+        prop("foo.to", "X-man");
     }
 
 }
