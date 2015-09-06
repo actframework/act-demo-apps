@@ -53,7 +53,7 @@ public class DemoController {
 
     @PostAction("/hi")
     public void hi(String who) {
-        text(hi.sayHi(who));
+        hi.sayHi(who);
     }
 
     @PostAction("/bye")

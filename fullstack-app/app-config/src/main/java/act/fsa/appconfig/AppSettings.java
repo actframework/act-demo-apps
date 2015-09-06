@@ -10,14 +10,29 @@ public class AppSettings {
 //        public static String zee;
 //    }
 
-    public final static int FOO_BAR = 0;
-    public final static String FOO_ZEE = "";
-    public final static String FOO_AUTH_CODE = "xyz";
+    private static int FOO_BAR = 0;
+    private static String FOO_ZEE = "";
+    private static String FOO_AUTH_CODE = "xyz";
+
+    public static int fooBar() {
+        return FOO_BAR;
+    }
+
+    public static String fooZee() {
+        return FOO_ZEE;
+    }
+
+    public static String fooAuthCode() {
+        return FOO_AUTH_CODE;
+    }
 
     public static class db {
-        public static String host;
+        private static String host;
         public static String port;
         public static String db;
+        public static String host() {
+            return host;
+        }
     }
 
     public static class git {

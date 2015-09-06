@@ -1,5 +1,7 @@
 package act.fsa.guice;
 
+import org.osgl.mvc.result.Result;
+
 public interface HiService {
-    String sayHi(String who);
+    Result sayHi(String who);
 }
