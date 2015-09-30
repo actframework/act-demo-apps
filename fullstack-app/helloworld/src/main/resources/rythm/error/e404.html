@@ -1,11 +1,14 @@
 @extends(errorPage, header: "404 Not Found")
 
+@args org.osgl.mvc.result.ErrorResult _error
+
 @section(moreStyles){
 <style>
   code, table {
     font-family: "Envy Code R", "Consolas", "Lucida Console", "Droid Sans Mono", "Andale Mono", "Monaco", "Lucida Sans Typewriter", "monospace";
     font-size: 9pt;
   }
+  table.hide {display: none;}
   code {background-color: #efefef; padding: 0 4px; font-weight: bold;}
   td.m, td.p, td.h, th.m, th.p, th.h  {
     padding: 2px 20px;
@@ -24,6 +27,10 @@
   tbody tr:hover, tbody tr.even:hover {
     background-color: #a3e0f3;
     cursor: default;
+  }
+  #toggle-routetable {
+    cursor: pointer;
+    color: blue;
   }
 </style>
 }
@@ -48,9 +55,9 @@
   </tr>
 }
 
-<p>Cannot find handler for the current request <code>@req.method() @req.path()</code> in the router table:</p>
+<p>Cannot find handler for the current request <code>@req.method() @req.path()</code> in the router table(<span id="toggle-routetable" class="expanded" onclick="toggleRouteTable()">hide</span>)</p>
 
-<table class="route-table">
+<table id="route-table">
   <thead>
   <tr>
     <th class="m">method</th>
@@ -62,6 +69,22 @@
   @for(RouteInfo r: routes) {@tr(r, r_parity)}
   </tbody>
 </table>
+
+<script>
+  function toggleRouteTable() {
+    var btn = document.getElementById("toggle-routetable");
+    var tbl = document.getElementById("route-table");
+    if (btn.className == 'expanded') {
+      tbl.className = 'hide';
+      btn.className = 'collapsed';
+      btn.innerText = 'show';
+    } else {
+      tbl.className = '';
+      btn.className = 'expanded';
+      btn.innerText = 'hide';
+    }
+  }
+</script>
 
 @section(description) {
   NotFound 404 thrown out from source code:

@@ -67,6 +67,11 @@ public class HelloWorldApp {
         throw new NullPointerException();
     }
 
+    @GetAction("/this/will/trigger/rythm/error")
+    public Result rythmError() {
+        return render();
+    }
+
     @GetAction("/this/will/trigger/permission/denied/error")
     public Result noAccess() {
         return forbidden();
