@@ -7,9 +7,13 @@ import org.osgl._;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.With;
+import org.osgl.mvc.result.NotModified;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
 import org.osgl.util.S;
+
+import java.util.Objects;
 
 import static act.controller.Controller.Util.*;
 
@@ -19,24 +23,29 @@ import static act.controller.Controller.Util.*;
  * press F5 in the browser to watch the immediate change
  * in the browser!</p>
  */
+@With(MyFilter.class)
 public class HelloWorldApp {
 
-    @Before
-    public void mockFormat(String fmt, ActionContext context) {
-        if ("json".equals(fmt)) {
-            context.accept(H.Format.json);
-        }
-        context.session().put("foo", "bar");
-    }
 
     @GetAction("/")
     public Result home() {
         return render();
     }
 
-    @GetAction({"/hello", "/hi"})
+    @GetAction({"/hello", "/hi", "/nihao"})
     public String sayHello() {
         return "Hello Act!";
+    }
+
+    @GetAction("hiTo")
+    public void sayHelloTo(String fn, String ln) {
+        Person person = new Person(fn, ln);
+        render(person, ln);
+    }
+
+    @GetAction("/person")
+    public Person person(String firstName, String lastName) {
+        return new Person(firstName, lastName);
     }
 
     @GetAction("/bye")
