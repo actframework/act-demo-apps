@@ -2,7 +2,7 @@ package act.fsa.validation;
 
 import act.app.ActionContext;
 import act.boot.app.RunApp;
-import org.osgl._;
+import org.osgl.$;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
@@ -44,7 +44,7 @@ public class ValidationDemoApp {
         if (context.hasViolation()) {
             text("Error(s): \n%s", context.violationMessage());
         }
-        text("size success with %s and %s", text, _.toString2(list));
+        text("size success with %s and %s", text, $.toString2(list));
     }
 
     @GetAction("/digits")

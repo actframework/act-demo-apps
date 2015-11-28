@@ -4,7 +4,6 @@ import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.job.OnAppStart;
 import org.avaje.agentloader.AgentLoader;
-import org.osgl._;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.DeleteAction;

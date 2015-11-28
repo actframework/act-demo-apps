@@ -5,3 +5,4 @@ classes
 *.log
 *.DS_Store
 tmp/
+_sys_start.do.not.delete

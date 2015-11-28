@@ -4,7 +4,7 @@ import act.db.ebean.EbeanDao;
 import act.job.OnAppStart;
 import com.avaje.ebean.EbeanServer;
 import com.avaje.ebean.annotation.Transactional;
-import org.osgl._;
+import org.osgl.$;
 import org.osgl.util.IntRange;
 
 import static act.fsa.transaction.TransactionEbeanApp.ACC_A;
@@ -39,13 +39,13 @@ public class AccountDao extends EbeanDao<String, Account, AccountDao> {
         Account a = findById(ACC_A);
         if (null == a) {
             a = new Account(ACC_A);
-            a.setAmount(_.random(IntRange.of(100, 200)));
+            a.setAmount($.random(IntRange.of(100, 200)));
             save(a);
         }
         Account b = findById(ACC_B);
         if (null == b) {
             b = new Account(ACC_B);
-            b.setAmount(_.random(IntRange.of(200, 300)));
+            b.setAmount($.random(IntRange.of(200, 300)));
             save(b);
         }
     }

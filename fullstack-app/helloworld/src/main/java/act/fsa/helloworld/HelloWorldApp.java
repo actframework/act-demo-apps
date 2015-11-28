@@ -3,7 +3,7 @@ package act.fsa.helloworld;
 import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.view.ActForbidden;
-import org.osgl._;
+import org.osgl.$;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
@@ -60,7 +60,7 @@ public class HelloWorldApp {
 
     @GetAction("/product/{catalog}/{prod}/price")
     public Result price(String catalog, String prod) {
-        int n = _.random(C.range(100, 400));
+        int n = $.random(C.range(100, 400));
         String price = n + ".99";
         return render(catalog, prod, price);
     }
