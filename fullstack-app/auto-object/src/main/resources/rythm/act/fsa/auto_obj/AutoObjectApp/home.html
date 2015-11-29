@@ -55,7 +55,7 @@ hashCode value are now different</p>
   $(function(){
 
   var load = function(i) {
-    $.getJSON("/foo" + i, function(foo) {
+    $.getJSON("/foo/" + i, function(foo) {
       console.log(foo);
       var $root = $('#foo' + i);
       $root.find('.id').val(foo.id);
@@ -73,7 +73,7 @@ hashCode value are now different</p>
   }
 
   var hashCode = function(i) {
-    $.getJSON('/foo' + i + '/hc', function(result) {
+    $.getJSON('/foo/' + i + '/hc', function(result) {
       console.log(result);
       $('#hc' + i).text(result);
     })
