@@ -27,7 +27,7 @@ public class AutoObjectApp extends Controller.Util {
     }
 
     @GetAction("/eq")
-    public boolean equals() {
+    public boolean isEquals() {
         return foo1.equals(foo2);
     }
 
