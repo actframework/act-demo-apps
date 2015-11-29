@@ -1,7 +1,6 @@
 package act.fsa.email;
 
 import act.boot.app.RunApp;
-import act.event.EventBus;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.GetAction;
@@ -17,14 +16,8 @@ public class EmailDemoApp {
 
     private static Logger logger = L.get(EmailDemoApp.class);
 
-    private String who;
-
     @Inject
-    private EventBus eventBus;
-
-    public String who() {
-        return who;
-    }
+    private PostOffice postOffice;
 
     @GetAction("/")
     public Result home() {
@@ -34,8 +27,7 @@ public class EmailDemoApp {
     @PostAction("/welcome")
     public Result welcome(String who) {
         logger.info(">> welcome action handler");
-        this.who = who;
-        eventBus.emit(new WelcomeEvent(this));
+        postOffice.sendWelcome(who);
         logger.info("<< welcome action handler");
         return redirect("/");
     }
@@ -43,8 +35,7 @@ public class EmailDemoApp {
     @PostAction("/bye")
     public Result bye(String who) {
         logger.info(">> bye action handler");
-        this.who = who;
-        eventBus.emitSync(new ByeEvent(this));
+        postOffice.sendBye(who);
         logger.info("<< bye action handler");
         return redirect("/");
     }
