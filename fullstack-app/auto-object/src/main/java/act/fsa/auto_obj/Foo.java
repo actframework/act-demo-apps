@@ -9,11 +9,15 @@ import java.util.Random;
 public class Foo {
 
     private int id;
+
     private String desc;
+
     private Bar bar;
+
     @EqualIgnore
-    private int r1;
-    private transient int r2;
+    private int r1; // will be ignored in equals and hashCode method
+
+    private transient int r2; // will be ignored in equals and hashCode method
 
     public Foo() {
         id = 10;

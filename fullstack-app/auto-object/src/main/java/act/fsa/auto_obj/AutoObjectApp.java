@@ -31,10 +31,6 @@ public class AutoObjectApp extends Controller.Util {
         return foo1.equals(foo2);
     }
 
-    public static void main(String[] args) throws Exception {
-        RunApp.start(AutoObjectApp.class);
-    }
-
     private <T> T dispatch(int id, $.Function<Foo, T> extractor) {
         switch (id) {
             case 1:
@@ -45,6 +41,10 @@ public class AutoObjectApp extends Controller.Util {
                 System.out.println("unknown id: " + id);
                 throw badRequest();
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        RunApp.start(AutoObjectApp.class);
     }
 
 }
