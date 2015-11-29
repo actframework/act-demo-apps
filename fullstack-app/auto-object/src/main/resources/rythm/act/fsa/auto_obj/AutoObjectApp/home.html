@@ -1,4 +1,12 @@
 @extends(_base)
+<style>
+  label {width: 70px; display: inline-block}
+  td {padding: 10px 40px;}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+</style>
 <h3>Introduction</h3>
 <p>This app demonstrate how to use <code>@@AutoObject</code> to have the system generate Java Object methods
 including equals(Object) and hashCode()</p>
@@ -10,18 +18,26 @@ hashCode value are now different</p>
 @def foo(int id) {
   <ul id="foo@id">
     <li>
+      <label>id</label>
       <input class="id">
     </li>
     <li>
+      <label>desc</label>
       <input class="desc">
     </li>
+    <li>
+      <label>random1</label>
+      <input class="r1">
+    </li>
     <li class="bar">
-      bar
+      <b>bar</b>
       <ul>
         <li>
+          <label>id</label>
           <input class="bar-id">
         </li>
         <li>
+          <label>desc</label>
           <input class="bar-desc">
         </li>
       </ul>
@@ -60,6 +76,7 @@ hashCode value are now different</p>
       var $root = $('#foo' + i);
       $root.find('.id').val(foo.id);
       $root.find('.desc').val(foo.desc);
+      $root.find('.r1').val(foo.r1);
       $root.find('.bar-id').val(foo.bar.id);
       $root.find('.bar-desc').val(foo.bar.desc);
     })
