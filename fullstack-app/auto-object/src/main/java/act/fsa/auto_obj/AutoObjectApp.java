@@ -1,12 +1,14 @@
 package act.fsa.auto_obj;
 
 import act.boot.app.RunApp;
-import act.controller.Controller;
 import org.osgl.$;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 
-public class AutoObjectApp extends Controller.Util {
+import static act.controller.Controller.Util.badRequest;
+import static act.controller.Controller.Util.render;
+
+public class AutoObjectApp {
 
     private static Foo foo1 = new Foo();
     private static Foo foo2 = new Foo();
