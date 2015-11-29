@@ -22,7 +22,7 @@ public class AutoObjectApp extends Controller.Util {
     }
 
     @GetAction("/foo/{id}/hc")
-    public int hashCode(int id) {
+    public int getHashCode(int id) {
         return dispatch(id, $.F.<Foo>hc());
     }
 
