@@ -1,4 +1,12 @@
 @extends(_base)
+<h3>Introduction</h3>
+<p>This app demonstrate how to use <code>@@AutoObject</code> to have the system generate Java Object methods
+including equals(Object) and hashCode()</p>
+<p>If you load the page without changing anything, you should see the hashCode of both foo1 and foo2 is the
+  same, and they are equal to each other.</p>
+<p>Now go to the <code>src/main/java/act/fsa/auto_obj/Foo.java</code> and comment out the line <code>@@AutoObject</code>, then
+come back to your browser and press F5, you should observed that Foo1 and Foo2 are no longer equal to each other, and their
+hashCode value are now different</p>
 @def foo(int id) {
   <ul id="foo@id">
     <li>
