@@ -37,18 +37,6 @@ public class AutoObjectApp extends Controller.Util {
         return foo2.hashCode();
     }
 
-    @PostAction("/foo1")
-    public Result updateFoo1(Foo foo) {
-        foo1 = $.NPE(foo);
-        return ok();
-    }
-
-    @PostAction("/foo2")
-    public Result updateFoo2(Foo foo) {
-        foo2 = $.NPE(foo);
-        return ok();
-    }
-
     @GetAction("/eq")
     public boolean equals() {
         return foo1.equals(foo2);
