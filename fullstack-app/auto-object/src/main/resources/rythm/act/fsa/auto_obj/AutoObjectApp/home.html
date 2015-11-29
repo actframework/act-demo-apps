@@ -1,0 +1,110 @@
+@extends(_base)
+@def foo(int id) {
+  <ul id="foo@id">
+    <li>
+      <input class="id">
+    </li>
+    <li>
+      <input class="desc">
+    </li>
+    <li class="bar">
+      bar
+      <ul>
+        <li>
+          <input class="bar-id">
+        </li>
+        <li>
+          <input class="bar-desc">
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>
+    <button class="update" data-id="foo@id">Update</button>
+  </p>
+}
+<table border="1">
+  <thead>
+  <tr>
+    <th></th>
+    <th>Foo1</th>
+    <th>Foo2</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Content</td>
+    <td>@foo(1)</td>
+    <td>@foo(2)</td>
+  </tr>
+  <tr>
+    <td>hashCode</td>
+    <td id="hc1"></td>
+    <td id="hc2"></td>
+  </tr>
+  </tbody>
+</table>
+<p>foo1.equals(foo2) ? <span id="eq"></span></p>
+@section(js){
+<script>
+  $(function(){
+
+  var load = function(i) {
+    $.getJSON("/foo" + i, function(foo) {
+      console.log(foo);
+      var $root = $('#foo' + i);
+      $root.find('.id').val(foo.id);
+      $root.find('.desc').val(foo.desc);
+      $root.find('.bar-id').val(foo.bar.id);
+      $root.find('.bar-desc').val(foo.bar.desc);
+    })
+  }
+
+  var checkEq = function() {
+    $.get('/eq', function(result) {
+      console.log(result);
+      $('#eq').text(result);
+    })
+  }
+
+  var hashCode = function(i) {
+    $.getJSON('/foo' + i + '/hc', function(result) {
+      console.log(result);
+      $('#hc' + i).text(result);
+    })
+  }
+
+  var reload = function() {
+    load(1);
+    load(2);
+    checkEq();
+    hashCode(1);
+    hashCode(2);
+  }
+
+  reload();
+
+  var read = function(id) {
+    var foo = {}, $root = $('#' + id);
+    foo.id = $root.find('.id').val();
+    foo.desc = $root.find('.desc').val();
+    foo.bar = {};
+    foo.bar.id = $root.find('.bar-id').val();
+    foo.bar.desc = $root.find('.bar-desc').val();
+    $.ajax('/' + id, {
+      method: 'POST',
+      dataType: 'json',
+      data: JSON.stringify({foo: foo}),
+      success: function() {
+        reload();
+      }
+    });
+  }
+
+  $('.update').click(function() {
+    read($(this).data('id'));
+  });
+
+  })
+</script>
+}
