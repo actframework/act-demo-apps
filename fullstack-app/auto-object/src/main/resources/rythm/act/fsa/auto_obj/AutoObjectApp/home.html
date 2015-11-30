@@ -15,6 +15,7 @@ including equals(Object) and hashCode()</p>
 <p>Now go to the <code>src/main/java/act/fsa/auto_obj/Foo.java</code> and comment out the line <code>@@AutoObject</code>, then
 come back to your browser and press F5, you should observed that Foo1 and Foo2 are no longer equal to each other, and their
 hashCode value are now different</p>
+
 @def foo(int id) {
   <ul id="foo@id">
     <li>
@@ -44,6 +45,7 @@ hashCode value are now different</p>
     </li>
   </ul>
 }
+
 <table border="1">
   <thead>
   <tr>
@@ -65,7 +67,9 @@ hashCode value are now different</p>
   </tr>
   </tbody>
 </table>
+
 <p>foo1.equals(foo2) ? <span id="eq"></span></p>
+
 @section(js){
 <script>
   $(function(){

@@ -6,6 +6,7 @@ import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 
 import static act.controller.Controller.Util.badRequest;
+import static act.controller.Controller.Util.notFound;
 import static act.controller.Controller.Util.render;
 
 public class AutoObjectApp {
@@ -41,7 +42,7 @@ public class AutoObjectApp {
                 return extractor.apply(foo2);
             default:
                 System.out.println("unknown id: " + id);
-                throw badRequest();
+                throw notFound();
         }
     }
 

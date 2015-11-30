@@ -2,6 +2,7 @@ package act.fsa.auto_obj;
 
 import act.util.AutoObject;
 import act.util.EqualIgnore;
+import org.osgl.util.S;
 
 import java.util.Random;
 
@@ -66,5 +67,10 @@ public class Foo {
 
     public void setR2(int r2) {
         this.r2 = r2;
+    }
+
+    @Override
+    public String toString() {
+        return S.fmt("Foo[%s]", id);
     }
 }
