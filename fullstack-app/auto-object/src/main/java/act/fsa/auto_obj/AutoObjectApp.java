@@ -5,7 +5,6 @@ import org.osgl.$;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 
-import static act.controller.Controller.Util.badRequest;
 import static act.controller.Controller.Util.notFound;
 import static act.controller.Controller.Util.render;
 
