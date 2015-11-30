@@ -6,6 +6,9 @@
     list-style-type: none;
     padding: 0;
   }
+  #eq {font-weight: bold;}
+  #eq.eq-true {color: green}
+  #eq.eq-false {color: red}
 </style>
 <h3>Introduction</h3>
 <p>This app demonstrate how to use <code>@@AutoObject</code> to have the system generate Java Object methods
@@ -44,6 +47,9 @@ hashCode value are now different</p>
       </ul>
     </li>
   </ul>
+  <p>
+    <button class="update" data-id="@id">Update</button>
+  </p>
 }
 
 <table border="1">
@@ -76,7 +82,6 @@ hashCode value are now different</p>
 
   var load = function(i) {
     $.getJSON("/foo/" + i, function(foo) {
-      console.log(foo);
       var $root = $('#foo' + i);
       $root.find('.id').val(foo.id);
       $root.find('.desc').val(foo.desc);
@@ -88,8 +93,7 @@ hashCode value are now different</p>
 
   var checkEq = function() {
     $.get('/eq', function(result) {
-      console.log(result);
-      $('#eq').text(result);
+      $('#eq').text(result).attr('class', 'eq-' + result);
     })
   }
 
@@ -111,19 +115,17 @@ hashCode value are now different</p>
   reload();
 
   var read = function(id) {
-    var foo = {}, $root = $('#' + id);
+    var foo = {}, $root = $('#foo' + id);
     foo.id = $root.find('.id').val();
     foo.desc = $root.find('.desc').val();
     foo.bar = {};
     foo.bar.id = $root.find('.bar-id').val();
     foo.bar.desc = $root.find('.bar-desc').val();
-    $.ajax('/' + id, {
+    $.ajax('/foo/' + id, {
       method: 'POST',
-      dataType: 'json',
       data: JSON.stringify({foo: foo}),
-      success: function() {
-        reload();
-      }
+    }).done(reload).fail(function() {
+      alert("fail");
     });
   }
 

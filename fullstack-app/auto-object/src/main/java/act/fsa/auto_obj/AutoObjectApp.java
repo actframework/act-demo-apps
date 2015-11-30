@@ -3,10 +3,10 @@ package act.fsa.auto_obj;
 import act.boot.app.RunApp;
 import org.osgl.$;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.result.Result;
 
-import static act.controller.Controller.Util.notFound;
-import static act.controller.Controller.Util.render;
+import static act.controller.Controller.Util.*;
 
 public class AutoObjectApp {
 
@@ -26,6 +26,25 @@ public class AutoObjectApp {
     @GetAction("/foo/{id}/hc")
     public int getHashCode(int id) {
         return dispatch(id, $.F.<Foo>hc());
+    }
+
+    @PostAction("/foo/{id}")
+    public Result updateFoo(int id, Foo foo) {
+        if (null == foo) {
+            return badRequest();
+        }
+        switch (id) {
+            case 1:
+                foo1 = foo;
+                break;
+            case 2:
+                foo2 = foo;
+                break;
+            default:
+                System.out.println("unknown id: " + id);
+                throw notFound();
+        }
+        return ok();
     }
 
     @GetAction("/eq")
