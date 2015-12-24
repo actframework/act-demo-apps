@@ -123,7 +123,7 @@ hashCode value are now different</p>
     foo.bar.desc = $root.find('.bar-desc').val();
     $.ajax('/foo/' + id, {
       method: 'POST',
-      data: JSON.stringify({foo: foo}),
+      data: JSON.stringify(foo),
     }).done(reload).fail(function() {
       alert("fail");
     });

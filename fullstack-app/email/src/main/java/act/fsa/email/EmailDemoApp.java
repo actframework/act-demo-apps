@@ -42,6 +42,7 @@ public class EmailDemoApp {
 
 
     public static void main(String[] args) throws Exception {
+        Thread.sleep(3000);
         RunApp.start(EmailDemoApp.class);
     }
 

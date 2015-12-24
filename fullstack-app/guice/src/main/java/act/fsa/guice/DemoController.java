@@ -33,7 +33,7 @@ public class DemoController {
     }
 
     @Before
-    public void mockFormat(String fmt, ActionContext context) {
+    public void mockFormat(ActionContext context, App app, String fmt) {
         if ("json".equals(fmt)) {
             context.accept(H.Format.json);
         }
@@ -41,14 +41,15 @@ public class DemoController {
     }
 
 
+    @GetAction("/greeting")
+    public String greeting(GreetingService greeting) {
+        System.out.println("Greeting...");
+        return greeting.greeting();
+    }
+
     @GetAction("/")
     public Result welcome() {
         return home.welcome();
-    }
-
-    @GetAction("/greeting")
-    public String greeting() {
-        return greeting.greeting();
     }
 
     @PostAction("/hi")

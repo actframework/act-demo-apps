@@ -4,5 +4,6 @@ target
 classes
 *.log
 *.DS_Store
+*all.sql
 tmp/
 _sys_start.do.not.delete
