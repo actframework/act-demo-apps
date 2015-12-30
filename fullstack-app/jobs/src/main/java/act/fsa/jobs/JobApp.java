@@ -2,7 +2,8 @@ package act.fsa.jobs;
 
 import act.app.ActionContext;
 import act.boot.app.RunApp;
-import act.job.OnAppStart;
+import act.job.*;
+import act.app.event.*;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.GetAction;
@@ -21,9 +22,9 @@ public class JobApp {
     }
 
     @GetAction("/")
-    public static Result home(ActionContext context) {
+    public static Result home(int limit, ActionContext context) {
         if (context.isAjax()) {
-            return json(JobLog.logs());
+            return json(JobLog.logs(limit));
         }
         return render();
     }
@@ -41,4 +42,5 @@ public class JobApp {
     public static void onAppStartSync() {
         JobLog.log("onAppStartSync called");
     }
+ 
 }

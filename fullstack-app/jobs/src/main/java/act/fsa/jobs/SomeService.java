@@ -1,9 +1,7 @@
 package act.fsa.jobs;
 
-import act.job.Cron;
-import act.job.Every;
-import act.job.InvokeAfter;
-import act.job.OnAppStart;
+import act.app.event.AppEventId;
+import act.job.*;
 import org.osgl.util.S;
 
 /**
@@ -58,4 +56,15 @@ public class SomeService {
     public void checkAndSendOutPasswordReminder() {
         JobLog.log("checking password expiration and sending out password reminder");
     }
+
+    @OnAppEvent(AppEventId.EVENT_BUS_INITIALIZED)
+    public static void onAppEventBusInitialized() {
+        JobLog.log("onAppEventBusInitialized called");
+    }
+
+    @OnAppEvent(value = AppEventId.EVENT_BUS_INITIALIZED, async = true)
+    public static void onAppEventBusInitializedAsync() {
+        JobLog.log("onAppEventBusInitializedAsync called");
+    }
+
 }

@@ -1,0 +1,4 @@
+@args Object result
+{
+"result": "@result"
+}
