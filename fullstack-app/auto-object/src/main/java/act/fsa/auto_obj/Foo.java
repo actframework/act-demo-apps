@@ -1,12 +1,12 @@
 package act.fsa.auto_obj;
 
-import act.util.AutoObject;
+import act.data.Data;
 import act.util.EqualIgnore;
 import org.osgl.util.S;
 
 import java.util.Random;
 
-@AutoObject
+@Data
 public class Foo {
 
     private int id;

@@ -1,8 +1,8 @@
 package act.fsa.auto_obj;
 
-import act.util.AutoObject;
+import act.data.Data;
 
-@AutoObject
+@Data
 public class Bar {
     private int id;
     private String desc;
