@@ -11,7 +11,7 @@ public class MyFilter {
     @Before
     public void mockFormat(String fmt, ActionContext context) {
         if ("json".equals(fmt)) {
-            context.accept(H.Format.json);
+            context.accept(H.Format.JSON);
         }
     }
 }

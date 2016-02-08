@@ -26,7 +26,6 @@ import static act.controller.Controller.Util.*;
 @With(MyFilter.class)
 public class HelloWorldApp {
 
-
     @GetAction("/")
     public Result home() {
         return render();

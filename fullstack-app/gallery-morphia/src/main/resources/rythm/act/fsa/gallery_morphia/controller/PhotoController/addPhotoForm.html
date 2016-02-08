@@ -1,0 +1,33 @@
+<html>
+<head></head>
+<body>
+<h1>Act Gallery Demo - Add Photo</h1>
+<form class="form" action="/api/v1/photo" method="post"  enctype="multipart/form-data">
+  <div class="field">
+    <span class="label">Title</span>
+    <span class="data">
+      <input name="title">
+    </span>
+  </div>
+  <div class="field">
+    <span class="label">Description</span>
+    <span class="data">
+      <input name="description">
+    </span>
+  </div>
+  <div class="field">
+    <span class="label">File</span>
+    <input type="file" name="image">
+  </div>
+  <div class="field">
+    <span class="label">File 2</span>
+    <input type="file" name="image2">
+  </div>
+  <button>Submit</button>
+</form>
+<script src="/asset/js/jquery-1.11.3.min.js"></script>
+<script src="/asset/js/app-util.js"></script>
+<script>
+</script>
+</body>
+</html>

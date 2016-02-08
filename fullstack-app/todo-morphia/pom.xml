@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework</groupId>
-  <artifactId>demo-todo-morphia</artifactId>
+  <artifactId>demo-gallery-morphia</artifactId>
   <packaging>jar</packaging>
   <version>0.1.0-SNAPSHOT</version>
 
