@@ -16,7 +16,7 @@
     var $dock = $('#gallery');
     var tmpl = '<li><a href="#"><img src="{0}"></a><div class="title">{1}</div><div class="desc">{2}</div></li>';
     $.each(data, function(id, photo) {
-      $dock.append(tmpl.fmt(photo.imageUrl, photo.title, photo.description));
+      $dock.append(tmpl.fmt(photo.thumbnailUrl, photo.title, photo.description));
     })
   })
 </script>

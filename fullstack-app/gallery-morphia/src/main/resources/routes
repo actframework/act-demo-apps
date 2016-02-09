@@ -1,1 +1,1 @@
-GET /photo externalfile: photo
+GET /upload externalfile: upload
