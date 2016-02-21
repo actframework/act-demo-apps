@@ -1,19 +1,12 @@
 package act.fsa.helloworld;
 
-import act.app.ActionContext;
 import act.boot.app.RunApp;
-import act.view.ActForbidden;
 import org.osgl.$;
-import org.osgl.http.H;
-import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.With;
-import org.osgl.mvc.result.NotModified;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
 import org.osgl.util.S;
-
-import java.util.Objects;
 
 import static act.controller.Controller.Util.*;
 

@@ -5,16 +5,15 @@ import act.db.morphia.MorphiaDao;
 import act.db.morphia.MorphiaModel;
 import act.storage.StorageServiceManager;
 import act.storage.Store;
-import org.bson.types.ObjectId;
 import org.imgscalr.Scalr;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Property;
 import org.osgl.storage.ISObject;
-import org.osgl.storage.IStorageService;
 import org.osgl.storage.impl.SObject;
 import org.osgl.util.E;
 
 import javax.imageio.ImageIO;
+import javax.inject.Singleton;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -22,7 +21,7 @@ import java.io.OutputStream;
 
 @Entity("photo")
 @Data
-public class Photo extends MorphiaModel {
+public class Photo extends MorphiaModel<Photo> {
 
     public static final String VIEW = "title,description,imageUrl,thumbnailUrl";
     public static final int THUMBNAIL_WIDTH = 200;
@@ -102,7 +101,8 @@ public class Photo extends MorphiaModel {
     }
 
     // The DAO class corresponding to the Image entity
-    public static class Dao extends MorphiaDao<ObjectId, Photo, Dao> {
+    @Singleton
+    public static class Dao extends MorphiaDao<Photo> {
         public Dao() {
             super(Photo.class);
         }

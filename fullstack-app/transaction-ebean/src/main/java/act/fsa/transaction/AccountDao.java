@@ -10,7 +10,7 @@ import org.osgl.util.IntRange;
 import static act.fsa.transaction.TransactionEbeanApp.ACC_A;
 import static act.fsa.transaction.TransactionEbeanApp.ACC_B;
 
-public class AccountDao extends EbeanDao<String, Account, AccountDao> {
+public class AccountDao extends EbeanDao<String, Account> {
     protected AccountDao() {
         super(Account.class);
     }

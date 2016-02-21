@@ -9,6 +9,8 @@ import java.util.Random;
 @Data
 public class Foo {
 
+    public static final String DETAIL_VIEW = "-bar.id,bar.desc as bar_desc";
+
     private int id;
 
     private String desc;

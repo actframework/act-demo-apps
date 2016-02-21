@@ -30,13 +30,9 @@
 
   var refresh = function() {
     $.getJSON("/list", function(data){
-      if (!data.list) {
-        alert("data error");
-        return;
-      }
       $('#list').html('');
-      for (var i = 0, j = data.list.length; i < j; ++i) {
-        var todo = data.list[i];
+      for (var i = 0, j = data.length; i < j; ++i) {
+        var todo = data[i];
         var $li = $('<li id="' + todo.id + '"><a class="edit btn">edit</a>&nbsp;<a class="delete btn">done</a>&nbsp;&nbsp;<span>' + todo.desc + '</span></li>');
         $li.appendTo($('#list'));
       }

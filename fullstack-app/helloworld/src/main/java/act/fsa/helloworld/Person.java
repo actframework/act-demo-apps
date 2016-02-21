@@ -2,9 +2,6 @@ package act.fsa.helloworld;
 
 import org.osgl.util.S;
 
-/**
- * Created by luog on 13/11/15.
- */
 public class Person {
     private String firstName;
     private String lastName;

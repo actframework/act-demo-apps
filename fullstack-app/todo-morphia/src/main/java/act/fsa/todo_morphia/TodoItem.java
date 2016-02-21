@@ -1,23 +1,17 @@
 package act.fsa.todo_morphia;
 
-import org.bson.types.ObjectId;
+import act.db.morphia.MorphiaModel;
 import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 
 @Entity("todo")
-public class TodoItem {
-    @Id
-    private ObjectId _id;
+public class TodoItem extends MorphiaModel<TodoItem> {
+
     private String desc;
 
     private TodoItem() {}
 
     public TodoItem(String desc) {
         this.desc = desc;
-    }
-
-    public String getId() {
-        return _id.toString();
     }
 
     public String getDesc() {

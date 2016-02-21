@@ -22,7 +22,7 @@
   <groupId>org.actframework</groupId>
   <artifactId>demo-todo-morphia</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.1-SNAPSHOT</version>
 
   <name>actframework fullstack app demo - TODO (morphia)</name>
   <description>TODO demo application based on Act Morphia plugin</description>
@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.gallery_morphia.App</argument>
+              <argument>act.fsa.gallery_morphia.MorphiaGalleryApp</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -109,7 +109,7 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -121,7 +121,7 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-morphia</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>

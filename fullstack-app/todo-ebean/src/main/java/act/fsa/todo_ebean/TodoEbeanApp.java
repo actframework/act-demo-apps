@@ -1,8 +1,7 @@
 package act.fsa.todo_ebean;
 
 import act.boot.app.RunApp;
-import act.job.Every;
-import org.avaje.agentloader.AgentLoader;
+import act.db.ebean.EbeanDao;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.DeleteAction;
@@ -10,7 +9,6 @@ import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.annotation.PutAction;
 import org.osgl.mvc.result.Result;
-import org.osgl.util.C;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -26,39 +24,34 @@ public class TodoEbeanApp {
     static Logger logger = L.get(TodoEbeanApp.class);
 
     @Inject
-    private TodoItemDao dao;
+    private TodoItem.Dao dao;
 
-    @GetAction("/")
-    public Result home() {
-        return render();
+    @GetAction
+    public void home() {
     }
 
     @GetAction("/list")
-    public Result list() {
-        List<TodoItem> list = dao.findAllAsList();
-        return render(list);
+    public List<TodoItem> list() {
+        return dao.findAllAsList();
     }
 
     @PostAction("/list")
-    public Result post(String desc) {
+    public void post(String desc) {
         TodoItem item = new TodoItem(desc);
         dao.save(item);
-        return ok();
     }
 
     @DeleteAction("/list/{id}")
-    public Result delete(long id) {
+    public void delete(long id) {
         TodoItem item = dao.findById(id);
         dao.delete(item);
-        return ok();
     }
 
     @PutAction("/list/{id}")
-    public Result update(long id, String desc) {
+    public void update(long id, String desc) {
         TodoItem item = dao.findById(id);
         item.setDesc(desc);
         dao.save(item);
-        return ok();
     }
 
     public static void main(String[] args) throws Exception {

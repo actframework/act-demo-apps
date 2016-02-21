@@ -3,15 +3,12 @@ package act.fsa.gallery_morphia.controller;
 import act.controller.Controller;
 import act.fsa.gallery_morphia.model.Photo;
 import act.util.PropertySpec;
-import org.osgl.$;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.result.Result;
 import org.osgl.storage.impl.SObject;
 
 import javax.inject.Inject;
-import javax.naming.ldap.Control;
-import java.io.File;
 
 /**
  * Provides Restful service

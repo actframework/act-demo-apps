@@ -6,12 +6,12 @@ import org.osgl.mvc.annotation.GetAction;
 /**
  * The application entry
  */
-public class App {
+public class MorphiaGalleryApp {
 
     @GetAction
     public void home() {}
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("gallery", App.class);
+        RunApp.start("gallery", MorphiaGalleryApp.class);
     }
 }

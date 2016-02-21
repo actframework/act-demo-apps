@@ -1,10 +1,16 @@
 package act.fsa.auto_obj;
 
 import act.boot.app.RunApp;
+import act.cli.Command;
+import act.cli.TableView;
+import act.util.PropertySpec;
 import org.osgl.$;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.result.Result;
+import org.osgl.util.C;
+
+import java.util.List;
 
 import static act.controller.Controller.Util.*;
 
@@ -18,7 +24,15 @@ public class AutoObjectApp {
         return render();
     }
 
+    @GetAction("/foo")
+    public List<Foo> listFoo() {
+        return C.list(foo1, foo2);
+    }
+
+    @Command("foo.show")
     @GetAction("/foo/{id}")
+    @PropertySpec(Foo.DETAIL_VIEW)
+    @TableView
     public Foo getFoo(int id) {
         return dispatch(id, $.F.<Foo>identity());
     }

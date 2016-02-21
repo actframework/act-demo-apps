@@ -1,6 +1,7 @@
 package act.fsa.todo_morphia;
 
 import act.boot.app.RunApp;
+import act.db.morphia.MorphiaDao;
 import org.bson.types.ObjectId;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
@@ -20,40 +21,33 @@ import static act.controller.Controller.Util.render;
  */
 public class TodoMorphiaApp {
 
-    @Inject
-    private TodoItemDao dao;
-
     @GetAction("/")
     public Result home() {
         return render();
     }
 
     @GetAction("/list")
-    public Result list() {
-        List<TodoItem> list = C.list(dao.findAll());
-        return render(list);
+    public List<TodoItem> list() {
+        return C.list(TodoItem.dao().findAll());
     }
 
     @PostAction("/list")
-    public Result add(String desc) {
+    public void add(String desc) {
         TodoItem item = new TodoItem(desc);
-        dao.save(item);
-        return ok();
+        TodoItem.dao().save(item);
     }
 
     @DeleteAction("/list/{id}")
-    public Result delete(String id) {
-        TodoItem item = dao.findById(new ObjectId(id));
-        dao.delete(item);
-        return ok();
+    public void delete(String id) {
+        TodoItem.dao().deleteById(new ObjectId(id));
     }
 
     @PutAction("/list/{id}")
-    public Result update(String id, String desc) {
+    public void update(String id, String desc) {
+        MorphiaDao<TodoItem> dao = TodoItem.dao();
         TodoItem item = dao.findById(new ObjectId(id));
         item.setDesc(desc);
         dao.save(item);
-        return ok();
     }
 
     public static void main(String[] args) throws Exception {
