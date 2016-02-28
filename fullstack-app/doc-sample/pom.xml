@@ -20,12 +20,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-validation</artifactId>
+  <artifactId>doc-sample</artifactId>
   <packaging>jar</packaging>
   <version>0.1.1-SNAPSHOT</version>
 
-  <name>actframework fullstack app demo - Validation</name>
-  <description>a simple app demonstrate validation in ACT framework</description>
+  <name>actframework document sample project</name>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -89,7 +88,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.validation.ValidationDemoApp</argument>
+              <argument>act.fsa.todo_morphia.TodoMorphiaApp</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -110,6 +109,42 @@
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
       <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-guice</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-morphia</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-ebean</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-freemarker</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-velocity</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.178</version>
     </dependency>
 
     <dependency>

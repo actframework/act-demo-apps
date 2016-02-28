@@ -1,12 +1,20 @@
 package act.fsa.helloworld;
 
 import act.boot.app.RunApp;
+import act.view.ActServerError;
 import org.osgl.$;
+import org.osgl.http.H;
+import org.osgl.http.Http;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.With;
+import org.osgl.mvc.result.ErrorResult;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
+import org.osgl.util.E;
 import org.osgl.util.S;
+
+import java.io.File;
+import java.util.List;
 
 import static act.controller.Controller.Util.*;
 
@@ -19,9 +27,8 @@ import static act.controller.Controller.Util.*;
 @With(MyFilter.class)
 public class HelloWorldApp {
 
-    @GetAction("/")
-    public Result home() {
-        return render();
+    @GetAction
+    public void home() {
     }
 
     @GetAction({"/hello", "/hi", "/nihao"})
@@ -37,6 +44,9 @@ public class HelloWorldApp {
 
     @GetAction("/person")
     public Person person(String firstName, String lastName) {
+        if (S.allBlank(firstName, lastName)) {
+            return null;
+        }
         return new Person(firstName, lastName);
     }
 
@@ -50,10 +60,43 @@ public class HelloWorldApp {
         render(who, age);
     }
 
+    @GetAction("/int")
+    public int testPrimitiveBinding(int value) {
+        return value;
+    }
+
+    @GetAction("/status/{status}")
+    public void testStatus(int status) {
+        if (status < 400) {
+            throw new ErrorResult(Http.status(status));
+        }
+        badRequestIf(400 == status);
+        unauthorizedIf(401 == status);
+        forbiddenIf(403 == status);
+        notFoundIf(404 == status);
+        conflictIf(409 == status);
+        throw ActServerError.of(status);
+    }
+
+    @GetAction("/dir")
+    public List<String> dir() {
+        File file = new File(".");
+        return C.listOf(file.list());
+    }
+
+    @GetAction("/download")
+    public Result downloadFile(String path) {
+        E.illegalArgumentIf(path.contains(".."));
+        File file = new File(path);
+        return download(file);
+    }
+
+
     @GetAction("/product/{catalog}/{prod}/price")
     public Result price(String catalog, String prod) {
         int n = $.random(C.range(100, 400));
         String price = n + ".99";
+        System.out.println("aaa");
         return render(catalog, prod, price);
     }
 
@@ -76,6 +119,12 @@ public class HelloWorldApp {
     @GetAction("/this/will/trigger/permission/denied/error")
     public Result noAccess() {
         return forbidden();
+    }
+
+    @GetAction("/exception")
+    public void javaException(String ex) throws Exception {
+        Exception exception = $.newInstance(ex);
+        throw exception;
     }
 
     public static void main(String[] args) throws Exception {

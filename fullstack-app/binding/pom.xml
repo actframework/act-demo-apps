@@ -20,12 +20,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-validation</artifactId>
-  <packaging>jar</packaging>
-  <version>0.1.1-SNAPSHOT</version>
+  <artifactId>demo-fsa-binding</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.3-SNAPSHOT</version>
 
-  <name>actframework fullstack app demo - Validation</name>
-  <description>a simple app demonstrate validation in ACT framework</description>
+  <name>actframework fullstack app demo - binding</name>
+  <description>demonstrate parameter binding</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.validation.ValidationDemoApp</argument>
+              <argument>act.fsa.helloworld.HelloWorldApp</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -109,6 +109,12 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-guice</artifactId>
       <version>0.1.1-SNAPSHOT</version>
     </dependency>
 
