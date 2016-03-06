@@ -88,7 +88,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.todo_morphia.TodoMorphiaApp</argument>
+              <argument>act.doc.sample.DocSampleApp</argument>
             </arguments>
           </configuration>
         </plugin>
