@@ -1,8 +1,7 @@
 package act.doc.sample;
 
-import act.db.DB;
-import org.mongodb.morphia.annotations.Entity;
 import act.db.morphia.MorphiaModel;
+import org.mongodb.morphia.annotations.Entity;
 
 @Entity("prod")
 public class Product extends MorphiaModel<Product> {

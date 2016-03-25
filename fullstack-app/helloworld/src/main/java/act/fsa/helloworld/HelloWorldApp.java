@@ -31,6 +31,16 @@ public class HelloWorldApp {
     public void home() {
     }
 
+    @GetAction("/dyna/{s1}/s1")
+    public String dyna1(String s1) {
+        return s1;
+    }
+
+    @GetAction("/dyna/{s2}/s2")
+    public String dyna2(String s2) {
+        return s2;
+    }
+
     @GetAction({"/hello", "/hi", "/nihao"})
     public String sayHello() {
         return "Hello Act!";

@@ -1,9 +1,8 @@
 package act.fsa.jobs;
 
 import act.cli.Command;
-import act.cli.HelpMsg;
 import act.cli.Optional;
-import act.util.DataView;
+import act.util.PropertySpec;
 import org.osgl.logging.LogManager;
 import org.osgl.logging.Logger;
 import org.osgl.util.C;
@@ -18,9 +17,8 @@ public class JobLog {
         logs.add(event);
     }
 
-    @Command("log.list")
-    @HelpMsg("List job logs")
-    @DataView("this as log")
+    @Command(name = "log.list", help = "List job logs")
+    @PropertySpec("this as log")
     public static List<String> logs(
             @Optional(help = "limit the lines returned") Integer limit
     ) {
