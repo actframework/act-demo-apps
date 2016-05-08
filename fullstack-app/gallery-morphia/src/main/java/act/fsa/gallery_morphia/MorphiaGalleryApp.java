@@ -12,6 +12,6 @@ public class MorphiaGalleryApp {
     public void home() {}
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("gallery", MorphiaGalleryApp.class);
+        RunApp.start("gallery", "2.0", MorphiaGalleryApp.class);
     }
 }

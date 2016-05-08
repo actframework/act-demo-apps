@@ -1,8 +1,12 @@
 package act.fsa.helloworld;
 
+import act.app.App;
+import act.conf.AppConfig;
 import act.controller.Controller;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
 import org.osgl.util.E;
+import org.osgl.util.S;
 
 @Controller("/testbed")
 public class TestBed {
@@ -30,6 +34,11 @@ public class TestBed {
     @GetAction("/illegalStateException")
     public void testIllegalStateException() {
         throw new IllegalStateException();
+    }
+
+    @PostAction("/ctx_param_cnt")
+    public String testContextParamCount(Person person, int n, App app, AppConfig config) {
+        return S.builder().append(person.getFirstName()).append(":").append(app.cuid()).append(":").append(config.httpPort()).toString();
     }
 
 }

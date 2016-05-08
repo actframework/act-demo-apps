@@ -36,10 +36,4 @@ public class TodoItem  {
         return this;
     }
 
-    public static class Dao extends EbeanDao<Long, TodoItem> {
-        protected Dao() {
-            super(TodoItem.class);
-        }
-    }
-
 }

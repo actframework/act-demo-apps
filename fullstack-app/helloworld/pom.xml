@@ -109,19 +109,19 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.1.1-SNAPSHOT</version>
+      <version>0.1.2-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-guice</artifactId>
+      <artifactId>act-feather</artifactId>
       <version>0.1.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.12</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.6</version>
     </dependency>
 
   </dependencies>
