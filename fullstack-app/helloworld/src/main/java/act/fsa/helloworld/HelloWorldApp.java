@@ -5,7 +5,9 @@ import act.view.ActServerError;
 import org.osgl.$;
 import org.osgl.http.H;
 import org.osgl.http.Http;
+import org.osgl.mvc.annotation.Action;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.annotation.With;
 import org.osgl.mvc.result.ErrorResult;
 import org.osgl.mvc.result.Result;
@@ -58,6 +60,16 @@ public class HelloWorldApp {
             return null;
         }
         return new Person(firstName, lastName);
+    }
+
+    @Action(value = "/sl", methods = {H.Method.GET, H.Method.POST})
+    public List<String> takeStringList(List<String> list) {
+        return list;
+    }
+
+    @Action(value = "/ca", methods = {H.Method.GET, H.Method.POST})
+    public String takeCharArray(char[] ca) {
+        return new String(ca);
     }
 
     @GetAction("/bye")
