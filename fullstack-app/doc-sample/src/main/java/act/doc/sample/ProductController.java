@@ -1,12 +1,12 @@
 package act.doc.sample;
 
-import act.app.ActionContext;
 import act.controller.Controller;
 import act.db.morphia.MorphiaDao;
-import org.bson.codecs.PatternCodec;
 import org.bson.types.ObjectId;
-import org.osgl.http.H;
-import org.osgl.mvc.annotation.*;
+import org.osgl.mvc.annotation.DeleteAction;
+import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
+import org.osgl.mvc.annotation.PutAction;
 import org.osgl.util.S;
 
 import javax.inject.Inject;
@@ -27,7 +27,7 @@ public class ProductController extends Controller.Util {
         return dao.findAll();
     }
 
-    @GetAction("/{id}")
+    @GetAction("{id}")
     public Product show(String id) {
         return dao.findById(new ObjectId(id));
     }
@@ -37,7 +37,7 @@ public class ProductController extends Controller.Util {
         dao.save(product);
     }
 
-    @PutAction("/{id}/name")
+    @PutAction("{id}/name")
     public void update(String id, String name) {
         Product product = dao.findById(new ObjectId(id));
         notFoundIfNull(product);
@@ -50,12 +50,12 @@ public class ProductController extends Controller.Util {
         dao.deleteById(new ObjectId(id));
     }
 
-    @GetAction("/byName")
+    @GetAction("byName")
     public Iterable<Product> findByName(String name) {
         return dao.findBy("name", name);
     }
 
-    @GetAction("/byMaxPrice")
+    @GetAction("byMaxPrice")
     public Iterable<Product> findByMaxPrice(int max) {
         return dao.findBy("price <", max);
     }

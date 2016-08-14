@@ -1,11 +1,9 @@
 package act.doc.sample;
 
-import act.app.App;
 import act.controller.Controller;
 import act.db.ebean.EbeanDao;
 import act.event.ActEvent;
 import act.event.EventBus;
-import org.osgl.$;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
@@ -39,12 +37,12 @@ public class ContactController extends Controller.Util {
         System.out.println("event emitted");
     }
 
-    @GetAction("/{id}")
+    @GetAction("{id}")
     public Contact show(long id) {
         return dao.findById(id);
     }
 
-    @PutAction("/{id}/addr")
+    @PutAction("{id}/addr")
     public void updateAddress(long id, String value) {
         Contact ctct = dao.findById(id);
         notFoundIfNull(ctct);

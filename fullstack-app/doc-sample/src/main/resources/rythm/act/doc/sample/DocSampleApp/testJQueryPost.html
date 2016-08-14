@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+</head>
+<body>
+<button id="go">Send Post</button>
+<script>
+  var data = {};
+
+  var key = {foo: [1, 2, 3]};
+  var val = {bar: {foo: "foo"}};
+  data[key] = val;
+  console.log(data);
+
+  $(
+      $('#go').click(function() {
+        console.log(typeof jQuery.post);
+        jQuery.post('/jquery', {data: data});
+      })
+  )
+</script>
+</body>
+</html>

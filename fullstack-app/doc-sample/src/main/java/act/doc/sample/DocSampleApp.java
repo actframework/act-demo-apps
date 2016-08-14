@@ -1,13 +1,12 @@
 package act.doc.sample;
 
-import act.app.App;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.controller.Controller;
 import act.di.Context;
 import act.job.AppJobManager;
+import org.osgl.mvc.annotation.Action;
 import org.osgl.mvc.annotation.GetAction;
-
-import java.util.concurrent.Callable;
 
 public class DocSampleApp {
 
@@ -39,6 +38,13 @@ public class DocSampleApp {
     public void homeVelocity() {
         String engine = "velocity";
         Controller.Util.render(engine);
+    }
+
+    @Action("jquery")
+    public void testJQueryPost(ActionContext context) {
+        if (!context.isAjax()) {
+            Controller.Util.render();
+        }
     }
 
     public static void main(String[] args) throws Exception {

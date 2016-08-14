@@ -22,9 +22,10 @@ import static act.controller.Controller.Util.text;
  * press F5 in the browser to watch the immediate change
  * in the browser!</p>
  */
+@SuppressWarnings("unused")
 public class ValidationDemoApp {
 
-    ActionContext context;
+    private ActionContext context;
 
     @GetAction("/")
     public Result home() {
