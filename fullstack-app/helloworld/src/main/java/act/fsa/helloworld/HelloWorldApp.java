@@ -5,10 +5,7 @@ import act.view.ActServerError;
 import org.osgl.$;
 import org.osgl.http.H;
 import org.osgl.http.Http;
-import org.osgl.mvc.annotation.Action;
-import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.annotation.PostAction;
-import org.osgl.mvc.annotation.With;
+import org.osgl.mvc.annotation.*;
 import org.osgl.mvc.result.ErrorResult;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.C;
@@ -29,6 +26,7 @@ import static act.controller.Controller.Util.*;
 @With(MyFilter.class)
 public class HelloWorldApp {
 
+    @SessionFree
     @GetAction
     public void home() {
     }
@@ -43,17 +41,20 @@ public class HelloWorldApp {
         return s2;
     }
 
+    @SessionFree
     @GetAction({"/hello", "/hi", "/nihao"})
     public String sayHello() {
         return "Hello Act!";
     }
 
+    @SessionFree
     @GetAction("hiTo")
     public void sayHelloTo(String fn, String ln) {
         Person person = new Person(fn, ln);
         render(person, ln);
     }
 
+    @SessionFree
     @GetAction("/person")
     public Person person(String firstName, String lastName) {
         if (S.allBlank(firstName, lastName)) {
@@ -72,21 +73,25 @@ public class HelloWorldApp {
         return new String(ca);
     }
 
+    @SessionFree
     @GetAction("/bye")
     public void byePlayAndSpring() {
         text("bye Play and Spring!!");
     }
 
+    @SessionFree
     @GetAction("/greeting")
     public void greeting(String who, int age) {
         render(who, age);
     }
 
+    @SessionFree
     @GetAction("/int")
     public int testPrimitiveBinding(int value) {
         return value;
     }
 
+    @SessionFree
     @GetAction("/status/{status}")
     public void testStatus(int status) {
         if (status < 400) {
