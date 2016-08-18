@@ -1,6 +1,8 @@
 package act.fsa.helloworld;
 
 import act.boot.app.RunApp;
+import act.inject.HeaderVariable;
+import act.util.IdGenerator;
 import act.view.ActServerError;
 import org.osgl.$;
 import org.osgl.http.H;
@@ -79,7 +81,6 @@ public class HelloWorldApp {
         text("bye Play and Spring!!");
     }
 
-    @SessionFree
     @GetAction("/greeting")
     public void greeting(String who, int age) {
         render(who, age);
@@ -156,6 +157,7 @@ public class HelloWorldApp {
 
     public static void main(String[] args) throws Exception {
         RunApp.start(HelloWorldApp.class);
+        //System.out.println(IdGenerator.SAFE_ENCODER.longToStr(Integer.MAX_VALUE));
     }
 
 }
