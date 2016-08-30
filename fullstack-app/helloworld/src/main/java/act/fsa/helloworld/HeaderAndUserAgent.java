@@ -51,6 +51,7 @@ public class HeaderAndUserAgent extends Controller.Util {
         boolean chrome = userAgent.isChrome();
         boolean firefox = userAgent.isFirefox();
         boolean webkit = userAgent.isWebKit();
-        return jsonMap(ie, mobile, chrome, firefox, webkit);
+        boolean safari = userAgent.isSafari();
+        return jsonMap(ie, mobile, chrome, firefox, webkit, safari);
     }
 }

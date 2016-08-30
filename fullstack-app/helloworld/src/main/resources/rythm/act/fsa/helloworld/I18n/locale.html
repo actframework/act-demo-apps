@@ -1,0 +1,27 @@
+@extends(_base)
+
+<h1>@i18n("title.locale")</h1>
+
+@args Locale locale
+<p>
+  @("your_locale".i18n(locale.toString()))
+</p>
+
+@def opt(String localeStr, String label) {
+  <option value="@localeStr" @if(localeStr.equals(locale.toString())) selected @>@label</option>
+}
+
+<form action="/~/i18n/locale" method="post">
+<select id="sel_locale" name="act_locale">
+  @opt("zh_CN", "简体中文")
+  @opt("zh_TW", "繁體中文")
+  @opt("en_AU", "Australian English")
+  @opt("en_US", "American English")
+</select>
+</form>
+
+<script>
+  $('#sel_locale').on("change", function() {
+    $('form').submit();
+  })
+</script>

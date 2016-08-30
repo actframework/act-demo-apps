@@ -25,6 +25,7 @@ import static act.controller.Controller.Util.*;
  * press F5 in the browser to watch the immediate change
  * in the browser!</p>
  */
+@SuppressWarnings("unused")
 @With(MyFilter.class)
 public class HelloWorldApp {
 
@@ -119,12 +120,10 @@ public class HelloWorldApp {
         return download(file);
     }
 
-
     @GetAction("/product/{catalog}/{prod}/price")
     public Result price(String catalog, String prod) {
         int n = $.random(C.range(100, 400));
         String price = n + ".99";
-        System.out.println("aaa");
         return render(catalog, prod, price);
     }
 

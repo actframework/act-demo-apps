@@ -1,0 +1,29 @@
+@extends(_base)
+
+<h1>Timezone</h1>
+
+<p>
+  This program will first find out client's local timezone offset through JavaScript code:
+</p>
+<code>new Date().getTimezoneOffset()</code>
+<p>Then it will send the offset data to the server by calling </p>
+<code>$.post("/~/i18n/timezone", {offset: offset})</code>
+<p>
+  After server updated the user session with the client timezone offset data,
+  it will refresh this page and display the offset data
+</p>
+
+@args String timezone
+
+@ifNot(timezone) {
+<script>
+  $(function() {
+    $.post("/~/i18n/timezone", {offset: new Date().getTimezoneOffset()}, function() {
+      location.reload(true);
+    })
+  })
+</script>
+} else {
+Your locale timezone offset is: @timezone
+}
+
