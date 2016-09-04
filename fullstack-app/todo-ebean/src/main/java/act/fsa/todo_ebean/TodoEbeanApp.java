@@ -60,12 +60,6 @@ public class TodoEbeanApp {
 
     public static void main(String[] args) throws Exception {
         RunApp.start(TodoEbeanApp.class);
-//        Field f = TodoEbeanApp.class.getDeclaredField("dao");
-//        Type type = f.getGenericType();
-//        System.out.println(type);
-//        f = TodoEbeanApp.class.getDeclaredField("m");
-//        type = f.getGenericType();
-//        System.out.println(type);
     }
 
 

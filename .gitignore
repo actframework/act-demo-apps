@@ -6,6 +6,5 @@ classes
 *.DS_Store
 *all.sql
 tmp/
-_sys_start.do.not.delete
-.global.id.do-not-delete
-.app.id.do-not-delete
+**/.act*
+

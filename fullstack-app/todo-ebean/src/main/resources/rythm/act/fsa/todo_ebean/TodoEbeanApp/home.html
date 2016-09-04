@@ -45,12 +45,12 @@
       alert("Todo description required");
       return;
     }
-    $.post("/list", {desc: desc}, refresh);
+    $.post("/list", {desc: desc, __csrf__: '@_csrf'}, refresh);
   });
 
   $('body').on('click', '.btn.delete', function() {
     var id = $(this).parent().attr('id');
-    $.delete('/list/' + id, refresh);
+    $.delete('/list/' + id, {__csrf__: '@_csrf'}, refresh);
   });
 
   $('body').on('click', '.btn.edit', function() {
@@ -61,7 +61,7 @@
       alert("Todo description required");
       return;
     }
-    $.put('/list/' + id, {desc: desc}, refresh);
+    $.put('/list/' + id, {desc: desc, __csrf__: '@_csrf'}, refresh);
   });
 
   refresh();
