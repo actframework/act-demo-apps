@@ -45,6 +45,7 @@
 <section>
   <header>Transfer</header>
   <form action="/transfer" method="post">
+    @_csrfField
     <input name="amount" value="100" class="amount">
     <button name="btnA2B" value="true">From account A to account B</button>
     <button name="btnB2A" value="true">From account B to account A</button>

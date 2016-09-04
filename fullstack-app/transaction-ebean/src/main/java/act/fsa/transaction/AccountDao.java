@@ -12,7 +12,7 @@ import static act.fsa.transaction.TransactionEbeanApp.ACC_B;
 
 public class AccountDao extends EbeanDao<String, Account> {
     protected AccountDao() {
-        super(Account.class);
+        super(String.class, Account.class);
     }
 
     public boolean transfer(int amount, String fromId, String toId) {
@@ -39,7 +39,7 @@ public class AccountDao extends EbeanDao<String, Account> {
         Account a = findById(ACC_A);
         if (null == a) {
             a = new Account(ACC_A);
-            a.setAmount($.random(IntRange.of(100, 200)));
+            a.setAmount($.random(IntRange.of(100, 2000)));
             save(a);
         }
         Account b = findById(ACC_B);
