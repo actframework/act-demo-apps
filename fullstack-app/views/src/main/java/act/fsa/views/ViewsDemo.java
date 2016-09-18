@@ -4,6 +4,7 @@ import act.boot.app.RunApp;
 import act.controller.Controller;
 import org.osgl.mvc.annotation.GetAction;
 
+@SuppressWarnings("unused")
 public class ViewsDemo extends Controller.Util {
 
     private String title = "ActFramework View Demo";
@@ -11,12 +12,12 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction
     public void home() {
-        renderTemplate(title, who);
+        render(title, who);
     }
 
     @GetAction("beetl")
     public void beetl() {
-        renderTemplate(title, who);
+        render(title, who);
     }
 
     public static void main(String[] args) throws Exception {
