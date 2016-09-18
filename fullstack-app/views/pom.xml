@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.helloworld.HelloWorldApp</argument>
+              <argument>act.fsa.views.ViewsDemo</argument>
             </arguments>
           </configuration>
         </plugin>
