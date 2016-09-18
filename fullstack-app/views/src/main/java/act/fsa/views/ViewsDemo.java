@@ -7,14 +7,15 @@ import org.osgl.mvc.annotation.GetAction;
 public class ViewsDemo extends Controller.Util {
 
     private String title = "ActFramework View Demo";
+    private String who = "ActFramework";
 
     @GetAction
-    public void home(String who) {
+    public void home() {
         renderTemplate(title, who);
     }
 
     @GetAction("beetl")
-    public void beetl(String who) {
+    public void beetl() {
         renderTemplate(title, who);
     }
 
