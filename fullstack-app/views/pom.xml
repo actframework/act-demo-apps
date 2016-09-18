@@ -20,12 +20,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-appconfig</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>demo-fsa-views</artifactId>
+  <packaging>war</packaging>
   <version>0.0.3-SNAPSHOT</version>
 
-  <name>actframework fullstack app demo - configuration via source code</name>
-  <description>demonstrate how to use source code to configure an actframework application</description>
+  <name>actframework fullstack app demo - multiple views</name>
+  <description>demonstrate multiple views</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -89,7 +89,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.appconfig.AppConfigDemoApp</argument>
+              <argument>act.fsa.helloworld.HelloWorldApp</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -113,10 +113,17 @@
     </dependency>
 
     <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-beetl</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.12</version>
     </dependency>
+
   </dependencies>
 
 </project>
