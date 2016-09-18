@@ -2,11 +2,13 @@ package act.fsa.views;
 
 import act.boot.app.RunApp;
 import act.controller.Controller;
+import act.inject.param.NoBind;
 import org.osgl.mvc.annotation.GetAction;
 
 @SuppressWarnings("unused")
 public class ViewsDemo extends Controller.Util {
 
+    @NoBind
     private String title = "ActFramework View Demo";
     private String who = "ActFramework";
 
