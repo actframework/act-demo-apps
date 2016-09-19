@@ -9,8 +9,18 @@
   Hello ${who}
 </p>
 <ul>
+ 
+  <#opt engine="Rythm"/>
+  <#opt engine="Beetl"/>
+  <#opt engine="Velocity"/>
+  <li>---</li>
+  <#optError engine="Rythm"/>
+  <#optError engine="Beetl"/>
+  <#optError engine="FreeMarker"/>
+  <#optError engine="Velocity"/>
+  <li>---</li>
   <li>
-    <a href="/?who=Rythm">Say hello in Rythm</a>
+    <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
   </li>
 </ul>
 </body>
