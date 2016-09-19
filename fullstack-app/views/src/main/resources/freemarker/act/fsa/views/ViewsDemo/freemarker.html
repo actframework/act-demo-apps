@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>${title}</title>
+</head>
+<body>
+<h1>${title}</h1>
+<p>
+  Hello ${who}
+</p>
+<ul>
+  <#macro opt engine>
+    <li>
+      <a href="/${engine?lower_case}?who=${engine}">Say hello in ${engine}</a>
+    </li>
+  </#macro>
+  <@opt engine="Rythm"/>
+  <@opt engine="Beetl"/>
+  <@opt engine="Velocity"/>
+</ul>
+</body>
+
+</html>
