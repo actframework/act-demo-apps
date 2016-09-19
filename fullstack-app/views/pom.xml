@@ -21,7 +21,7 @@
 
   <groupId>org.actframework</groupId>
   <artifactId>demo-fsa-views</artifactId>
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
   <version>0.0.3-SNAPSHOT</version>
 
   <name>actframework fullstack app demo - multiple views</name>
@@ -37,7 +37,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
+    <java.version>1.8</java.version>
     <maven.test.skip>false</maven.test.skip>
   </properties>
 
@@ -50,51 +50,116 @@
   </licenses>
 
   <build>
+    <finalName>${project.artifactId}-${project.version}</finalName>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
+        <includes>
+          <include>**/*.version</include>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+          <include>**/*.csv</include>
+          <include>**/*.txt</include>
+          <include>**/*.gif</include>
+          <include>**/*.yaml</include>
+          <include>**/*.json</include>
+          <include>rythm/**</include>
+          <include>bin/*</include>
+          <include>routes</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.xlsx</include>
+          <include>ios*.p12</include>
+        </includes>
       </resource>
     </resources>
-
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.3</version>
-          <configuration>
-            <source>1.6</source>
-            <target>1.6</target>
-            <debug>true</debug>
-            <debuglevel>lines,vars,source</debuglevel>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.1.2</version>
-          <configuration>
-            <includePom>true</includePom>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>exec-maven-plugin</artifactId>
-          <version>1.2.1</version>
-          <configuration>
-            <executable>java</executable>
-            <arguments>
-              <argument>-Xms512m</argument>
-              <argument>-Xmx512m</argument>
-              <argument>-classpath</argument>
-              <classpath/>
-              <argument>act.fsa.views.ViewsDemo</argument>
-            </arguments>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+        <configuration>
+          <doclet>ch.raffael.doclets.pegdown.PegdownDoclet</doclet>
+          <docletArtifact>
+            <groupId>ch.raffael.pegdown-doclet</groupId>
+            <artifactId>pegdown-doclet</artifactId>
+            <version>1.1</version>
+          </docletArtifact>
+          <useStandardDocletOptions>true</useStandardDocletOptions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.5</version>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptors>
+                <descriptor>src/assembly/pkg.xml</descriptor>
+              </descriptors>
+              <outputDirectory>${project.build.directory}/dist/</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <configuration>
+          <executable>java</executable>
+          <arguments>
+            <argument>-Xms512m</argument>
+            <argument>-Xmx512m</argument>
+            <argument>-classpath</argument>
+            <classpath/>
+            <argument>au.com.catalyser.CatalyserApp</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.3</version>
+        <configuration>
+          <findbugsXmlOutput>true</findbugsXmlOutput>
+          <xmlOutput>true</xmlOutput>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.0.2</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <target>${java.version}</target>
+          <source>${java.version}</source>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 
   <dependencies>
