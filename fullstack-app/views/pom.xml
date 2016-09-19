@@ -119,6 +119,18 @@
     </dependency>
 
     <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-velocity</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-freemarker</artifactId>
+      <version>0.1.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.12</version>
