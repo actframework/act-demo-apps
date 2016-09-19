@@ -65,6 +65,9 @@
           <include>**/*.yaml</include>
           <include>**/*.json</include>
           <include>rythm/**</include>
+          <include>beetl/**</include>
+          <include>freemarker/**</include>
+          <include>velocity/**</include>
           <include>bin/*</include>
           <include>routes</include>
         </includes>
