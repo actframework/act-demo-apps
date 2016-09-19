@@ -8,27 +8,14 @@
   Hello ${who}
 </p>
 <ul>
-  #macro(opt $engine)
+  #macr0(opt $engine)
     <li>
       <a href="/${engine.toLowerCase()}?who=${engine}">Say hello in ${engine}</a>
     </li>
   #end
-
-  #macro(optError $engine)
-  <li>
-    <a href="/${engine.toLowerCase()}/error">Trigger error in ${engine} template</a>
-  </li>
-  #end
-
-
   #opt("Rythm")
   #opt("Beetl")
   #opt("FreeMarker")
-
-  #optError("Rythm")
-  #optError("Beetl")
-  #optError("FreeMarker")
-  #optError("Velocity")
 </ul>
 </body>
 
