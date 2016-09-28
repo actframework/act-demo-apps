@@ -7,4 +7,6 @@ classes
 *all.sql
 tmp/
 **/.act*
-
+**/.classpath
+**/.settings
+**/.project
