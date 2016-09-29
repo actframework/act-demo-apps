@@ -127,7 +127,7 @@
             <argument>-Xmx512m</argument>
             <argument>-classpath</argument>
             <classpath/>
-            <argument>au.com.catalyser.CatalyserApp</argument>
+            <argument>act.fsa.views.ViewsDemo</argument>
           </arguments>
         </configuration>
       </plugin>
@@ -195,7 +195,7 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-freemarker</artifactId>
-      <version>0.1.1-SNAPSHOT</version>
+      <version>0.2.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>

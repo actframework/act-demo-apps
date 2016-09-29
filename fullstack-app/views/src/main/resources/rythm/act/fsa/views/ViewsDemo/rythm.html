@@ -19,6 +19,11 @@
     <a href="/@(engine.toLowerCase())/error">Trigger error in @engine template</a>
   </li>
   }
+  @def optRuntimeError(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())/error/runtime">Trigger runtime error in @engine template</a>
+  </li>
+  }
 
   @opt("Beetl")
   @opt("FreeMarker")
@@ -28,6 +33,11 @@
   @optError("Beetl")
   @optError("FreeMarker")
   @optError("Velocity")
+  <li>---</li>
+  @optRuntimeError("Rythm")
+  @optRuntimeError("Beetl")
+  @optRuntimeError("FreeMarker")
+  @optRuntimeError("Velocity")
   <li>---</li>
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>

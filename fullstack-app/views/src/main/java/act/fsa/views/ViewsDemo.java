@@ -21,7 +21,7 @@ public class ViewsDemo extends Controller.Util {
     }
 
     @GetAction("e500")
-    public String backendServerError() {
+    public static String backendServerError() {
         // this will trigger a runtime error in the backend
         return Act.crypto().decrypt("bad-crypted-msg");
     }
@@ -34,6 +34,9 @@ public class ViewsDemo extends Controller.Util {
     @GetAction("rythm/error")
     public void rythmTemplateError() {
     }
+
+    @GetAction("rythm/error/runtime")
+    public void rythmTemplateRuntimeError() {}
 
     @GetAction("beetl")
     public void beetl() {
@@ -62,9 +65,19 @@ public class ViewsDemo extends Controller.Util {
     public void freemarkerTemplateError() {
     }
 
+    @GetAction("freemarker/error/runtime")
+    public void freemarkerTemplateRuntimeError() {
+        ViewsDemo demo = new ViewsDemo();
+        renderTemplate(demo);
+    }
+
     @GetAction("/api/v1/greeting/{who}")
     public String helloTo() {
         return "hello " + who;
+    }
+
+    public static String rt() {
+        return backendServerError();
     }
 
     public static void main(String[] args) throws Exception {
