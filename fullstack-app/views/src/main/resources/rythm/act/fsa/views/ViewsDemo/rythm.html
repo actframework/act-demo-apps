@@ -1,0 +1,38 @@
+<html>
+@args String title, String who
+<head>
+<title>@title</title>
+</head>
+<body>
+<h1>@_app.name() - @title</h1>
+<p>
+  Hello @who
+</p>
+<ul>
+  @def opt(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())?who=@engine">Say hello in @engine</a>
+  </li>
+  }
+  @def optError(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())/error">Trigger error in @engine template</a>
+  </li>
+  }
+
+  @opt("Beetl")
+  @opt("FreeMarker")
+  @opt("Velocity")
+  <li>---</li>
+  @optError("Rythm")
+  @optError("Beetl")
+  @optError("FreeMarker")
+  @optError("Velocity")
+  <li>---</li>
+  <li>
+    <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
+  </li>
+</ul>
+</body>
+
+</html>

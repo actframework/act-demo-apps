@@ -3,7 +3,7 @@
   <title>${title}</title>
 </head>
 <body>
-<h1>${title}</h1>
+<h1>${_app.name()} - ${title}</h1>
 <p>
   Hello ${who}
 </p>
@@ -13,9 +13,24 @@
       <a href="/${engine?lower_case}?who=${engine}">Say hello in ${engine}</a>
     </li>
   </#macro>
+
+  <#macro optError engine>
+    <li>
+      <a href="/${engine?lower_case}/error">Trigger error in ${engine} template</a>
+    </li>
+  </#macro>
   <@opt engine="Rythm"/>
   <@opt engine="Beetl"/>
   <@opt engine="Velocity"/>
+  <li>---</li>
+  <@optError engine="Rythm"/>
+  <@optError engine="Beetl"/>
+  <@optError engine="FreeMarker"/>
+  <@optError engine="Velocity"/>
+  <li>---</li>
+  <li>
+    <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
+  </li>
 </ul>
 </body>
 

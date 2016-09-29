@@ -1,15 +1,26 @@
 <html>
 <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <title>${title}</title>
 </head>
 <body>
-<h1>${title}</h1>
+<h1>${@_app.name()} - ${title}</h1>
 <p>
   Hello ${who}
 </p>
 <ul>
+ 
+  <#opt engine="Rythm"/>
+  <#opt engine="FreeMarker"/>
+  <#opt engine="Velocity"/>
+  <li>---</li>
+  <#optError engine="Rythm"/>
+  <#optError engine="Beetl"/>
+  <#optError engine="FreeMarker"/>
+  <#optError engine="Velocity"/>
+  <li>---</li>
   <li>
-    <a href="/?who=Rythm">Say hello in Rythm</a>
+    <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
   </li>
 </ul>
 </body>

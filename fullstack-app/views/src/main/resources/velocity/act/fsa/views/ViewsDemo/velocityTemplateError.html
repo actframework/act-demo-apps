@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>${title}</title>
+</head>
+<body>
+<h1>${title}</h1>
+<p>
+  Hello ${who}
+</p>
+<ul>
+  #macr0(opt $engine)
+    <li>
+      <a href="/${engine.toLowerCase()}?who=${engine}">Say hello in ${engine}</a>
+    </li>
+  #end
+  #opt("Rythm")
+  #opt("Beetl")
+  #opt("FreeMarker")
+</ul>
+</body>
+
+</html>

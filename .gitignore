@@ -10,3 +10,7 @@ tmp/
 **/.classpath
 **/.settings
 **/.project
+**/.project
+**/.settings/
+fullstack-app/helloworld/_sys_start.do.not.delete
+fullstack-app/helloworld/act_start.id

@@ -1,9 +1,11 @@
 package act.fsa.views;
 
+import act.Act;
 import act.boot.app.RunApp;
 import act.controller.Controller;
 import act.inject.param.NoBind;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.result.Result;
 
 @SuppressWarnings("unused")
@@ -13,9 +15,24 @@ public class ViewsDemo extends Controller.Util {
     private String title = "ActFramework View Demo";
     private String who = "ActFramework";
 
+    @PostAction("/foo")
+    public byte foo(byte b) {
+        return b;
+    }
+
+    @GetAction("e500")
+    public String backendServerError() {
+        // this will trigger a runtime error in the backend
+        return Act.crypto().decrypt("bad-crypted-msg");
+    }
+
     @GetAction({"", "rythm"})
-    public void home() {
+    public void rythm() {
         render(title, who);
+    }
+
+    @GetAction("rythm/error")
+    public void rythmTemplateError() {
     }
 
     @GetAction("beetl")
@@ -23,14 +40,26 @@ public class ViewsDemo extends Controller.Util {
         render(title, who);
     }
 
+    @GetAction("beetl/error")
+    public void beetlTemplateError() {
+    }
+
     @GetAction("velocity")
     public void velocity() {
         throw renderTemplate(title, who);
     }
 
+    @GetAction("velocity/error")
+    public void velocityTemplateError() {
+    }
+
     @GetAction("freemarker")
     public Result freemarker() {
         return renderTemplate(title, who);
+    }
+
+    @GetAction("freemarker/error")
+    public void freemarkerTemplateError() {
     }
 
     @GetAction("/api/v1/greeting/{who}")
