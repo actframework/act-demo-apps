@@ -20,6 +20,12 @@
   </li>
   #end
 
+  #macro(optErrorRuntime $engine)
+  <li>
+    <a href="/${engine.toLowerCase()}/error/runtime">Trigger runtime error in ${engine} template</a>
+  </li>
+  #end
+
   #opt("Rythm")
   #opt("Beetl")
   #opt("FreeMarker")
@@ -28,6 +34,11 @@
   #optError("Beetl")
   #optError("FreeMarker")
   #optError("Velocity")
+  <li>---</li>
+  #optErrorRuntime("Rythm")
+  #optErrorRuntime("Beetl")
+  #optErrorRuntime("FreeMarker")
+  #optErrorRuntime("Velocity")
   <li>---</li>
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>

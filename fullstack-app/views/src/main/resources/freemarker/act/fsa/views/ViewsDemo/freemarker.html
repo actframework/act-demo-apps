@@ -19,6 +19,13 @@
       <a href="/${engine?lower_case}/error">Trigger error in ${engine} template</a>
     </li>
   </#macro>
+
+  <#macro optErrorRuntime engine>
+    <li>
+      <a href="/${engine?lower_case}/error/runtime">Trigger runtime error in ${engine} template</a>
+    </li>
+  </#macro>
+
   <@opt engine="Rythm"/>
   <@opt engine="Beetl"/>
   <@opt engine="Velocity"/>
@@ -27,6 +34,11 @@
   <@optError engine="Beetl"/>
   <@optError engine="FreeMarker"/>
   <@optError engine="Velocity"/>
+  <li>---</li>
+  <@optErrorRuntime engine="Rythm"/>
+  <@optErrorRuntime engine="Beetl"/>
+  <@optErrorRuntime engine="FreeMarker"/>
+  <@optErrorRuntime engine="Velocity"/>
   <li>---</li>
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>

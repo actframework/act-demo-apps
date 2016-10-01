@@ -15,15 +15,15 @@ public class ViewsDemo extends Controller.Util {
     private String title = "ActFramework View Demo";
     private String who = "ActFramework";
 
-    @PostAction("/foo")
-    public byte foo(byte b) {
-        return b;
-    }
-
     @GetAction("e500")
     public static String backendServerError() {
         // this will trigger a runtime error in the backend
         return Act.crypto().decrypt("bad-crypted-msg");
+    }
+
+    @PostAction("/foo")
+    public byte foo(byte b) {
+        return b;
     }
 
     @GetAction({"", "rythm"})
@@ -47,6 +47,9 @@ public class ViewsDemo extends Controller.Util {
     public void beetlTemplateError() {
     }
 
+    @GetAction("beetl/error/runtime")
+    public void beetlTemplateRuntimeError() {}
+
     @GetAction("velocity")
     public void velocity() {
         throw renderTemplate(title, who);
@@ -54,6 +57,12 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction("velocity/error")
     public void velocityTemplateError() {
+    }
+
+    @GetAction("velocity/error/runtime")
+    public void velocityTemplateRuntimeError() {
+        Class<ViewsDemo> demo = ViewsDemo.class;
+        renderTemplate(demo);
     }
 
     @GetAction("freemarker")
