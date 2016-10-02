@@ -28,18 +28,21 @@
   @opt("Beetl")
   @opt("FreeMarker")
   @opt("Velocity")
+  @opt("Thymeleaf")
   @if(_app.isDev()) {
   <li>---</li>
   @optError("Rythm")
   @optError("Beetl")
   @optError("FreeMarker")
   @optError("Velocity")
+  @optError("Thymeleaf")
   }
   <li>---</li>
   @optRuntimeError("Rythm")
   @optRuntimeError("Beetl")
   @optRuntimeError("FreeMarker")
   @optRuntimeError("Velocity")
+  @optRuntimeError("Thymeleaf")
   <li>---</li>
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>

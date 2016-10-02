@@ -80,6 +80,22 @@ public class ViewsDemo extends Controller.Util {
         renderTemplate(demo);
     }
 
+    @GetAction("thymeleaf")
+    public void thymeleaf() {
+        render(title, who);
+    }
+
+    @GetAction("thymeleaf/error")
+    public void thymeleafTemplateError() {
+    }
+
+    @GetAction("thymeleaf/error/runtime")
+    public void thymeleafTemplateRuntimeError() {
+        ViewsDemo demo = new ViewsDemo();
+        renderTemplate(demo);
+    }
+
+
     @GetAction("/api/v1/greeting/{who}")
     public String helloTo() {
         return "hello " + who;

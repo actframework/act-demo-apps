@@ -29,6 +29,7 @@
   #opt("Rythm")
   #opt("Beetl")
   #opt("FreeMarker")
+  #opt("Thymeleaf")
 
   #if ($_app.isDev())
   <li>---</li>
@@ -36,6 +37,7 @@
   #optError("Beetl")
   #optError("FreeMarker")
   #optError("Velocity")
+  #optError("Thymeleaf")
   #end
 
   <li>---</li>
@@ -43,6 +45,7 @@
   #optErrorRuntime("Beetl")
   #optErrorRuntime("FreeMarker")
   #optErrorRuntime("Velocity")
+  #optErrorRuntime("Thymeleaf")
   <li>---</li>
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>

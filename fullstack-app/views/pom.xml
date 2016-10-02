@@ -199,6 +199,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-thymeleaf</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.12</version>

@@ -29,6 +29,7 @@
   <@opt engine="Rythm"/>
   <@opt engine="Beetl"/>
   <@opt engine="Velocity"/>
+  <@opt engine="Thymeleaf"/>
 
   <#if _app.isDev()>
   <li>---</li>
@@ -36,6 +37,7 @@
   <@optError engine="Beetl"/>
   <@optError engine="FreeMarker"/>
   <@optError engine="Velocity"/>
+  <@optError engine="Thymeleaf"/>
   </#if>
 
   <li>---</li>
@@ -43,6 +45,7 @@
   <@optErrorRuntime engine="Beetl"/>
   <@optErrorRuntime engine="FreeMarker"/>
   <@optErrorRuntime engine="Velocity"/>
+  <@optErrorRuntime engine="Thymeleaf"/>
   <li>---</li>
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>

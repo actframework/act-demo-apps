@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title data-th-text="${title}"></title>
+</head>
+<body>
+<h1><span data-th-text="${_app.name()}"></span> - <span data-th-text="${title}"></span></h1>
+<p>
+  Hello <span data-th-utext="${who}"></span>
+</p>
+
+<div style="display: none;">
+  <div data-th-fragment="opt (engine)">
+    <a data-th-href="'/' + ${#strings.toLowerCase(engine)} + '?who=' + ${engine}">Say hello in <span data-th-text="${engine}"></span></a>
+  </div>
+
+  <div data-th-fragment="optError (engine)">
+    <a data-th-href="'/' + ${#strings.toLowerCase(engine)} + '/error'">Trigger error in <span data-th-text="${engine}"></span> engine</a>
+  </div>
+
+  <div data-th-fragment="optRuntimeError (engine)">
+    <a data-th-href="'/' + ${#strings.toLowerCase(engine)} + '/error/runtime'">Trigger runtime error in <span data-th-text="${engine}"></span> engine</a>
+  </div>
+</div>
+
+<ul>
+  <li data-th-insert=":: opt ('Rythm')"></li>
+  <li data-th-insert=":: opt ('Beetl')"></li>
+  <li data-th-insert=":: opt ('Freemarker')"></li>
+  <li data-th-insert=":: opt2 ('Velocity')"></li>
+</ul>
