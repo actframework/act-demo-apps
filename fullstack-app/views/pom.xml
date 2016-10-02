@@ -200,6 +200,12 @@
 
     <dependency>
       <groupId>org.actframework</groupId>
+      <artifactId>act-mustache</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
       <artifactId>act-thymeleaf</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>

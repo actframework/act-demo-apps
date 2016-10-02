@@ -80,6 +80,22 @@ public class ViewsDemo extends Controller.Util {
         renderTemplate(demo);
     }
 
+    @GetAction("mustache")
+    public void mustache() {
+        String appName = Act.app().name();
+        render(title, who, appName);
+    }
+
+    @GetAction("mustache/error")
+    public void mustacheTemplateError() {
+    }
+
+    @GetAction("mustache/error/runtime")
+    public void mustacheTemplateRuntimeError() {
+        ViewsDemo demo = new ViewsDemo();
+        renderTemplate(demo);
+    }
+
     @GetAction("thymeleaf")
     public void thymeleaf() {
         render(title, who);
@@ -94,7 +110,6 @@ public class ViewsDemo extends Controller.Util {
         ViewsDemo demo = new ViewsDemo();
         renderTemplate(demo);
     }
-
 
     @GetAction("/api/v1/greeting/{who}")
     public String helloTo() {

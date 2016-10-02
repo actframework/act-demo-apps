@@ -13,14 +13,17 @@
   <#opt engine="Rythm"/>
   <#opt engine="FreeMarker"/>
   <#opt engine="Velocity"/>
+  <#opt engine="Mustache"/>
   <#opt engine="Thymeleaf"/>
 
+  <%if(_app.dev) {%>
   <li>---</li>
   <#optError engine="Rythm"/>
   <#optError engine="Beetl"/>
   <#optError engine="FreeMarker"/>
   <#optError engine="Velocity"/>
   <#optError engine="Thymeleaf"/>
+  <%}%>
 
   <li>---</li>
   <#optErrorRuntime engine="Rythm"/>
