@@ -9,9 +9,9 @@
 </p>
 <ul>
   #macro(opt $engine)
-    <li>
-      <a href="/${engine.toLowerCase()}?who=${engine}">Say hello in ${engine}</a>
-    </li>
+  <li>
+    <a href="/${engine.toLowerCase()}?who=${engine}">Say hello in ${engine}</a>
+  </li>
   #end
 
   #macro(optError $engine)
@@ -29,11 +29,15 @@
   #opt("Rythm")
   #opt("Beetl")
   #opt("FreeMarker")
+
+  #if ($_app.isDev())
   <li>---</li>
   #optError("Rythm")
   #optError("Beetl")
   #optError("FreeMarker")
   #optError("Velocity")
+  #end
+
   <li>---</li>
   #optErrorRuntime("Rythm")
   #optErrorRuntime("Beetl")

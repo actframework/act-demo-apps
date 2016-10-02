@@ -29,11 +29,15 @@
   <@opt engine="Rythm"/>
   <@opt engine="Beetl"/>
   <@opt engine="Velocity"/>
+
+  <#if _app.isDev()>
   <li>---</li>
   <@optError engine="Rythm"/>
   <@optError engine="Beetl"/>
   <@optError engine="FreeMarker"/>
   <@optError engine="Velocity"/>
+  </#if>
+
   <li>---</li>
   <@optErrorRuntime engine="Rythm"/>
   <@optErrorRuntime engine="Beetl"/>

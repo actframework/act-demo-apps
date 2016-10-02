@@ -28,11 +28,13 @@
   @opt("Beetl")
   @opt("FreeMarker")
   @opt("Velocity")
+  @if(_app.isDev()) {
   <li>---</li>
   @optError("Rythm")
   @optError("Beetl")
   @optError("FreeMarker")
   @optError("Velocity")
+  }
   <li>---</li>
   @optRuntimeError("Rythm")
   @optRuntimeError("Beetl")
