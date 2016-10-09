@@ -1,8 +1,5 @@
 package act.fsa.todo_ebean;
 
-import act.db.ebean.EbeanDao;
-import act.db.ebean.EbeanModelBase;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
