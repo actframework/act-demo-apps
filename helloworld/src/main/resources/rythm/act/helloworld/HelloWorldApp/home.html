@@ -1,0 +1,14 @@
+@extends(_base)
+@args String who
+<h1>Hello world Demo</h1>
+@if(who) {
+<p>
+  Hello @who
+</p>
+}
+
+<ul>
+  <li><a href="?who=ActFramework">Say hello to Actframework</a></li>
+  <li><a href="?who=RythmEngine">Say hello to RythmEngine</a></li>
+</ul>
+
