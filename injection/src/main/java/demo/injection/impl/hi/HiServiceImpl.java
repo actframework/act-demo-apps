@@ -1,6 +1,6 @@
-package demo.impl.hi;
+package demo.injection.impl.hi;
 
-import demo.HiService;
+import demo.injection.HiService;
 
 public class HiServiceImpl implements HiService {
     @Override

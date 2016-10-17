@@ -1,4 +1,4 @@
-package demo;
+package demo.injection;
 
 import act.app.ActionContext;
 import act.boot.app.RunApp;

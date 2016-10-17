@@ -1,16 +1,13 @@
-package demo.modules;
+package demo.injection.modules;
 
 import act.sys.Env;
-import demo.ByeService;
-import demo.HiService;
-import demo.impl.bye.ByeServiceImpl;
-import demo.impl.bye.MockByeServiceImpl;
-import demo.impl.hi.HiServiceImpl;
-import demo.impl.hi.MockHiServiceImpl;
+import demo.injection.ByeService;
+import demo.injection.HiService;
+import demo.injection.impl.bye.MockByeServiceImpl;
+import demo.injection.impl.hi.MockHiServiceImpl;
 import org.osgl.inject.Module;
 
 import static act.Act.Mode.DEV;
-import static act.Act.Mode.PROD;
 
 @Env.Mode(DEV)
 public class DevModeHiByeModule extends Module {

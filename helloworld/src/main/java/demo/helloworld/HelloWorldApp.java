@@ -1,4 +1,4 @@
-package act.helloworld;
+package demo.helloworld;
 
 import act.boot.app.RunApp;
 import org.osgl.mvc.annotation.GetAction;

@@ -2,4 +2,4 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 BASE=$DIR/.
 CP=$BASE/classes:$BASE/lib/*
-java $JAVA_OPTS -Dapp.mode=prod -Dprofile=$ACT_PROFILE -cp "$CP" demo.InjectionApp
+java $JAVA_OPTS -Dapp.mode=prod -Dprofile=$ACT_PROFILE -cp "$CP" demo.injection.InjectionApp

@@ -1,9 +1,8 @@
-package demo.modules;
+package demo.injection.modules;
 
 import act.inject.ModuleTag;
-import demo.GreetingService;
-import demo.impl.greeting.GreetingServiceImpl;
-import org.osgl.inject.Module;
+import demo.injection.GreetingService;
+import demo.injection.impl.greeting.GreetingServiceImpl;
 import org.osgl.inject.annotation.Provides;
 
 @ModuleTag

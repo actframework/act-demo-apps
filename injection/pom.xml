@@ -123,7 +123,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>demo.InjectionApp</argument>
+              <argument>demo.injection.InjectionApp</argument>
             </arguments>
           </configuration>
         </plugin>

@@ -111,7 +111,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.helloworld.HelloWorldApp</argument>
+              <argument>demo.helloworld.HelloWorldApp</argument>
             </arguments>
           </configuration>
         </plugin>

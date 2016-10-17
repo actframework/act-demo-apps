@@ -1,6 +1,6 @@
-package demo.impl.bye;
+package demo.injection.impl.bye;
 
-import demo.ByeService;
+import demo.injection.ByeService;
 import org.osgl.util.S;
 
 public class ByeServiceImpl implements ByeService {

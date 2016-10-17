@@ -1,8 +1,7 @@
-package demo.impl.bye;
+package demo.injection.impl.bye;
 
 import act.app.ActionContext;
-import act.conf.AppConfig;
-import demo.ByeService;
+import demo.injection.ByeService;
 import org.osgl.util.E;
 import org.osgl.util.S;
 

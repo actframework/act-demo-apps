@@ -1,7 +1,7 @@
-package demo.impl.greeting;
+package demo.injection.impl.greeting;
 
 import act.app.ActionContext;
-import demo.GreetingService;
+import demo.injection.GreetingService;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
