@@ -1,0 +1,22 @@
+@extends(_base)
+<h1>Welcome to ACT Framework Guice Demo</h1>
+<p>Menu</p>
+<ul>
+  <li><a href="/greeting">Greeting</a></li>
+  <li><a href="/greeting?fmt=json">Greeting in JSON response</a></li>
+  <li>
+    <form action="/hi" method="post">
+      <span>Say hi to <input name="who" placeholder="new friend" value="ACT"></span>
+      <button>Submit</button>
+    </form>
+  </li>
+  <li>
+    <form action="/bye" method="post">
+      <span>Say bye to <input name="who" placeholder="old friend" value="Play"></span>
+      <button>Submit</button>
+    </form>
+  </li>
+  <li>
+    <a href="/zaijian?who=velocity">再见 Velocity!</a>
+  </li>
+</ul>
