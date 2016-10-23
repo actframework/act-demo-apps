@@ -174,5 +174,16 @@ The tricky part is the `Env.Mode` annotation which specifies the environment in 
 If the `Env.Mode` annotation is not presented, then the module shall be loaded in any environment. Otherwise the
 module will be loaded only when the running environment corresponding to the `Env.Mode` specification.
 
+## FAQ
 
+**Question**: Why do I get error message `Cannot encrypt/decrypt! Please download Java Crypto Extension pack from Oracle` ?
 
+**Answer**: Please download the JCE pack from Oracle for
+[Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) or 
+[Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html)
+
+**Question**: Why do I get `401 Unauthorized` when posting to `/hi` using PostMan?
+
+**Answer**: ActFramework by default enable the CSRF protection, when you post directly from post man you don't have
+ the `__csrf__` parameter, thus the request is rejected. You can run the app with `-Dcsrf=false` to turn off
+ CSRF protection
