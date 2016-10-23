@@ -176,7 +176,9 @@ module will be loaded only when the running environment corresponding to the `En
 
 ## FAQ
 
-**Question**: Why do I get error message `Cannot encrypt/decrypt! Please download Java Crypto Extension pack from Oracle` ?
+**Question**: Why do I get the following error message 
+
+`Cannot encrypt/decrypt! Please download Java Crypto Extension pack from Oracle` ?
 
 **Answer**: Please download the JCE pack from Oracle for
 [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) or 
@@ -184,6 +186,9 @@ module will be loaded only when the running environment corresponding to the `En
 
 **Question**: Why do I get `401 Unauthorized` when posting to `/hi` using PostMan?
 
-**Answer**: ActFramework by default enable the CSRF protection, when you post directly from post man you don't have
- the `__csrf__` parameter, thus the request is rejected. You can run the app with `-Dcsrf=false` to turn off
+**Answer**: ActFramework by default enable the 
+[CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet) protection, 
+when you post directly from post man you don't have the `__csrf__` parameter, thus the request is rejected. 
+
+You can run the app with `-Dcsrf=false` to turn off
  CSRF protection
