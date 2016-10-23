@@ -1,5 +1,6 @@
 package demo.helloworld;
 
+import act.Version;
 import act.boot.app.RunApp;
 import org.osgl.mvc.annotation.GetAction;
 
@@ -20,7 +21,7 @@ public class HelloWorldApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start(HelloWorldApp.class);
+        RunApp.start("HelloWorld", Version.appVersion(), HelloWorldApp.class);
     }
 
 }
