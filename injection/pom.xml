@@ -19,7 +19,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>demo</groupId>
+  <groupId>org.actframework.demo</groupId>
   <artifactId>injection</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
@@ -37,6 +37,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>0.3.0-SNAPSHOT</act.version>
+    <app.entry>demo.injection.InjectionApp</app.entry>
   </properties>
 
   <licenses>
@@ -123,7 +124,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>demo.injection.InjectionApp</argument>
+              <argument>${app.entry}</argument>
             </arguments>
           </configuration>
         </plugin>

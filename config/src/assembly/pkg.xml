@@ -54,7 +54,6 @@ under the License.
       <includes>
         <include>start*</include>
       </includes>
-      <filtered>true</filtered>
     </fileSet>
   </fileSets>
 
