@@ -180,7 +180,7 @@ module will be loaded only when the running environment corresponding to the `En
 
 `Cannot encrypt/decrypt! Please download Java Crypto Extension pack from Oracle`
 
-**Answer**: Please download the JCE pack from Oracle for
+**Answer**: Please download and install the JCE pack from Oracle for
 [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html) or 
 [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html)
 
