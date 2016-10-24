@@ -22,7 +22,6 @@ import static act.Act.Mode.DEV;
  *
  * @see HiByeModule
  */
-@ModuleTag
 @Env.Mode(DEV)
 public class DevModeHiByeModule {
 

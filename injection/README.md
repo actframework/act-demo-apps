@@ -122,10 +122,17 @@ The magic of binding happens in the module classes found in `modules` package.
 ### Greeting module
 
 ```java
-public class GreetingModule  {
-    @Provides
-    public GreetingService greetingService(GreetingServiceImpl greetingService) {
-        return greetingService;
+/**
+ * Overwrite the auto binding on {@link GreetingService} so we always
+ * use {@link GreetingServiceImpl} in regarding to the current app
+ * run environment mode.
+ */
+public class GreetingModule extends Module {
+    @Override
+    protected void configure() {
+        // Comment out the following line and refresh your browser page
+        // at http://localhost:5460/greeting to observe the changes
+        bind(GreetingService.class).to(GreetingServiceImpl.class);
     }
 }
 ```
@@ -136,11 +143,33 @@ method.
 **Tips** Name your module class to `XyzModule` so ActFramework will automatically register the class as dependency 
 injection module. Otherwise you need to tag the class with `@act.inject.ModuleTag` annotation
 
+**Note** The `GreetingService` interface is declared with `@AutoBind`, that tells ActFramework to automatically look for the implementation on application start:
+
+```java
+@AutoBind
+public interface GreetingService {
+    String greeting();
+}
+```
+
+So one doesn't need to specify the `GreentingService` binding. It will automatically look up the implementations that matches the current environment. Specifically when
+the app is running in `DEV` mode, it will bind to `GreetingService` to `MockGreetingServiceImpl` which is annotated with `@Env.Mode(Act.Mode.DEV)`. Otherwise it will
+bind the `GreetingService` to `GreetingServiceImpl` which is annotated with `@Env.Mode(Act.Mode.PROD)`.
+
 ### Hi and Bye modules
+
+We created two modules to demonstrate how to use module to inject `HiServcie` and `ByeService` in different running mode:
 
 Module for PROD mode
 
 ```java
+/**
+ * This module demonstrate how to do binding by
+ * extending {@link Module} and calling bind API
+ * in the {@link Module#configure()} method
+ *
+ * @see DevModeHiByeModule
+ */
 @Env.Mode(PROD)
 public class HiByeModule extends Module {
     @Override
@@ -154,25 +183,34 @@ public class HiByeModule extends Module {
 Module for DEV mode:
 
 ```java
+/**
+ * This module demonstrate how to create module by providing
+ * factory methods
+ *
+ * @see HiByeModule
+ */
+@ModuleTag
 @Env.Mode(DEV)
-public class DevModeHiByeModule extends Module {
-    @Override
-    protected void configure() {
-        bind(HiService.class).to(MockHiServiceImpl.class);
-        bind(ByeService.class).to(MockByeServiceImpl.class);
+public class DevModeHiByeModule {
+
+    @Provides
+    public static HiService foo(MockHiServiceImpl hiService) {
+        return hiService;
+    }
+
+    @Provides
+    public ByeService bar() {
+        return Act.newInstance(MockByeServiceImpl.class);
     }
 }
 ```
 
-To demonstrate a different way of defining module, we extends the `HiByeModule` from `org.osgl.inject.Module` and
-implement the `configure()` method, in which we have the `bind` statement to define the bindings.
 
-**Tips** ActFramework will automatically register any class that extends from 
-`org.osgl.inject.Module` class.
+**Tips** ActFramework will automatically register module classes in the following three cases
 
-The tricky part is the `Env.Mode` annotation which specifies the environment in which the module shall be loaded.
-If the `Env.Mode` annotation is not presented, then the module shall be loaded in any environment. Otherwise the
-module will be loaded only when the running environment corresponding to the `Env.Mode` specification.
+1. public non-abstract classes that extends `org.osgl.inject.Module`
+2. public classes that annotated with `act.inject.ModuleTag`
+3. public classes whose name ends with `Module`
 
 ## FAQ
 
