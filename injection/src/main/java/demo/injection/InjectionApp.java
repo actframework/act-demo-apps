@@ -5,16 +5,18 @@ import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.security.CSRF;
 import org.osgl.http.H;
-import org.osgl.mvc.annotation.Before;
-import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.annotation.PostAction;
-import org.osgl.mvc.annotation.PutAction;
+import org.osgl.mvc.annotation.*;
 import org.osgl.mvc.result.Result;
 
 import javax.inject.Inject;
+import javax.inject.Named;
+
+import java.util.List;
+import java.util.Set;
 
 import static act.controller.Controller.Util.*;
 
+@SuppressWarnings("unused")
 public class InjectionApp {
 
     private HiService hi;
