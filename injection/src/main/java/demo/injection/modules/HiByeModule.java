@@ -9,6 +9,13 @@ import org.osgl.inject.Module;
 
 import static act.Act.Mode.PROD;
 
+/**
+ * This module demonstrate how to do binding by
+ * extending {@link Module} and calling bind API
+ * in the {@link Module#configure()} method
+ *
+ * @see DevModeHiByeModule
+ */
 @Env.Mode(PROD)
 public class HiByeModule extends Module {
     @Override

@@ -1,13 +1,13 @@
 package demo.injection.impl.hi;
 
 import demo.injection.HiService;
+import org.osgl.util.S;
 
 public class MockHiServiceImpl implements HiService {
 
     @Override
     public String sayHi(String who) {
-        String action = "Mock hi";
-        return action + " " + who;
+        return S.fmt("Hi %s (in DEV mode)!", who);
     }
 
 }

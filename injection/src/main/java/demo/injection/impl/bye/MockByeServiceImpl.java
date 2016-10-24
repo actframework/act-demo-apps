@@ -2,6 +2,7 @@ package demo.injection.impl.bye;
 
 import act.app.ActionContext;
 import demo.injection.ByeService;
+import org.osgl.$;
 import org.osgl.util.E;
 import org.osgl.util.S;
 
@@ -13,13 +14,12 @@ public class MockByeServiceImpl implements ByeService {
 
     @Inject
     public MockByeServiceImpl(ActionContext context) {
-        E.NPE(context);
-        this.context = context;
+        this.context = $.notNull(context);
     }
 
     @Override
     public String bye(String who) {
-        return S.fmt("mock bye %s!", who);
+        return S.fmt("In answering requesting sent to [%s], we say bye %s! (in DEV mode)", context.req().url(), who);
     }
 
 }

@@ -1,5 +1,6 @@
-package act.fsa.appconfig;
+package demo.config;
 
+import act.Version;
 import act.app.ActionContext;
 import act.boot.app.RunApp;
 import org.osgl.http.H;
@@ -10,12 +11,9 @@ import org.osgl.mvc.result.Result;
 import static act.controller.Controller.Util.*;
 
 /**
- * The simple hello world app.
- * <p>Run this app, try to update some of the code, then
- * press F5 in the browser to watch the immediate change
- * in the browser!</p>
+ * App entry for Config Demo project
  */
-public class AppConfigDemoApp {
+public class ConfigDemo {
 
     @Before
     public void mockFormat(String fmt, ActionContext context) {
@@ -51,7 +49,7 @@ public class AppConfigDemoApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start(AppConfigDemoApp.class);
+        RunApp.start("Config Demo", Version.appVersion(), ConfigDemo.class);
     }
 
 }

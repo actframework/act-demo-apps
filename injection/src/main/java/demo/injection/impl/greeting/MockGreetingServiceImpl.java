@@ -8,8 +8,8 @@ import demo.injection.GreetingService;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
-@Env.Mode(Act.Mode.PROD)
-public class GreetingServiceImpl implements GreetingService {
+@Env.Mode(Act.Mode.DEV)
+public class MockGreetingServiceImpl implements GreetingService {
 
     @Inject
     Provider<ActionContext> context;
@@ -20,6 +20,6 @@ public class GreetingServiceImpl implements GreetingService {
         if (null == who) {
             who = "world";
         }
-        return String.format("Hello %s!", who);
+        return String.format("Hello %s! in Dev Mode", who);
     }
 }

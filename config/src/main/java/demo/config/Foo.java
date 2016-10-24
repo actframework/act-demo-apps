@@ -1,4 +1,4 @@
-package act.fsa.appconfig;
+package demo.config;
 
 import act.app.conf.AutoConfig;
 import org.osgl.util.S;

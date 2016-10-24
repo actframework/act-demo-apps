@@ -1,4 +1,4 @@
-package act.fsa.appconfig;
+package demo.config;
 
 /**
  * Application could be configured using code if configuration file
@@ -30,18 +30,18 @@ public class MyAppConfig extends act.app.conf.AppConfigurator<MyAppConfig> {
     // however routes configured in routes table file will take the precedence over
     // this configuration
     private void configureRoutes() {
-        // this map path "/foo" to AppConfigDemoApp.sayHello method
+        // this map path "/foo" to ConfigDemo.sayHello method
         // the mapping is on HTTP GET method only
-        route("/foo").on(GET).to(AppConfigDemoApp.class, "sayHello");
+        route("/foo").on(GET).to(ConfigDemo.class, "sayHello");
 
         // this map the "/foo" context to Foo.class and automatically
         // map sub path to all public method of Foo.class
         // the mapping is on all supported HTTP methods
         route("/foo").to(Foo.class);
 
-        // this will remap "/hello" from AppConfigDemoApp.sayHello to AppConfigDemoApp.greeting
+        // this will remap "/hello" from ConfigDemo.sayHello to ConfigDemo.greeting
         // the mapping is on all supported HTTP methods
-        route("/hello").to(AppConfigDemoApp.class, "greeting");
+        route("/hello").to(ConfigDemo.class, "greeting");
     }
 
     private void configureAppProps() {

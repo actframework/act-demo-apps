@@ -1,11 +1,11 @@
 package demo.injection.impl.hi;
 
 import demo.injection.HiService;
+import org.osgl.util.S;
 
 public class HiServiceImpl implements HiService {
     @Override
     public String sayHi(String who) {
-        String action = "hi";
-        return action + " " + who;
+        return S.fmt("Hi %s", who);
     }
 }
