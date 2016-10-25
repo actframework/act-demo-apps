@@ -1,4 +1,4 @@
-# ActFramework HelloWorld Demo
+# ActFramework Excel Demo
 
 This application demonstrates how to use generate Excel report in ActFramework application
 
