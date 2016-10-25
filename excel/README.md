@@ -106,12 +106,13 @@ is looking for a csv` download, ActFramework will call built-in CSV file generat
 When the `content_suffix.aware` configuration is turned on, ActFramework will try to update the request `Accept` header
  based on URL. In this example:
  
- | URL    | Accept | Effective URL |
- | ------ | ------ | ------------- |
- | `/csv` | `text/csv` |  `/`  |
- | `/json` | `application/json` | `/` |
- | `/xls` | `application/vnd.ms-excel` | `/` |
- | `/xlsx` | `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` | `/` |
+
+| URL | Accept header | Effective URL |
+| -----------  | --------------- | -------- |
+| `/csv` | `text/csv` | `/` |
+| `/json` | `application/json` | `/` |
+| `/xlsx` | `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` | `/` |
+
  
 The configuration in this application could be found in `resources/app.conf` file. The use of content_suffix aware
 URL could be found in the `resources/rythm/demo/excel/ExcelApp/home.html` template
