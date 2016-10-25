@@ -108,10 +108,10 @@ When the `content_suffix.aware` configuration is turned on, ActFramework will tr
  
  | URL    | Accept | Effective URL |
  | ------ | ------ | ------------- |
- | /csv | text/csv | / |
- | /json | application/json | / |
- | /xls | application/vnd.ms-excel | / |
- | /xlsx | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | / |
+ | `/csv` | `text/csv` |  `/`  |
+ | `/json` | `application/json` | `/` |
+ | `/xls` | `application/vnd.ms-excel` | `/` |
+ | `/xlsx` | `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` | `/` |
  
 The configuration in this application could be found in `resources/app.conf` file. The use of content_suffix aware
 URL could be found in the `resources/rythm/demo/excel/ExcelApp/home.html` template
