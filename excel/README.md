@@ -98,10 +98,10 @@ Based on request's `Accept` header, ActFramework choose different template engin
 | application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | excel | resources/excel/demo/excel/ExcelApp/home.xlsx |
 
 In our application there is no template resource `resources/rythm/demo/excel/ExcelApp/home.csv`, thus when the request
-is looking for a csv` download, ActFramework will call built-in CSV file generate to prepare the file based on the Java
- reflection to get the `Employee`'s properties.
+is looking for a csv download, ActFramework will call built-in CSV file generate to prepare the file based on the Java
+ reflection to get the `Employee` 's properties.
 
-### `content_suffix.aware` configuration
+### About `content_suffix.aware` configuration
 
 When the `content_suffix.aware` configuration is turned on, ActFramework will try to update the request `Accept` header
  based on URL. In this example:
@@ -110,10 +110,11 @@ When the `content_suffix.aware` configuration is turned on, ActFramework will tr
 | URL | Accept header | Effective URL |
 | -----------  | --------------- | -------- |
 | `/csv` | `text/csv` | `/` |
+| `/json`   |  application/json | `/` |
 | `/json` | `application/json` | `/` |
 | `/xlsx` | `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` | `/` |
 
- 
+
 The configuration in this application could be found in `resources/app.conf` file. The use of content_suffix aware
 URL could be found in the `resources/rythm/demo/excel/ExcelApp/home.html` template
  
