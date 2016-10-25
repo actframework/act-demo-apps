@@ -91,6 +91,7 @@ render response based on request Accept header value. By default it will render 
 Based on request's `Accept` header, ActFramework choose different template engine to render the response
 
 | content type | template engine | location |
+| -----------  | --------------- | -------- |
 | text/html (default) | rythm | resources/rythm/demo/excel/ExcelApp/home.html |
 | text/csv | rythm | resources/rythm/demo/excel/ExcelApp/home.csv |
 | application/vnd.ms-excel | excel | resources/excel/demo/excel/ExcelApp/home.xls |
