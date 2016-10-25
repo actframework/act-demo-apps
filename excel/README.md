@@ -19,8 +19,38 @@ unzip *
 ./start
 ```
 
-Once application has been started, you can open browser and locate to `http://localhost:5460` get the home page.
+Once application has been started, you should see something like:
 
+```
+| ____|__  __  ___   ___ | | |  _ \   ___  _ __ ___    ___  
+|  _|  \ \/ / / __| / _ \| | | | | | / _ \| '_ ` _ \  / _ \ 
+| |___  >  < | (__ |  __/| | | |_| ||  __/| | | | | || (_) |
+|_____|/_/\_\ \___| \___||_| |____/  \___||_| |_| |_| \___/ 
+                                                            
+                        powered by ActFramework v0.3.0-ec028
+
+ version: 0.0.1-SNAPSHOT
+base dir: /home/luog/p/act/samples/excel/target/dist
+ profile: common
+    mode: PROD
+
+14:01:20.879 [main] INFO  a.Act - loading application(s) ...
+14:01:20.883 [main] INFO  a.Act - App starting ....
+14:01:20.939 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
+14:01:20.963 [main] WARN  a.a.DbServiceManager - DB service not initialized: No DB plugin found
+14:01:21.159 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
+14:01:21.159 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
+14:01:21.277 [main] INFO  a.Act - App[Excel Demo] loaded in 394ms
+14:01:21.292 [main] INFO  o.xnio - XNIO version 3.3.6.Final
+14:01:21.308 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
+14:01:21.410 [main] INFO  a.Act - network client hooked on port: 5460
+14:01:21.411 [main] INFO  a.Act - CLI server started on port: 5461
+14:01:21.412 [main] INFO  a.b.a.RunApp - it takes 2906ms to start the app
+```
+
+Now you can open browser at `http://localhost:5460` to view the home page.
+
+**Tips** You can also run the app in your IDE by run the main entry class `demo.excel.ExcelApp`
 
 ## About Act Excel plugin
 
