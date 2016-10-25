@@ -41,7 +41,7 @@ The plugin implemented `act.view.View` using [jxls](http://jxls.sourceforge.net/
 
 ## Understanding the Demo app
 
-The demo application contains a single Java class `demo.excel.ExcelApp`
+The demo application has a main entry class: `demo.excel.ExcelApp`
 
 ```java
 public class ExcelApp {
