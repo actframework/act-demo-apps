@@ -86,26 +86,21 @@ The `ExcelApp` class contains one action handler method:
 This simple action handler returns a list of `Employee` data. Which will be further processed by template engines to 
 render response based on request Accept header value. By default it will render the `html` template.
 
-The html template `home.html` is located at `resources/rythm/demo/excel/ExcelApp`. Literally the path is corresponding
-to the package/class/method hierarchy, based in `resources/rythm` template root. Note the render argument is 
-a list of `Employee` indexed by name `result` because it is returned directly from the action handler method.
+### Content negotiation and template engine dispatch
 
-The template is created using [Rythm Engine](http://rythmengine.org). For more information about Rythm engine, please
- visit the official site at http://rythmenigne.org
+Based on request's `Accept` header, ActFramework choose different template engine to render the response
 
-When request accept header value is "text/csv", because we don't have a template for `csv` request, ActFramework will
- generate CSV based on the `Employee` class's fields.
- 
-When request accept header value is `application/vnd.ms-excel`, ActFramework will look for the excel template at
+| content type | template engine | location |
+| text/html (default) | rythm | resources/rythm/demo/excel/ExcelApp/home.html |
+| text/csv | rythm | resources/rythm/demo/excel/ExcelApp/home.csv |
+| application/vnd.ms-excel | excel | resources/excel/demo/excel/ExcelApp/home.xls |
+| application/vnd.openxmlformats-officedocument.spreadsheetml.sheet | excel | resources/excel/demo/excel/ExcelApp/home.xlsx |
 
-`resources/excel/demo/excel/ExcelApp/home.xls`
+In our application there is no template resource `resources/rythm/demo/excel/ExcelApp/home.csv`, thus when the request
+is looking for a csv` download, ActFramework will call built-in CSV file generate to prepare the file based on the Java
+ reflection to get the `Employee`'s properties.
 
-When request accept header value is `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`, ActFramework
-will look for the template at
-
-`resources/excel/demo/excel/ExcelApp/home.xlsx`
-
-### Turn on `content_suffix.aware` configuration
+### `content_suffix.aware` configuration
 
 When the `content_suffix.aware` configuration is turned on, ActFramework will try to update the request `Accept` header
  based on URL. In this example:
