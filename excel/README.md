@@ -24,7 +24,7 @@ Once application has been started, you can open browser and locate to `http://lo
 
 ## About Act Excel plugin
 
-Excel reporting feature is not provded directly to ActFramework. You have to add the following dependency into your
+Excel reporting feature is not provided directly in ActFramework. You need to add the following dependency into your
 `pom.xml` file:
 
 ```xml
