@@ -150,9 +150,17 @@ URL could be found in the `resources/rythm/demo/excel/ExcelApp/home.html` templa
 
 ## Performance
 
+Data scale:
+
 * Number of data (Employee): 50
 * XLS template size: 22KB
 * XLSX template size: 11KB
+
+Hardware (my local laptop):
+
+* KINGSTON SUV400S37240G
+* 16G RAM
+* i7-4700MQ
 
 | Request Type | Request # | Concurrency level | Time/Req (ms) | Time/Req (ms, across all concurrent requests) |
 | --- | --- | --- | --- | --- |
