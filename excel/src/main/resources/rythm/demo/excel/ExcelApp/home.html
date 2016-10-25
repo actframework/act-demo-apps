@@ -1,0 +1,60 @@
+@extends(_base)
+@import demo.excel.Employee
+@args List<Employee> result
+  <h1>Excel Demo</h1>
+
+  <style>
+    body {
+      background-color: #333;
+      color: #ededed;
+    }
+    a:link, a:visited, a:active {
+      color: #17e2ff
+    }
+    table {border: 1px solid #aaa; margin: 20px 20px;}
+    table tr:nth-child(even) {background-color: #888;}
+    table td {padding: 2px 16px;}
+    #command {margin: 5px auto; font-size: 10pt;}
+    .command {padding: 1px 10px;}
+  </style>
+
+  @def employeeRow(Employee emp) {
+  <tr>
+    <td>@emp.getId()</td>
+    <td>@emp.getFirstName()</td>
+    <td>@emp.getLastName()</td>
+    <td>@emp.getGrade()</td>
+  </tr>
+  }
+
+  <div id="command">
+    <span class="command">
+      <a href="/json">Get JSON data</a>
+    </span>
+    <span class="command">
+      <a href="/csv">Download CSV data</a>
+    </span>
+    <span class="command">
+      <a href="/xls">Download Excel (before 2007)</a>
+    </span>
+    <span class="command">
+      <a href="/xlsx">Download Excel (2007 plus)</a>
+    </span>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    @for (result) {
+      @employeeRow(_)
+    }
+    </tbody>
+  </table>
+
