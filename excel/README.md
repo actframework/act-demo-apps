@@ -147,6 +147,314 @@ When the `content_suffix.aware` configuration is turned on, ActFramework will tr
 
 The configuration in this application could be found in `resources/app.conf` file. The use of content_suffix aware
 URL could be found in the `resources/rythm/demo/excel/ExcelApp/home.html` template
+
+## Performance
+
+| Request Type | Request # | Concurrency level | Time/Req (ms) | Time/Req (ms, across all concurrent requests) |
+| --- | --- | --- | --- | --- |
+| HTML | 10k | 20 | 7.05 | 0.35 |
+| JSON | 10k | 20 | 3.45 | 0.17 |
+| CSV | 10k | 20 | 5.38 | 0.27 |
+| XLS | 1k | 5 | 11.09 | 2.22 |
+| XLSX | 1k | 5 | 63.24 | 12.65 |
+
+
+ab log for getting HTML data:
+
+```
+ab -n 10000 -c 20 http://localhost:5460/
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            5460
+
+Document Path:          /
+Document Length:        4766 bytes
+
+Concurrency Level:      20
+Time taken for tests:   3.525 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      52630000 bytes
+HTML transferred:       47660000 bytes
+Requests per second:    2836.56 [#/sec] (mean)
+Time per request:       7.051 [ms] (mean)
+Time per request:       0.353 [ms] (mean, across all concurrent requests)
+Transfer rate:          14578.94 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     1    7   3.9      7      17
+Waiting:        1    7   3.9      7      17
+Total:          1    7   3.9      7      17
+
+Percentage of the requests served within a certain time (ms)
+  50%      7
+  66%      9
+  75%     10
+  80%     11
+  90%     12
+  95%     13
+  98%     13
+  99%     14
+ 100%     17 (longest request)
+```
+
+
+ab log for getting JSON data:
+
+```
+ab -n 10000 -c 20 http://localhost:5460/json
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            5460
+
+Document Path:          /json
+Document Length:        3676 bytes
+
+Concurrency Level:      20
+Time taken for tests:   1.723 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      42410000 bytes
+HTML transferred:       36760000 bytes
+Requests per second:    5803.31 [#/sec] (mean)
+Time per request:       3.446 [ms] (mean)
+Time per request:       0.172 [ms] (mean, across all concurrent requests)
+Transfer rate:          24035.01 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    3   2.0      3      16
+Waiting:        0    3   2.0      3      16
+Total:          0    3   2.0      3      16
+
+Percentage of the requests served within a certain time (ms)
+  50%      3
+  66%      4
+  75%      5
+  80%      5
+  90%      6
+  95%      6
+  98%      7
+  99%      7
+ 100%     16 (longest request)
+```
+
+ab log for getting CSV data:
+
+```
+ab -n 10000 -c 20 http://localhost:5460/csv
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            5460
+
+Document Path:          /csv
+Document Length:        1402 bytes
+
+Concurrency Level:      20
+Time taken for tests:   2.689 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      19590000 bytes
+HTML transferred:       14020000 bytes
+Requests per second:    3718.64 [#/sec] (mean)
+Time per request:       5.378 [ms] (mean)
+Time per request:       0.269 [ms] (mean, across all concurrent requests)
+Transfer rate:          7114.07 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     0    5   3.2      5      20
+Waiting:        0    5   3.2      5      20
+Total:          0    5   3.2      5      20
+
+Percentage of the requests served within a certain time (ms)
+  50%      5
+  66%      7
+  75%      8
+  80%      8
+  90%      9
+  95%     10
+  98%     13
+  99%     15
+ 100%     20 (longest request)
+```
+
+ab log for getting XLS report:
+
+```
+ab -n 1000 -c 5 http://localhost:5460/xls
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            5460
+
+Document Path:          /xls
+Document Length:        26624 bytes
+
+Concurrency Level:      5
+Time taken for tests:   2.218 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      27215000 bytes
+HTML transferred:       26624000 bytes
+Requests per second:    450.88 [#/sec] (mean)
+Time per request:       11.089 [ms] (mean)
+Time per request:       2.218 [ms] (mean, across all concurrent requests)
+Transfer rate:          11983.08 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:     3   11   5.5     12      49
+Waiting:        3   11   5.5     12      49
+Total:          3   11   5.5     12      49
+
+Percentage of the requests served within a certain time (ms)
+  50%     12
+  66%     13
+  75%     16
+  80%     16
+  90%     17
+  95%     19
+  98%     20
+  99%     21
+ 100%     49 (longest request)
+```
+
+ab log for getting XLSX report
+
+```
+ab -n 1000 -c 5 http://localhost:5460/xlsx
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            5460
+
+Document Path:          /xlsx
+Document Length:        11125 bytes
+
+Concurrency Level:      5
+Time taken for tests:   12.647 seconds
+Complete requests:      1000
+Failed requests:        0
+Total transferred:      11758000 bytes
+HTML transferred:       11125000 bytes
+Requests per second:    79.07 [#/sec] (mean)
+Time per request:       63.237 [ms] (mean)
+Time per request:       12.647 [ms] (mean, across all concurrent requests)
+Transfer rate:          907.89 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    13   63  30.1     68     185
+Waiting:       12   62  30.0     66     183
+Total:         13   63  30.1     68     185
+
+Percentage of the requests served within a certain time (ms)
+  50%     68
+  66%     75
+  75%     92
+  80%     93
+  90%    100
+  95%    110
+  98%    124
+  99%    135
+ 100%    185 (longest request)
+```
+
  
 ## FAQ
 
