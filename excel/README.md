@@ -106,8 +106,8 @@ is looking for a csv` download, ActFramework will call built-in CSV file generat
 When the `content_suffix.aware` configuration is turned on, ActFramework will try to update the request `Accept` header
  based on URL. In this example:
  
- | URL | Accept | Effective URL |
- | --- | ------ | ------------- |
+ | URL    | Accept | Effective URL |
+ | ------ | ------ | ------------- |
  | /csv | text/csv | / |
  | /json | application/json | / |
  | /xls | application/vnd.ms-excel | / |
