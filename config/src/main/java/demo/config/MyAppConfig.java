@@ -1,5 +1,7 @@
 package demo.config;
 
+import act.app.conf.AppConfigurator;
+
 /**
  * Application could be configured using code if configuration file
  * is not your favorite. Just create a public class that extends
@@ -7,14 +9,13 @@ package demo.config;
  * method. ACT framework will sense your code base configuration and load it
  * during bootstrap process
  */
-public class MyAppConfig extends act.app.conf.AppConfigurator<MyAppConfig> {
+public class MyAppConfig extends AppConfigurator<MyAppConfig> {
 
     // So override the configure() method
     // to do our code based configurations
     @Override
     public void configure() {
         configureTemplateHome();
-        configureRoutes();
         configureAppProps();
     }
 
@@ -25,37 +26,8 @@ public class MyAppConfig extends act.app.conf.AppConfigurator<MyAppConfig> {
         templateHome("views");
     }
 
-    // Note the route configurations setup here will override
-    // route configurations done by controller action method annotation
-    // however routes configured in routes table file will take the precedence over
-    // this configuration
-    private void configureRoutes() {
-        // this map path "/foo" to ConfigDemo.sayHello method
-        // the mapping is on HTTP GET method only
-        route("/foo").on(GET).to(ConfigDemo.class, "sayHello");
-
-        // this map the "/foo" context to Foo.class and automatically
-        // map sub path to all public method of Foo.class
-        // the mapping is on all supported HTTP methods
-        route("/foo").to(Foo.class);
-
-        // this will remap "/hello" from ConfigDemo.sayHello to ConfigDemo.greeting
-        // the mapping is on all supported HTTP methods
-        route("/hello").to(ConfigDemo.class, "greeting");
-    }
-
     private void configureAppProps() {
-        prop("app.foo.bar", 5);
-        prop("app.foo.zee", "foo");
-        prop("app.foo.auth_code", "apple");
-        prop("app.db.host", "127.0.0.1");
-        prop("app.db.port", "1234");
-        prop("app.db.db", "catfish");
-        prop("app.git.protocol", "git");
-        prop("app.git.repository", "github.com/actframework/actframework");
-        prop("app.git.username", "tomcat");
-        prop("app.git.password", "$%FVSFAFdhdd07sf#!<()");
-        prop("foo.to", "X-man");
+        prop("x.to", "X-man");
     }
 
 }

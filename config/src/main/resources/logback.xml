@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+  <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
   <!-- Send debug messages to System.out -->
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <!-- By default, encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
@@ -17,7 +19,7 @@
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <FileNamePattern>/jcg.%i.log.zip</FileNamePattern>
+      <FileNamePattern>/act.%i.log.zip</FileNamePattern>
       <MinIndex>1</MinIndex>
       <MaxIndex>10</MaxIndex>
     </rollingPolicy>
@@ -34,7 +36,7 @@
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <FileNamePattern>/jcg.%i.log.zip</FileNamePattern>
+      <FileNamePattern>/act.metric.%i.log.zip</FileNamePattern>
       <MinIndex>1</MinIndex>
       <MaxIndex>10</MaxIndex>
     </rollingPolicy>
@@ -44,17 +46,27 @@
     </triggeringPolicy>
   </appender>
 
-  <logger name="act" level="DEBUG" additivity="false">
-    <appender-ref ref="FILE" />
-    <appender-ref ref="STDOUT" />
+  <logger name="act.boot.app.RunApp" level="INFO" additivity="false">
+    <appender-ref ref="STDOUT"/>
   </logger>
 
-  <logger name="metric.act" level="TRACE">
+  <logger name="act" level="INFO" additivity="false">
+    <appender-ref ref="FILE" />
+    <appender-ref ref="STDOUT"/>
+  </logger>
+
+  <logger name="metric" level="TRACE" additivity="false">
     <appender-ref ref="METRIC_FILE" />
+  </logger>
+
+  <logger name="demo" level="DEBUG" additivity="false">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="STDOUT"/>
   </logger>
 
   <!-- By default, the level of the root level is set to DEBUG -->
   <root level="INFO">
+    <appender-ref ref="FILE" />
     <appender-ref ref="STDOUT" />
   </root>
 </configuration>

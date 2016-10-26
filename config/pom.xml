@@ -23,8 +23,9 @@
   <artifactId>config</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>actframework app demo - config</name>
-  <description>demonstrate how to implement configuration in ActFramework</description>
+  <name>actframework app demo - configuration</name>
+  <description>demonstrate use configuration in Act Application</description>
+  <url>http://actframework.org/</url>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -36,6 +37,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>0.3.0-SNAPSHOT</act.version>
+    <app.entry>demo.config.ConfigDemo</app.entry>
   </properties>
 
   <licenses>
@@ -51,6 +53,18 @@
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
+        <includes>
+          <include>**/*.version</include>
+          <include>**/*.conf</include>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+          <include>**/*.csv</include>
+          <include>**/*.txt</include>
+          <include>**/*.gif</include>
+          <include>**/*.yaml</include>
+          <include>**/*.json</include>
+          <include>views/**</include>
+        </includes>
       </resource>
     </resources>
 
@@ -110,7 +124,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>demo.config.ConfigApp</argument>
+              <argument>${app.entry}</argument>
             </arguments>
           </configuration>
         </plugin>

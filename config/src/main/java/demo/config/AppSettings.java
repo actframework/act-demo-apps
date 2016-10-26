@@ -1,44 +1,31 @@
 package demo.config;
 
 import act.app.conf.AutoConfig;
+import org.osgl.$;
+import org.osgl.util.Const;
 
+// AutoConfig automatically load configuration items with prefix specified
+// The default prefix is "app.", thus @AutoConfig equals to @AutoConfig("app")
 @AutoConfig
 public class AppSettings {
 
-//    public static class foo {
-//        public static int bar;
-//        public static String zee;
-//    }
+    // Style one: CAPITALS separated by underscore
+    public static final Const<Integer> FOO_BAR = $.constant(0);
+    public static final Const<String> FOO_ZEE = $.constant("");
+    public static final Const<String> FOO_AUTH_CODE = $.constant("xyz");
 
-    private static int FOO_BAR = 0;
-    private static String FOO_ZEE = "";
-    private static String FOO_AUTH_CODE = "xyz";
-
-    public static int fooBar() {
-        return FOO_BAR;
-    }
-
-    public static String fooZee() {
-        return FOO_ZEE;
-    }
-
-    public static String fooAuthCode() {
-        return FOO_AUTH_CODE;
-    }
-
+    // Style two: embedded class
     public static class db {
-        private static String host;
-        public static String port;
-        public static String db;
-        public static String host() {
-            return host;
-        }
+        public static Const<String> host = $.constant();
+        public static Const<String> port = $.constant();
+        public static Const<String> db = $.constant();
     }
 
+    // Style two: embedded class
     public static class git {
-        public static String protocol;
-        public static String repository;
-        public static String username;
-        public static String password;
+        public static Const<String> protocol = $.constant();
+        public static Const<String> repository = $.constant();
+        public static Const<String> username = $.constant();
+        public static Const<String> password = $.constant();
     }
 }

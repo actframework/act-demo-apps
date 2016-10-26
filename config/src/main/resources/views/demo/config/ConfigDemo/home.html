@@ -1,0 +1,16 @@
+@extends(_base)
+
+<h1>Actframework Configuration Demo</h1>
+
+@def menu(String url, String label) {
+<li>
+  <a href="@url">@label</a>
+</li>
+}
+
+<p>Menu</p>
+<ul>
+  @menu("/setting", "setting")
+  @menu("/hi?who=Rythm", "hi")
+  @menu("/bye", "bye")
+</ul>

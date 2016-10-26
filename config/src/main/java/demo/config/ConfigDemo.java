@@ -15,34 +15,22 @@ import static act.controller.Controller.Util.*;
  */
 public class ConfigDemo {
 
-    @Before
-    public void mockFormat(String fmt, ActionContext context) {
-        if ("json".equals(fmt)) {
-            context.accept(H.Format.json);
-        }
-        context.session().put("foo", "bar");
+    // This is the root URL handler. It will load the template
+    // stored in resources/views/demo/config/ConfigDemo.home.html
+    // Note the template files are not sit under `rythm` because
+    // in the MyAppConfig class we configured the `templateHome`
+    /// to be "views"
+    @GetAction
+    public void home() {
     }
 
-    @GetAction("/hello")
-    public String sayHello() {
-        return "Hello Act!";
-    }
-
+    // This is going to be overwritten by routes.conf
     @GetAction("/bye")
-    public void byePlayAndSpring() {
-        text("bye Play and Spring!!");
+    public void byeSpring() {
+        text("bye Spring!!");
     }
 
-    @GetAction("/greeting")
-    public void greeting(String who, int age) {
-        render(who, age);
-    }
-
-    @GetAction("/thank")
-    public static String thankYou() {
-        return "thank you!";
-    }
-
+    // This will display all application setttings
     @GetAction("/setting")
     public static Result showAppSettings() {
         return render();

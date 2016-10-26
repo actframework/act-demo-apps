@@ -7,7 +7,7 @@ CP=$BASE/classes:$BASE/lib/*
 CMD=$0
 DEBUG=0
 DEBUG_PORT=5005
-PROFILE=common
+PROFILE=
 SYS_PROP=
 HELP=0
 
