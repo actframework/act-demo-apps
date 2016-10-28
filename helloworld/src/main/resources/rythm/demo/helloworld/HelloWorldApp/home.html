@@ -1,14 +1,10 @@
-@extends(_base)
+<!DOCTYPE html>
+<html>
 @args String who
-<h1>Hello world Demo</h1>
-@if(who) {
-<p>
-  Hello @who
-</p>
-}
-
-<ul>
-  <li><a href="?who=ActFramework">Say hello to Actframework</a></li>
-  <li><a href="?who=RythmEngine">Say hello to RythmEngine</a></li>
-</ul>
-
+<head>
+  <title>Hello @who!</title>
+</head>
+<body>
+<h2>Hello @who!</h2>
+</body>
+</html>

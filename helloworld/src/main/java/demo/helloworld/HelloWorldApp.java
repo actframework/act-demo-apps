@@ -3,6 +3,12 @@ package demo.helloworld;
 import act.Version;
 import act.boot.app.RunApp;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.Param;
+import org.osgl.mvc.annotation.SessionFree;
+import org.osgl.mvc.result.Result;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import static act.controller.Controller.Util.render;
 
@@ -13,11 +19,18 @@ import static act.controller.Controller.Util.render;
  * in the browser!</p>
  */
 @SuppressWarnings("unused")
+@Singleton
 public class HelloWorldApp {
 
     @GetAction
-    public void home(String who) {
-        render(who);
+    @SessionFree
+    public Result home(@Param(defVal = "World") String who) {
+        return render(who);
+    }
+    
+    @GetAction("/load")
+    public String load(LoadManager lm) {
+        return lm.payload();
     }
 
     public static void main(String[] args) throws Exception {
