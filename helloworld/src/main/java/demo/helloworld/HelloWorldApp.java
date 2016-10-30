@@ -1,15 +1,19 @@
 package demo.helloworld;
 
 import act.Version;
+import act.app.ActionContext;
 import act.boot.app.RunApp;
+import org.osgl.http.H;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.Param;
 import org.osgl.mvc.annotation.SessionFree;
 import org.osgl.mvc.result.Result;
+import org.osgl.util.C;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import static act.controller.Controller.Util.jsonMap;
 import static act.controller.Controller.Util.render;
 
 /**
@@ -31,6 +35,12 @@ public class HelloWorldApp {
     @GetAction("/load")
     public String load(LoadManager lm) {
         return lm.payload();
+    }
+
+    @GetAction("/json")
+    @SessionFree
+    public static Object json(ActionContext ctx) {
+        return C.map("message", "Hello, World!");
     }
 
     public static void main(String[] args) throws Exception {
