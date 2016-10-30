@@ -35,30 +35,42 @@ public class UploadDemo {
     public void home() {
     }
 
+    // This is the method to load testing page for SingleImage operation
+    // It will read all SingleImage instances from database and render
+    // into the template located at
+    // resources/rythm/demo/upload/UploadDemo/singleImageHomt.html
     @GetAction("/single")
     public void singleImageHome() {
         List<SingleImage> images = singleDao.findAllAsList();
         render(images);
     }
 
+    // This action handler demonstrates how to take java.util.File
+    // as parameter to handle file upload.
     @PostAction("/single/by_file")
     public void uploadSingleWithFile(String title, File image) {
         singleDao.save(new SingleImage(title, SObject.of(image)));
         redirect("/single");
     }
 
+    // This action handler demonstrates how to take org.osgl.storage.ISObject
+    // as parameter to handle file upload.
     @PostAction("/single/by_sobj")
     public void uploadSingleWithSObject(String title, ISObject image) {
         singleDao.save(new SingleImage(title, image));
         redirect("/single");
     }
 
+    // This action handler demonstrates how to use POJO binding
+    // to process file upload
     @PostAction("/single/by_bind")
     public void uploadSingleWithAutoBinding(SingleImage image) {
         singleDao.save(image);
         redirect("/single");
     }
 
+    // This action handler demonstrates how to delete a POJO entity
+    // and it will automatically delete associated blob file
     @DeleteAction("/single/{id}")
     public void deleteSingleImage(@DbBind("id") SingleImage image) {
         notFoundIfNull(image);

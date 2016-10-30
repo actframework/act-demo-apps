@@ -1,6 +1,10 @@
-# ActFramework Config Demo
+# ActFramework Upload Demo
 
-This application demonstrates how to do configuration in ActFramework
+This application demonstrates how to do upload in ActFramework. 
+
+Note this application require you have mongodb installed and 
+running on your local computer but no need to do any further
+configuration except the default installation
 
 ## Start the application
 
@@ -22,46 +26,54 @@ unzip *
 Once application has been started, you should see something like:
  
 ```
-  ____                 __  _          ____                          
- / ___|  ___   _ __   / _|(_)  __ _  |  _ \   ___  _ __ ___    ___  
-| |     / _ \ | '_ \ | |_ | | / _` | | | | | / _ \| '_ ` _ \  / _ \ 
-| |___ | (_) || | | ||  _|| || (_| | | |_| ||  __/| | | | | || (_) |
- \____| \___/ |_| |_||_|  |_| \__, | |____/  \___||_| |_| |_| \___/ 
-                              |___/                                 
-                                powered by ActFramework v0.3.0-ec028
+| | | | _ __  | |  ___    __ _   __| | |  _ \   ___  _ __ ___    ___  
+| | | || '_ \ | | / _ \  / _` | / _` | | | | | / _ \| '_ ` _ \  / _ \ 
+| |_| || |_) || || (_) || (_| || (_| | | |_| ||  __/| | | | | || (_) |
+ \___/ | .__/ |_| \___/  \__,_| \__,_| |____/  \___||_| |_| |_| \___/ 
+       |_|                                                            
+                                   powered by ActFramework v0.3.0-0d33
 
  version: 0.0.1-SNAPSHOT
-base dir: /home/luog/p/act/samples/config/target/dist
+base dir: /home/luog/p/act/samples/upload/target/dist
  profile: prod
     mode: PROD
 
-13:13:44.283 [main] INFO  a.Act - loading application(s) ...
-13:13:44.290 [main] INFO  a.Act - App starting ....
-13:13:44.368 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
-13:13:44.406 [main] WARN  a.a.DbServiceManager - DB service not initialized: No DB plugin found
-13:13:44.560 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
-13:13:44.561 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
-13:13:44.683 [main] INFO  a.Act - App[Config Demo] loaded in 393ms
-13:13:44.698 [main] INFO  o.xnio - XNIO version 3.3.6.Final
-13:13:44.713 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
-13:13:44.852 [main] INFO  a.Act - network client hooked on port: 5460
-13:13:44.852 [main] INFO  a.Act - CLI server started on port: 5461
-13:13:44.853 [main] INFO  a.b.a.RunApp - it takes 1133ms to start the app
+Oct 30, 2016 5:45:11 PM org.mongodb.morphia.logging.MorphiaLoggerFactory chooseLoggerFactory
+INFO: LoggerImplFactory set to org.mongodb.morphia.logging.jdk.JDKLoggerFactory
+17:45:11.394 [main] INFO  a.Act - loading application(s) ...
+17:45:11.400 [main] INFO  a.Act - App starting ....
+17:45:11.485 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
+17:45:11.523 [main] WARN  a.a.DbServiceManager - DB configuration not found. Will try to init default service with the sole db plugin: act.db.morphia.MorphiaPlugin@73545b80
+17:45:11.638 [main] INFO  o.m.d.cluster - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+17:45:11.692 [main] WARN  a.Act - No "db" (database name) configured. Will use "test" as database name for the default service
+17:45:11.701 [main] INFO  a.s.StorageServiceManager - storage service[store1] initialized
+17:45:11.702 [main] WARN  a.s.StorageServiceManager - Storage service configuration not found. Use the sole one storage service[store1] as default service
+17:45:11.771 [cluster-ClusterId{value='581596f728525516b034b1c0', description='null'}-localhost:27017] INFO  o.m.d.connection - Opened connection [connectionId{localValue:1, serverValue:465}] to localhost:27017
+17:45:11.773 [cluster-ClusterId{value='581596f728525516b034b1c0', description='null'}-localhost:27017] INFO  o.m.d.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 10]}, minWireVersion=0, maxWireVersion=4, maxDocumentSize=16777216, roundTripTimeNanos=670374}
+17:45:12.013 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
+17:45:12.013 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
+17:45:12.183 [main] INFO  o.m.d.connection - Opened connection [connectionId{localValue:2, serverValue:466}] to localhost:27017
+17:45:12.194 [main] INFO  a.Act - App[Upload Demo] loaded in 794ms
+17:45:12.207 [main] INFO  o.xnio - XNIO version 3.3.6.Final
+17:45:12.220 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
+17:45:12.275 [main] INFO  a.Act - network client hooked on port: 5460
+17:45:12.276 [main] INFO  a.Act - CLI server started on port: 5461
+17:45:12.276 [main] INFO  a.b.a.RunApp - it takes 1557ms to start the app
 ```
 
 Then you can can open browser at `http://localhost:5460` to get the home page.
 
 ## Understanding the Demo app
 
-The demo application contains an entry Java class `demo.config.ConfigDemo` with the main method: 
+The demo application contains an entry Java class `demo.upload.UploadDemo` with the main method: 
 
 ```java
-public class ConfigDemo {
+public class UploadDemo {
 
     ...
     
     public static void main(String[] args) throws Exception {
-        RunApp.start("Config Demo", Version.appVersion(), ConfigDemo.class);
+        RunApp.start("Upload Demo", Version.appVersion(), UploadDemo.class);
     }
 
 }
@@ -69,169 +81,187 @@ public class ConfigDemo {
 
 The main method call `act.boot.app.RunApp.start(...)` method to bootstrap ActFramework and load this application:
 
-* The `Version.appVersion()` is also provided by ActFramework, however it relies on the application to put a `app.version`
-file under the `resources` folder.
+* The `Version.appVersion()` is also provided by ActFramework, however it relies on the application to put a 
+`app.version` file under the `resources` folder.
 
-* The `ConfigDemo.class` is the application entry class, which tells ActFramework it shall scan all classes under
-`demo.config` package
+* The `UploadDemo.class` is the application entry class, which tells ActFramework it shall scan all classes under
+`demo.upload` package
 
 ### Action handler
 
-The `ConfigDemo` class contains several action handler method:
+The `UploadDemo` class contains several action handler method:
 
 ```java
     // This is the root URL handler. It will load the template
-    // stored in resources/views/demo/config/ConfigDemo.home.html
-    // Note the template files are not sit under `rythm` because 
-    // in the MyAppConfig class we configured the `templateHome`
-    /// to be "views"
+    // stored in resources/rythm/demo/upload/UploadDemo/home.html
     @GetAction
     public void home() {
     }
 
-    // This is going to be overwritten by routes.conf
-    @GetAction("/bye")
-    public void byePlayAndSpring() {
-        text("bye Spring!!");
+    // This is the method to load testing page for SingleImage operation
+    // It will read all SingleImage instances from database and render
+    // into the template located at
+    // resources/rythm/demo/upload/UploadDemo/singleImageHomt.html
+    @GetAction("/single")
+    public void singleImageHome() {
+        List<SingleImage> images = singleDao.findAllAsList();
+        render(images);
     }
 
-    // This will display all application setttings
-    @GetAction("/setting")
-    public static Result showAppSettings() {
-        return render();
+    // This action handler demonstrates how to take java.util.File
+    // as parameter to handle file upload.
+    @PostAction("/single/by_file")
+    public void uploadSingleWithFile(String title, File image) {
+        singleDao.save(new SingleImage(title, SObject.of(image)));
+        redirect("/single");
+    }
+
+    // This action handler demonstrates how to take org.osgl.storage.ISObject
+    // as parameter to handle file upload.
+    @PostAction("/single/by_sobj")
+    public void uploadSingleWithSObject(String title, ISObject image) {
+        singleDao.save(new SingleImage(title, image));
+        redirect("/single");
+    }
+
+    // This action handler demonstrates how to use POJO binding
+    // to process file upload
+    @PostAction("/single/by_bind")
+    public void uploadSingleWithAutoBinding(SingleImage image) {
+        singleDao.save(image);
+        redirect("/single");
+    }
+
+    // This action handler demonstrates how to delete a POJO entity
+    // and it will automatically delete associated blob file
+    @DeleteAction("/single/{id}")
+    public void deleteSingleImage(@DbBind("id") SingleImage image) {
+        notFoundIfNull(image);
+        singleDao.delete(image);
+        redirect("/single");
     }
 ```
 
-### Route table
+### Configure storage service
 
-There is a route table configuration file named `routes.conf` sit under `resources` folder:
-
-```
-GET /hi demo.config.Extra.hi
-GET /bye demo.config.Extra.bye
-```
-
-When ActFramework starting the application and it spot the file as specified it will load the
-content of the file into route table. 
-
-In our example the first item in the route table overwrites the route mapping from `/hi` to 
-`demo.config.ConfigDemo.byeSpring` method:
+The `storage.properties` file sit under `resources/conf/common` folder configure the default storage
+ service configuration:
  
 ```
-GET /hi demo.config.Extra.hi
+# For named storage service
+ss.instances=store1
+ss.store1.impl=act.storage.FileSystemStoragePlugin
+ss.store1.home.dir=store1
+ss.store1.staticWebEndpoint=/store1
+ss.store1.get.MetaOnly=true
 ```
 
-It will also add an new route mapping item:
+At the moment there is one storage service instance named `store` created. And the engine for `store` is
+file system storage. 
 
-```
-GET /bye demo.config.Extra.bye
-```
+### SingleImage model
 
-### Configure with Java code
-
-The `MyAppConfig` class extends `AppConfigurator` will get captured by ActFramework
-on application bootup, and ActFramework will execute the `configure()` method of the instance:
+The `SingleImage` model class contains an `ISObject` typed field, which link the database record to
+a BLOB storage:
 
 ```java
-public class MyAppConfig extends AppConfigurator<MyAppConfig> {
+/**
+ * A model with single image attachment
+ */
+@Store("store1:") // specify the storage service ID
+@Entity("simg") // specify the mongodb collection name
+public class SingleImage extends MorphiaModel<SingleImage> {
 
-    // So override the configure() method
-    // to do our code based configurations
-    @Override
-    public void configure() {
-        configureTemplateHome();
-        configureAppProps();
+    private String title;
+
+    @Store // mark field as a storage item
+    private ISObject image;
+
+    private SingleImage() {}
+
+    public SingleImage(String title, ISObject image) {
+        this.title = $.notNull(title);
+        this.image = $.notNull(image);
     }
 
-    private void configureTemplateHome() {
-        // this set the template home path to "views"
-        // by default it is "default", which in the end
-        // mapped to "rythm" because default view engine is rythm
-        templateHome("views");
+    public String getTitle() {
+        return title;
     }
 
-    private void configureAppProps() {
-        prop("x.to", "X-man");
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-}
-```
-
-### Using configurations in application
-
-The `AppSettings` class demonstrates how you can get configuration item injected into
-your normal classes:
-
-```java
-// AutoConfig automatically load configuration items with prefix specified
-// The default prefix is "app.", thus @AutoConfig equals to @AutoConfig("app")
-@AutoConfig
-public class AppSettings {
-
-    // Style one: CAPITALS separated by underscore
-    public static final Const<Integer> FOO_BAR = $.constant(0);
-    public static final Const<String> FOO_ZEE = $.constant("");
-    public static final Const<String> FOO_AUTH_CODE = $.constant("xyz");
-
-    // Style two: embedded class
-    public static class db {
-        public static Const<String> host = $.constant();
-        public static Const<String> port = $.constant();
-        public static Const<String> db = $.constant();
+    public ISObject getImage() {
+        return image;
     }
 
-    // Style two: embedded class
-    public static class git {
-        public static Const<String> protocol = $.constant();
-        public static Const<String> repository = $.constant();
-        public static Const<String> username = $.constant();
-        public static Const<String> password = $.constant();
+    public String getImageUrl() {
+        return null == image ? null : image.getUrl();
+    }
+
+    public void setImage(ISObject image) {
+        this.image = image;
     }
 }
 ```
 
-Annotated with `AutoCopnfig` the fields in this class will be populated by ActFramework
-automatically during application bootstrap process. Example of using the values can be found
-in the `showAppSettings.html` rythm templates:
+Note, application developer doesn't need to handle the persistence of the blob data (image). After one `SingleImage`
+has been created and saved, it looks like the following JSON piece in mongodb:
 
-```html
-@import demo.config.AppSettings
-@extends(_base)
-
-@section("style") {
-<style>
-  .setting-item {margin: 5px;}
-  .label {background-color: #efece6; padding: 1px 8px;min-width: 100px; display: inline-block;text-align: right}
-  .val {border-bottom: 1px solid #efece6;min-width: 200px;display: inline-block}
-</style>
+```javascript
+> db.simg.findOne()
+{
+	"_id" : ObjectId("5815970328525516b034b1c1"),
+	"className" : "demo.upload.SingleImage",
+	"image" : "2016/10/30/5a57e2cc-c4d4-4bf4-aa70-16bded646c72",
+	"title" : "1",
+	"_created" : NumberLong("1477809923438"),
+	"_modified" : NumberLong("1477809923438"),
+	"v" : NumberLong(1)
 }
-
-@def item(String label, Object val) {
-<div class="setting-item">
-  <span class="label">@label</span>
-  <span class="val">@val</span>
-</div>
-}
-
-<h1>App Settings</h1>
-<h4>Foo</h4>
-@item("foo.bar", AppSettings.FOO_BAR)
-@item("foo.zee", AppSettings.FOO_ZEE)
-@item("foo.auth_code", AppSettings.FOO_AUTH_CODE)
-
-<h4>DB</h4>
-@item("db.host", AppSettings.db.host)
-@item("db.port", AppSettings.db.port)
-@item("db.db", AppSettings.db.db)
-
-<h4>git</h4>
-@item("git.protocol", AppSettings.git.protocol)
-@item("git.repository", AppSettings.git.repository)
-@item("git.username", AppSettings.git.username)
-@item("git.password", AppSettings.git.password)
 ```
 
-And of course you can also use the values in other classes
+Note the `image` field value is `2016/10/30/5a57e2cc-c4d4-4bf4-aa70-16bded646c72`, it is actually a key to 
+fetch the BLOB data from the configured storage service `store1`, which is set to link to file system under
+folder `store1`. When we run the `tree` command under `store1` folder, we see something like:
+
+```
+ luog > ⋯ > target > dist > store1 > tree
+.
+└── 2016
+    └── 10
+        └── 30
+            ├── 024479cb-5218-479f-8765-265e0b43ea9e
+            ├── 024479cb-5218-479f-8765-265e0b43ea9e.attr
+            ├── 576a599d-e3ed-4027-8980-2de8627f3cef
+            ├── 576a599d-e3ed-4027-8980-2de8627f3cef.attr
+            ├── 5a57e2cc-c4d4-4bf4-aa70-16bded646c72
+            └── 5a57e2cc-c4d4-4bf4-aa70-16bded646c72.attr
+```
+
+And those are files stores the BLOB data, i.g. the image blob.
+
+On prod mode we can configure the storage engine to be something like AWS S3:
+
+```
+ss.instances=store1
+ss.store1.impl=act.storage.S3StoragePlugin
+ss.store1.keyId=<YOUR_AWS_S3_SVC_KEY>
+ss.store1.keySecret=<YOUR_AWS_S3_SVC_SECRET>
+ss.store1.bucket=<YOUR_BUCKET_NAME>
+ss.store1.staticWebEndpoint=//myapp.s3-website-ap-southeast-2.amazonaws.com
+ss.store1.defStorageClass=standard
+ss.store1.get.noGet=true
+ss.store1.maxErrorRetry=20
+ss.store1.tcpKeepAlive=true
+ss.store1.maxConnection=30
+```
+
+You can put the configuration from PROD mode in `prod` configuration folder located at
+`resources/conf/prod`. When your app starts in `PROD` mode it will automatically assume
+the current profile is `prod` and use any properties file to overwrite the properties 
+file found in the `resources/conf/common` folder.
  
 ## FAQ
 
