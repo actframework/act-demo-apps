@@ -18,7 +18,7 @@ public class SingleImage extends MorphiaModel<SingleImage> {
     @Store
     private ISObject image;
 
-    private SingleImage() {}
+    protected SingleImage() {}
 
     public SingleImage(String title, ISObject image) {
         this.title = $.notNull(title);

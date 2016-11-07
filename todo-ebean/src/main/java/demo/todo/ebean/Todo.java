@@ -1,7 +1,7 @@
-package act.fsa.todo_ebean;
+package demo.todo.ebean;
 
+import act.Version;
 import act.boot.app.RunApp;
-import act.db.Dao;
 import act.db.ebean.EbeanDao;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
@@ -9,23 +9,16 @@ import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.annotation.PutAction;
-import org.osgl.mvc.result.Result;
 
 import javax.inject.Inject;
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
-
-import static act.controller.Controller.Util.ok;
-import static act.controller.Controller.Util.render;
 
 /**
  * A Simple Todo application controller
  */
-public class TodoEbeanApp {
+public class Todo {
 
-    static Logger logger = L.get(TodoEbeanApp.class);
+    static Logger logger = L.get(Todo.class);
 
     @Inject
     private EbeanDao<Long, TodoItem> dao;
@@ -59,7 +52,7 @@ public class TodoEbeanApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start(TodoEbeanApp.class);
+        RunApp.start("TODO", Version.appVersion(), Todo.class);
     }
 
 

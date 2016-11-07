@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Login form</title>
+</head>
+<body>
+@if(_flash.error()) {
+<div class="alert alert-error">@_flash.error()</div>
+}
+<form action="/login" method="post">
+  <div>
+  <input name="username" placeholder="Type in your username">
+  </div>
+  <div>
+  <input name="password" type="password" placeholder="Type in your password">
+  </div>
+  <div>
+  <button type="submit">Login</button>
+  </div>
+</form>
+</body>
+</html>
