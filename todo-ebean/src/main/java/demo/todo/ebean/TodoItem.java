@@ -1,5 +1,9 @@
 package demo.todo.ebean;
 
+import act.app.App;
+import act.job.Every;
+import org.osgl.util.S;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -33,4 +37,14 @@ public class TodoItem  {
         return this;
     }
 
+
+    @Every("1s")
+    public static void doAJob() {
+        App.logger.info("triggered a job");
+    }
+
+    @Override
+    public String toString() {
+        return S.fmt("%3s|%s", getId(), getDesc());
+    }
 }

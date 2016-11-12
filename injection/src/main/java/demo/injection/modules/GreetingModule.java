@@ -14,6 +14,6 @@ public class GreetingModule extends Module {
     protected void configure() {
         // Comment out the following line and refresh your browser page
         // at http://localhost:5460/greeting to observe the changes
-        bind(GreetingService.class).to(GreetingServiceImpl.class);
+        // bind(GreetingService.class).to(GreetingServiceImpl.class);
     }
 }

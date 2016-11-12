@@ -29,11 +29,49 @@ public class UploadDemo {
     @Inject
     private MorphiaDao<SingleImage> singleDao;
 
+    @Inject
+    private MorphiaDao<SingleImageExt> singleExtDao;
+
+    @Inject
+    private MorphiaDao<MultipleImage> multiDao;
+
     // This is the root URL handler. It will load the template
     // stored in resources/rythm/demo/upload/UploadDemo/home.html
     @GetAction
     public void home() {
     }
+
+    @GetAction("/multi")
+    public void multipleImageHome() {
+        List<MultipleImage> images = multiDao.findAllAsList();
+        render(images);
+    }
+
+
+    // This action handler demonstrates how to take java.util.File
+    // as parameter to handle file upload.
+    @PostAction("/multi/by_file")
+    public void uploadMultiWithFile(String title, List<File> image) {
+        multiDao.save(MultipleImage.ofFiles(title, image));
+        redirect("/multi");
+    }
+
+    // This action handler demonstrates how to take org.osgl.storage.ISObject
+    // as parameter to handle file upload.
+    @PostAction("/multi/by_sobj")
+    public void uploadMultiWithSObject(String title, List<ISObject> image) {
+        multiDao.save(MultipleImage.ofSObjects(title, image));
+        redirect("/multi");
+    }
+
+    // This action handler demonstrates how to use POJO binding
+    // to process file upload
+    @PostAction("/multi/by_bind")
+    public void uploadMultiWithAutoBinding(MultipleImage image) {
+        image.dao().save(image);
+        redirect("/multi");
+    }
+
 
     // This is the method to load testing page for SingleImage operation
     // It will read all SingleImage instances from database and render
@@ -43,6 +81,12 @@ public class UploadDemo {
     public void singleImageHome() {
         List<SingleImage> images = singleDao.findAllAsList();
         render(images);
+    }
+
+    @GetAction("/single/ext")
+    public void singleExtHome() {
+        List<SingleImageExt> images = singleExtDao.findAllAsList();
+        render("singleImageHome", images);
     }
 
     // This action handler demonstrates how to take java.util.File
@@ -64,9 +108,9 @@ public class UploadDemo {
     // This action handler demonstrates how to use POJO binding
     // to process file upload
     @PostAction("/single/by_bind")
-    public void uploadSingleWithAutoBinding(SingleImage image) {
-        singleDao.save(image);
-        redirect("/single");
+    public void uploadSingleWithAutoBinding(SingleImageExt image) {
+        image.dao().save(image);
+        redirect("/single/ext");
     }
 
     // This action handler demonstrates how to delete a POJO entity

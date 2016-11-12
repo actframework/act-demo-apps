@@ -19,7 +19,7 @@ public class MockByeServiceImpl implements ByeService {
 
     @Override
     public String bye(String who) {
-        return S.fmt("In answering requesting sent to [%s], we say bye %s! (in DEV mode)", context.req().url(), who);
+        return S.fmt("In answering requesting sent from [%s], we say bye %s! (in DEV mode)", context.req().ip(), who);
     }
 
 }

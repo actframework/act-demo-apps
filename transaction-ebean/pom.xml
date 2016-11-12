@@ -20,11 +20,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework.demo</groupId>
-  <artifactId>upload</artifactId>
+  <artifactId>ebean-transaction</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>actframework app demo - upload</name>
-  <description>demonstrate upload in Act Application</description>
+  <name>actframework app demo - Transaction (ebean)</name>
+  <description>demonstrates a simple transaction app with Ebean</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -37,9 +37,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>0.3.0-SNAPSHOT</act.version>
-    <act-morphia.version>0.4.0-SNAPSHOT</act-morphia.version>
-    <act-storage.version>0.3.0-SNAPSHOT</act-storage.version>
-    <app.entry>demo.upload.UploadDemo</app.entry>
+    <act-ebean.version>0.3.0-SNAPSHOT</act-ebean.version>
+    <h2.version>1.4.193</h2.version>
+    <app.entry>demo.transaction.ebean.TransactionEbeanApp</app.entry>
   </properties>
 
   <licenses>
@@ -55,18 +55,6 @@
       <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
-        <includes>
-          <include>**/*.version</include>
-          <include>**/*.conf</include>
-          <include>**/*.properties</include>
-          <include>**/*.xml</include>
-          <include>**/*.csv</include>
-          <include>**/*.txt</include>
-          <include>**/*.gif</include>
-          <include>**/*.yaml</include>
-          <include>**/*.json</include>
-          <include>rythm/**</include>
-        </includes>
       </resource>
     </resources>
 
@@ -101,8 +89,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.3</version>
           <configuration>
-            <source>1.8</source>
-            <target>1.8</target>
+            <source>1.6</source>
+            <target>1.6</target>
             <debug>true</debug>
             <debuglevel>lines,vars,source</debuglevel>
           </configuration>
@@ -151,14 +139,14 @@
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-morphia</artifactId>
-      <version>${act-morphia.version}</version>
+      <artifactId>act-ebean</artifactId>
+      <version>${act-ebean.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act-storage</artifactId>
-      <version>${act-storage.version}</version>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>${h2.version}</version>
     </dependency>
 
     <dependency>
