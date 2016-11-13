@@ -32,12 +32,6 @@ public class HelloWorldApp {
     @Inject
     private H.Response resp;
 
-    @GetAction("/h2/{who}")
-    public Object sayHello(String who) {
-        resp.contentType(H.Format.JSON.contentType());
-        return C.map("str", S.fmt("Hello %s", who));
-    }
-
     public static void main(String[] args) throws Exception {
         RunApp.start("Hello World", Version.appVersion(), "demo");
     }
