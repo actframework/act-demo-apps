@@ -1,9 +1,9 @@
-package act.fsa.jobs;
+package demo.jobs;
 
+import act.Version;
 import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.job.*;
-import act.app.event.*;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.GetAction;
@@ -30,7 +30,7 @@ public class JobApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start(JobApp.class);
+        RunApp.start("Jobs", Version.appVersion(), JobApp.class);
     }
 
     @OnAppStart(async = true)

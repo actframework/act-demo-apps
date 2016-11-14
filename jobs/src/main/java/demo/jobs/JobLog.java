@@ -1,4 +1,4 @@
-package act.fsa.jobs;
+package demo.jobs;
 
 import act.cli.Command;
 import act.cli.Optional;

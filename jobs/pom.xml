@@ -19,13 +19,12 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-jobs</artifactId>
-  <packaging>jar</packaging>
-  <version>0.0.3-SNAPSHOT</version>
+  <groupId>org.actframework.demo</groupId>
+  <artifactId>jobs</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
 
-  <name>actframework fullstack app demo - hello world</name>
-  <description>demonstrate a minimal hello world application for actframework in fullstack app mode</description>
+  <name>actframework app demo - job scheduling</name>
+  <description>demonstrate how to schedule jobs in actframework</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -37,8 +36,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <maven.test.skip>false</maven.test.skip>
+    <act.version>0.3.0-SNAPSHOT</act.version>
+    <app.entry>demo.jobs.JobApp</app.entry>
   </properties>
 
   <licenses>
@@ -56,6 +55,30 @@
         <filtering>true</filtering>
       </resource>
     </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.5</version>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptors>
+                <descriptor>src/assembly/pkg.xml</descriptor>
+              </descriptors>
+              <outputDirectory>${project.build.directory}/dist/</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
 
     <pluginManagement>
       <plugins>
@@ -89,7 +112,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.jobs.JobApp</argument>
+              <argument>${app.entry}</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -109,13 +132,13 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.1.2-SNAPSHOT</version>
+      <version>${act.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.12</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.6</version>
     </dependency>
 
   </dependencies>

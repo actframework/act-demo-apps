@@ -1,7 +1,8 @@
-package act.fsa.jobs;
+package demo.jobs;
 
 import act.app.event.AppEventId;
 import act.job.*;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.osgl.util.S;
 
 /**
@@ -17,15 +18,20 @@ public class SomeService {
     /**
      * This method will get called every 5 seconds
      */
-    @Every("5s")
+    @Every(value = "every.check_status", id = "CHECK_STATUS")
     public void checkStatus() {
         JobLog.log("SomeService.checkStatus");
+    }
+
+    @InvokeBefore("CHECK_STATUS")
+    public void beforeCheckingStatus() {
+        JobLog.log("Before checking status");
     }
 
     /**
      * This method will get started along with Application start up
      */
-    @OnAppStart
+    @OnAppStart(id = "PREPARE-SOME_SERVICE")
     public void prepare() {
         JobLog.log("SomeService.prepare");
     }
@@ -35,7 +41,7 @@ public class SomeService {
      * <p>Note the method name {@code afterPrepare} doesn't matter, it could be any
      * other name.</p>
      */
-    @InvokeAfter("act.fsa.jobs.SomeService.prepare")
+    @InvokeAfter("PREPARE-SOME_SERVICE")
     public void afterPrepare() {
         JobLog.log("SomeService.afterPrepare");
     }
@@ -50,7 +56,7 @@ public class SomeService {
 
     /**
      * This method is scheduled to run as per value of {@code cron.passwordReminder}
-     * configuration. See {@code /resources/conf/cron.properties}
+     * configuration. See {@code /resources/conf/app.properties}
      */
     @Cron("cron.passwordReminder")
     public void checkAndSendOutPasswordReminder() {
