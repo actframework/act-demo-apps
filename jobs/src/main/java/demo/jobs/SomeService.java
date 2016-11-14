@@ -16,7 +16,9 @@ public class SomeService {
     }
 
     /**
-     * This method will get called every 5 seconds
+     * This method will get called every x, where
+     * `x` is configured through `every.check_status`
+     * configuration
      */
     @Every(value = "every.check_status", id = "CHECK_STATUS")
     public void checkStatus() {
