@@ -2,6 +2,7 @@ package demo.jobs;
 
 import act.app.event.AppEventId;
 import act.job.*;
+import act.sys.Env;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.osgl.util.S;
 
@@ -21,6 +22,7 @@ public class SomeService {
      * configuration
      */
     @Every(value = "every.check_status", id = "CHECK_STATUS")
+    @Env.Group("job")
     public void checkStatus() {
         JobLog.log("SomeService.checkStatus");
     }
