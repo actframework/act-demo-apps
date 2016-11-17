@@ -1,4 +1,0 @@
-GET /passwd externalfile:/etc/profile
-GET /3215430325 echo:some-code
-GET /plaintext echo:Hello, World!
-GET /by/route MyController.actionByRouteTable
