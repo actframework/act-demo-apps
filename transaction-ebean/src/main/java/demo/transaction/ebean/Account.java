@@ -1,11 +1,8 @@
 package demo.transaction.ebean;
 
 import act.db.ebean.EbeanDao;
-import act.job.OnAppStart;
 import com.avaje.ebean.annotation.Transactional;
-import org.osgl.$;
 import org.osgl.util.E;
-import org.osgl.util.IntRange;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -51,6 +48,7 @@ public class Account {
     }
 
     public static class Dao extends EbeanDao<String, Account> {
+
         protected Dao() {
             super(String.class, Account.class);
         }

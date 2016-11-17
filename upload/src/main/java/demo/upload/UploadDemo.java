@@ -1,16 +1,12 @@
 package demo.upload;
 
 import act.Version;
-import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.db.DbBind;
 import act.db.morphia.MorphiaDao;
-import org.osgl.http.H;
-import org.osgl.mvc.annotation.Before;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
-import org.osgl.mvc.result.Result;
 import org.osgl.storage.ISObject;
 import org.osgl.storage.impl.SObject;
 

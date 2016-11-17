@@ -1,10 +1,8 @@
 package demo.todo.ebean;
 
 import act.Version;
-import act.app.App;
 import act.boot.app.RunApp;
 import act.db.ebean.EbeanDao;
-import act.job.Every;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
@@ -18,8 +16,6 @@ import static act.controller.Controller.Util.notFoundIfNull;
  * A Simple Todo application controller
  */
 public class Todo {
-
-    //static Logger logger = L.get(Todo.class);
 
     @Inject
     private EbeanDao<Long, TodoItem> dao;

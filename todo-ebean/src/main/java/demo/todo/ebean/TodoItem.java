@@ -1,7 +1,5 @@
 package demo.todo.ebean;
 
-import act.app.App;
-import act.job.Every;
 import org.osgl.util.S;
 
 import javax.persistence.Entity;
@@ -35,12 +33,6 @@ public class TodoItem  {
     public TodoItem setDesc(String desc) {
         this.desc = desc;
         return this;
-    }
-
-
-    @Every("1s")
-    public static void doAJob() {
-        App.logger.info("triggered a job");
     }
 
     @Override

@@ -9,7 +9,6 @@ import org.osgl.util.C;
 
 import java.io.File;
 import java.util.List;
-import java.util.stream.Stream;
 
 /**
  * A model with multiple image attachment

@@ -1,6 +1,5 @@
 package demo.upload;
 
-import act.db.morphia.MorphiaDao;
 import act.storage.Store;
 import org.mongodb.morphia.annotations.Entity;
 import org.osgl.storage.ISObject;

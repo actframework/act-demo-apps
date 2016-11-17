@@ -47,7 +47,7 @@ while [[ $# -gt 0 ]]; do
         echo '     --debug-port <port>  specify debug port (if not specified then debug port is 5005)'
         echo '     -p --profile         specify the profile to start the app'
         echo '     -p --group           specify the node group'
-        echo '     -D*                  specify any JVM system properties'
+        echo '     -Dprop=val           specify any JVM system properties'
         echo '     -h --help            display this help message'
         HELP=1
         ;;

@@ -1,41 +1,26 @@
 package demo.injection;
 
 import act.Version;
-import act.app.ActionContext;
 import act.boot.app.RunApp;
-import act.security.CSRF;
-import org.osgl.http.H;
-import org.osgl.inject.annotation.Provided;
-import org.osgl.mvc.annotation.*;
+import org.osgl.mvc.annotation.Action;
+import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.With;
 import org.osgl.mvc.result.Result;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import java.util.List;
-import java.util.Set;
-
-import static act.controller.Controller.Util.*;
+import static act.controller.Controller.Util.render;
+import static act.controller.Controller.Util.text;
 
 @SuppressWarnings("unused")
 @With(SomeOtherClass.class)
 public class InjectionApp {
 
+    @Inject
     private HiService hi;
-    private ByeService bye;
-
-    @Before
-    public void mockFormat(String fmt, ActionContext context) {
-        if ("json".equals(fmt)) {
-            context.accept(H.Format.JSON);
-        }
-    }
 
     @Inject
-    public InjectionApp(HiService hi, ByeService bye) {
-        this.hi = hi;
-        this.bye = bye;
-    }
+    private ByeService bye;
 
     @GetAction
     public void home() {
@@ -52,7 +37,7 @@ public class InjectionApp {
         return render(message);
     }
 
-    @PostAction("/bye")
+    @Action("/bye")
     public void bye(String who) {
         text(bye.bye(who));
     }
