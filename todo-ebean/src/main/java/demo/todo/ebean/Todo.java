@@ -7,6 +7,7 @@ import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.annotation.PutAction;
+import org.osgl.util.S;
 
 import javax.inject.Inject;
 
@@ -15,6 +16,7 @@ import static act.controller.Controller.Util.notFoundIfNull;
 /**
  * A Simple Todo application controller
  */
+@SuppressWarnings("unused")
 public class Todo {
 
     @Inject
@@ -24,7 +26,10 @@ public class Todo {
     public void home() {}
 
     @GetAction("/list")
-    public Iterable<TodoItem> list() {
+    public Iterable<TodoItem> list(String q) {
+        if (S.notBlank(q)) {
+            return dao.findBy("desc like", q);
+        }
         return dao.findAll();
     }
 
@@ -48,16 +53,11 @@ public class Todo {
         dao.save(item);
     }
 
-    @GetAction("/{id}")
+    @GetAction("/list/{id}")
     public TodoItem showItem(long id) {
         TodoItem item = dao.findById(id);
         notFoundIfNull(item);
         return item;
-    }
-
-    @GetAction("/q")
-    public Iterable<TodoItem> search(String q) {
-        return dao.findBy("desc like", "%" + q + "%");
     }
 
     public static void main(String[] args) throws Exception {
