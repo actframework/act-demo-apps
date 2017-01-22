@@ -4,6 +4,8 @@ import act.Version;
 import act.boot.app.RunApp;
 import org.osgl.mvc.annotation.GetAction;
 
+import static act.controller.Controller.Util.render;
+
 /**
  * The simple hello world app.
  * <p>Run this app, try to update some of the code, then
@@ -14,7 +16,9 @@ import org.osgl.mvc.annotation.GetAction;
 public class HelloWorldApp {
 
     @GetAction
-    public void home() {
+    public void home(String who) {
+        who = null == who ? "world" : who;
+        render(who);
     }
 
     public static void main(String[] args) throws Exception {
