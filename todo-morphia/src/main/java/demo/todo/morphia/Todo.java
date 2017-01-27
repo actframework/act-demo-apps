@@ -46,7 +46,7 @@ public class Todo {
     @PutAction("/list/{id}")
     public void update(String id, String desc) {
         TodoItem item = dao.findById(id);
-        item.setDesc(desc);
+        item.desc = desc;
         dao.save(item);
     }
 
