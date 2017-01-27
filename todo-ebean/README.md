@@ -3,9 +3,17 @@ TODO App Demo
 
 A simple TODO Application built on top of ActFramework and Ebean
 
-To run this application 
+**To run this application in dev mode:**
 
-1. inside the project folder (`~somewhere~/act-demo-apps/fullstack-app/todo-ebean/`) type `mvn clean compile exec:exec`
-2. go to your browser and navigate to `http://localhost:5460`.
+`mvn clean compile exec:exec`
 
-Note, if you have not specified db configuration the app will launch with a in memory h2 database for testing. And each time the application start the database will be reset.
+**To run this application in prod mode:**
+
+```bash
+mvn clean package
+cd target/dist
+unzip *.zip
+./start
+``` 
+
+Go to your browser and navigate to `http://localhost:5460`.
