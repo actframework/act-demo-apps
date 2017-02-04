@@ -1,5 +1,6 @@
 package demo.todo.ebean;
 
+import act.Act;
 import act.Version;
 import act.boot.app.RunApp;
 import act.db.ebean.EbeanDao;
@@ -61,7 +62,7 @@ public class Todo {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("TODO", Version.appVersion(), Todo.class);
+        Act.start("TODO", Version.appVersion(), Todo.class);
     }
 
 
