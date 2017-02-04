@@ -1,7 +1,7 @@
 package demo.helloworld;
 
+import act.Act;
 import act.Version;
-import act.boot.app.RunApp;
 import org.osgl.mvc.annotation.GetAction;
 
 import static act.controller.Controller.Util.render;
@@ -22,7 +22,7 @@ public class HelloWorldApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Hello World", Version.appVersion(), HelloWorldApp.class);
+        Act.start("Hello World", Version.appVersion(), HelloWorldApp.class);
     }
 
 }
