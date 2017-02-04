@@ -1,8 +1,8 @@
 package demo.transaction.ebean;
 
+import act.Act;
 import act.Version;
 import act.app.ActionContext;
-import act.boot.app.RunApp;
 import act.job.OnAppStart;
 import org.osgl.$;
 import org.osgl.mvc.annotation.GetAction;
@@ -67,7 +67,7 @@ public class TransactionEbeanApp {
 
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Transaction Demo", Version.appVersion(), TransactionEbeanApp.class);
+        Act.start("Transaction Demo", Version.appVersion(), TransactionEbeanApp.class);
     }
 
 
