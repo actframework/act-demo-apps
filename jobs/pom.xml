@@ -36,7 +36,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>0.3.0-SNAPSHOT</act.version>
+    <act.version>0.5.0-SNAPSHOT</act.version>
     <app.entry>demo.jobs.JobApp</app.entry>
   </properties>
 
@@ -87,8 +87,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.3</version>
           <configuration>
-            <source>1.6</source>
-            <target>1.6</target>
+            <source>1.7</source>
+            <target>1.7</target>
             <debug>true</debug>
             <debuglevel>lines,vars,source</debuglevel>
           </configuration>

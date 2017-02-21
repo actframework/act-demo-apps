@@ -30,7 +30,7 @@ public class JobApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Jobs", Version.appVersion(), JobApp.class);
+        RunApp.start("Job Demo", Version.appVersion(), JobApp.class);
     }
 
     @OnAppStart(async = true)
