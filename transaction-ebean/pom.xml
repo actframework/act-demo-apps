@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>ebean-transaction</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.6.0-SNAPSHOT</version>
 
   <name>actframework app demo - Transaction (ebean)</name>
   <description>demonstrates a simple transaction app with Ebean</description>
@@ -36,8 +36,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>0.5.0-SNAPSHOT</act.version>
-    <act-ebean.version>0.5.0-SNAPSHOT</act-ebean.version>
+    <act.version>0.6.0-SNAPSHOT</act.version>
+    <act-ebean.version>0.6.0-SNAPSHOT</act-ebean.version>
     <h2.version>1.4.193</h2.version>
     <app.entry>demo.transaction.ebean.TransactionEbeanApp</app.entry>
   </properties>
