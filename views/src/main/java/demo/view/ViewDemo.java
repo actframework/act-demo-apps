@@ -1,7 +1,6 @@
 package demo.view;
 
 import act.Act;
-import act.boot.app.RunApp;
 import act.controller.Controller;
 import act.inject.param.NoBind;
 import org.osgl.mvc.annotation.GetAction;
@@ -9,7 +8,7 @@ import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.result.Result;
 
 @SuppressWarnings("unused")
-public class ViewsDemo extends Controller.Util {
+public class ViewDemo extends Controller.Util {
 
     @NoBind
     private String title = "ActFramework View Demo";
@@ -52,7 +51,7 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction("velocity")
     public void velocity() {
-        throw renderTemplate(title, who);
+        throw template(title, who);
     }
 
     @GetAction("velocity/error")
@@ -61,13 +60,13 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction("velocity/error/runtime")
     public void velocityTemplateRuntimeError() {
-        Class<ViewsDemo> demo = ViewsDemo.class;
-        renderTemplate(demo);
+        Class<ViewDemo> demo = ViewDemo.class;
+        template(demo);
     }
 
     @GetAction("freemarker")
     public Result freemarker() {
-        return renderTemplate(title, who);
+        return template(title, who);
     }
 
     @GetAction("freemarker/error")
@@ -76,8 +75,8 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction("freemarker/error/runtime")
     public void freemarkerTemplateRuntimeError() {
-        ViewsDemo demo = new ViewsDemo();
-        renderTemplate(demo);
+        ViewDemo demo = new ViewDemo();
+        template(demo);
     }
 
     @GetAction("mustache")
@@ -92,8 +91,8 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction("mustache/error/runtime")
     public void mustacheTemplateRuntimeError() {
-        ViewsDemo demo = new ViewsDemo();
-        renderTemplate(demo);
+        ViewDemo demo = new ViewDemo();
+        template(demo);
     }
 
     @GetAction("thymeleaf")
@@ -107,8 +106,8 @@ public class ViewsDemo extends Controller.Util {
 
     @GetAction("thymeleaf/error/runtime")
     public void thymeleafTemplateRuntimeError() {
-        ViewsDemo demo = new ViewsDemo();
-        renderTemplate(demo);
+        ViewDemo demo = new ViewDemo();
+        template(demo);
     }
 
     @GetAction("/api/v1/greeting/{who}")
@@ -121,7 +120,7 @@ public class ViewsDemo extends Controller.Util {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start(ViewsDemo.class);
+        Act.start("View Demo", ViewDemo.class);
     }
 
 }

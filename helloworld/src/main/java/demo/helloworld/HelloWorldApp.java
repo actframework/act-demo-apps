@@ -2,6 +2,8 @@ package demo.helloworld;
 
 import act.Act;
 import act.Version;
+import act.handler.Produces;
+import org.osgl.http.H;
 import org.osgl.mvc.annotation.GetAction;
 
 import static act.controller.Controller.Util.render;
@@ -21,8 +23,14 @@ public class HelloWorldApp {
         render(who);
     }
 
+    @GetAction("/json")
+    @Produces(H.MediaType.JSON)
+    public String json() {
+        return "abc";
+    }
+
     public static void main(String[] args) throws Exception {
-        Act.start("Hello World", Version.appVersion(), HelloWorldApp.class);
+        Act.start("Hello World", HelloWorldApp.class);
     }
 
 }
