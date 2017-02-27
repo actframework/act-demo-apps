@@ -2,6 +2,9 @@ package demo.event;
 
 import act.Act;
 import act.event.EventBus;
+import act.event.On;
+import act.util.Async;
+import org.joda.time.DateTime;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.GetAction;
@@ -57,6 +60,32 @@ public class EventDemoApp {
         return redirect("/");
     }
 
+    public static class User {
+        public static final String SIGN_UP = "user-sign-up";
+        public String name;
+        public User(String name) {
+            this.name = name;
+        }
+    }
+
+    @PostAction("/signUp")
+    public void signUp(String username) {
+        logger.info(">> user sign up");
+        eventBus.trigger(User.SIGN_UP, new User(username), DateTime.now());
+        logger.info("<< user sign up");
+        redirect("/");
+    }
+
+    @On(User.SIGN_UP)
+    @Async
+    public static void handleUserSignUpEmail(User user, DateTime when) {
+        logger.info("[Email]User[%s] logged in at %s", user.name, when);
+    }
+
+    @On(User.SIGN_UP)
+    public static void handleUserSignUpTextMsg(User user, DateTime when) {
+        logger.info("[TextMsg]User[%s] logged in at %s", user.name, when);
+    }
 
     public static void main(String[] args) throws Exception {
         Act.start("Event Demo", EventDemoApp.class);
