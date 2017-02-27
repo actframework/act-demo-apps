@@ -1,4 +1,4 @@
-package act.fsa.event;
+package demo.event;
 
 import act.event.ActEvent;
 

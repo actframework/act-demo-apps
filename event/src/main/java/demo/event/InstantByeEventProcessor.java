@@ -1,4 +1,4 @@
-package act.fsa.event;
+package demo.event;
 
 public class InstantByeEventProcessor extends ByeEventProcessor {
     @Override

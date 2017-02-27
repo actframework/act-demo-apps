@@ -1,6 +1,6 @@
-package act.fsa.event;
+package demo.event;
 
-import act.boot.app.RunApp;
+import act.Act;
 import act.event.EventBus;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
@@ -49,9 +49,17 @@ public class EventDemoApp {
         return redirect("/");
     }
 
+    @PostAction("/async")
+    public Result async(String who) {
+        logger.info(">> async action handler");
+        eventBus.emit(new AsyncEvent(who));
+        logger.info("<< async action handler");
+        return redirect("/");
+    }
+
 
     public static void main(String[] args) throws Exception {
-        RunApp.start(EventDemoApp.class);
+        Act.start("Event Demo", EventDemoApp.class);
     }
 
 }

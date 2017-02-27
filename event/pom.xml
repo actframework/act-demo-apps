@@ -19,13 +19,12 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-event</artifactId>
-  <packaging>jar</packaging>
-  <version>0.0.3-SNAPSHOT</version>
+  <groupId>org.actframework.demo</groupId>
+  <artifactId>event</artifactId>
+  <version>0.6.0-SNAPSHOT</version>
 
-  <name>Event demo app</name>
-  <description>demonstrate how to setup event framework in actframework</description>
+  <name>actframework app demo - event</name>
+  <description>demonstrate event dispatching in actframework</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -37,8 +36,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <maven.test.skip>false</maven.test.skip>
+    <act.version>0.6.0-SNAPSHOT</act.version>
+    <app.entry>demo.event.EventDemoApp</app.entry>
   </properties>
 
   <licenses>
@@ -57,6 +56,30 @@
       </resource>
     </resources>
 
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.5</version>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptors>
+                <descriptor>src/assembly/pkg.xml</descriptor>
+              </descriptors>
+              <outputDirectory>${project.build.directory}/dist/</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -64,10 +87,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.3</version>
           <configuration>
-            <source>1.6</source>
-            <target>1.6</target>
-            <debug>true</debug>
-            <debuglevel>lines,vars,source</debuglevel>
+            <source>1.7</source>
+            <target>1.7</target>
           </configuration>
         </plugin>
         <plugin>
@@ -89,7 +110,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.event.EventDemoApp</argument>
+              <argument>${app.entry}</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -109,19 +130,13 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>0.1.2-SNAPSHOT</version>
+      <version>${act.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act-guice</artifactId>
-      <version>0.1.1-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.12</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.6</version>
     </dependency>
 
   </dependencies>
