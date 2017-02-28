@@ -1,7 +1,6 @@
 package demo.upload;
 
-import act.Version;
-import act.boot.app.RunApp;
+import act.Act;
 import act.db.DbBind;
 import act.db.morphia.MorphiaDao;
 import org.osgl.mvc.annotation.DeleteAction;
@@ -118,8 +117,15 @@ public class UploadDemo {
         redirect("/single");
     }
 
+    @DeleteAction("/single/ext/{id}")
+    public void deleteSingleExtImage(@DbBind("id") SingleImageExt image) {
+        notFoundIfNull(image);
+        singleExtDao.delete(image);
+        redirect("/single/ext");
+    }
+
     public static void main(String[] args) throws Exception {
-        RunApp.start("Upload Demo", Version.appVersion(), UploadDemo.class);
+        Act.start("Upload Demo");
     }
 
 }

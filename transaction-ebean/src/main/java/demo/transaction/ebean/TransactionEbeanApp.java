@@ -1,7 +1,6 @@
 package demo.transaction.ebean;
 
 import act.Act;
-import act.Version;
 import act.app.ActionContext;
 import act.job.OnAppStart;
 import org.osgl.$;
@@ -67,7 +66,7 @@ public class TransactionEbeanApp {
 
 
     public static void main(String[] args) throws Exception {
-        Act.start("Transaction Demo", Version.appVersion(), TransactionEbeanApp.class);
+        Act.start("Transaction Demo");
     }
 
 

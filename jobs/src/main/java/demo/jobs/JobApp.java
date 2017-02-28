@@ -1,6 +1,6 @@
 package demo.jobs;
 
-import act.Version;
+import act.Act;
 import act.app.ActionContext;
 import act.boot.app.RunApp;
 import act.job.*;
@@ -30,7 +30,7 @@ public class JobApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Job Demo", Version.appVersion(), JobApp.class);
+        Act.start("Job Demo");
     }
 
     @OnAppStart(async = true)

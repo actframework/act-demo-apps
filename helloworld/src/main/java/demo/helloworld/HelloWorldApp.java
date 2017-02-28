@@ -21,7 +21,7 @@ public class HelloWorldApp {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Hello World", HelloWorldApp.class);
+        Act.start("Hello World");
     }
 
 }

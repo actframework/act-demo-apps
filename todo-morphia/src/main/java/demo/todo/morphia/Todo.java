@@ -1,6 +1,6 @@
 package demo.todo.morphia;
 
-import act.Version;
+import act.Act;
 import act.boot.app.RunApp;
 import act.db.morphia.MorphiaDao;
 import org.bson.types.ObjectId;
@@ -51,7 +51,7 @@ public class Todo {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("TODO-Morphia", Version.appVersion(), Todo.class);
+        Act.start("TODO-Morphia");
     }
 
 }

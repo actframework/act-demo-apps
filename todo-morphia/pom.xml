@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-morphia</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.6.0-SNAPSHOT</version>
 
   <name>actframework app demo - TODO (mongodb)</name>
   <description>demonstrates a simple TODO application for mongodb</description>
@@ -36,8 +36,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>0.5.0-SNAPSHOT</act.version>
-    <act-morphia.version>0.5.1-SNAPSHOT</act-morphia.version>
+    <act.version>0.6.0-SNAPSHOT</act.version>
+    <act-morphia.version>0.6.0-SNAPSHOT</act-morphia.version>
     <app.entry>demo.todo.morphia.Todo</app.entry>
   </properties>
 

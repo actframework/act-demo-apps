@@ -120,7 +120,7 @@ public class ViewDemo extends Controller.Util {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("View Demo", ViewDemo.class);
+        Act.start("View Demo");
     }
 
 }

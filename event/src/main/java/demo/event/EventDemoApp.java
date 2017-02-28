@@ -88,7 +88,7 @@ public class EventDemoApp {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Event Demo", EventDemoApp.class);
+        Act.start("Event Demo");
     }
 
 }

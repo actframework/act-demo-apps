@@ -1,8 +1,7 @@
 package demo.excel;
 
-import act.Version;
+import act.Act;
 import act.app.ActionContext;
-import act.boot.app.RunApp;
 import org.osgl.inject.annotation.LoadCollection;
 import org.osgl.mvc.annotation.GetAction;
 
@@ -23,7 +22,7 @@ public class ExcelApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Excel Demo", Version.appVersion(), ExcelApp.class);
+        Act.start("Excel Demo");
     }
 
 }

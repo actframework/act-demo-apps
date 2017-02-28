@@ -1,7 +1,6 @@
 package demo.injection;
 
-import act.Version;
-import act.boot.app.RunApp;
+import act.Act;
 import org.osgl.mvc.annotation.Action;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.With;
@@ -43,7 +42,7 @@ public class InjectionApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Inject Demo", Version.appVersion(), InjectionApp.class);
+        Act.start("Inject Demo");
     }
 
 }

@@ -1,7 +1,6 @@
 package demo.todo.ebean;
 
 import act.Act;
-import act.Version;
 import act.boot.app.RunApp;
 import act.db.ebean.EbeanDao;
 import org.osgl.mvc.annotation.DeleteAction;
@@ -62,7 +61,7 @@ public class Todo {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("TODO", Version.appVersion(), Todo.class);
+        Act.start("TODO-Ebean");
     }
 
 

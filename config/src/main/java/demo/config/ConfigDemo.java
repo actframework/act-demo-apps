@@ -1,7 +1,6 @@
 package demo.config;
 
-import act.Version;
-import act.boot.app.RunApp;
+import act.Act;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 
@@ -35,7 +34,7 @@ public class ConfigDemo {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Config Demo", Version.appVersion(), ConfigDemo.class);
+        Act.start("Config Demo");
     }
 
 }
