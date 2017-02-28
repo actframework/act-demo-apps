@@ -1,9 +1,6 @@
 package demo.helloworld;
 
 import act.Act;
-import act.Version;
-import act.handler.Produces;
-import org.osgl.http.H;
 import org.osgl.mvc.annotation.GetAction;
 
 import static act.controller.Controller.Util.render;
@@ -21,12 +18,6 @@ public class HelloWorldApp {
     public void home(String who) {
         who = null == who ? "world" : who;
         render(who);
-    }
-
-    @GetAction("/json")
-    @Produces(H.MediaType.JSON)
-    public String json() {
-        return "abc";
     }
 
     public static void main(String[] args) throws Exception {
