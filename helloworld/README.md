@@ -35,19 +35,13 @@ public class HelloWorldApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("HelloWorld", Version.appVersion(), HelloWorldApp.class);
+        Act.start("HelloWorld");
     }
 
 }
 ```
 
-The main method call `act.boot.app.RunApp.start(...)` method to bootstrap ActFramework and load this application:
-
-* The `Version.appVersion()` is also provided by ActFramework, however it relies on the application to put a `app.version`
-file under the `resources` folder.
-
-* The `HelloWorldApp.class` is the application entry class, which tells ActFramework it shall scan all classes under
-`demo.helloworld` package
+The main method call `act.Act.start(...)` method to bootstrap ActFramework and load this application:
 
 ### Action handler
 
