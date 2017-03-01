@@ -1,6 +1,7 @@
 package demo.helloworld;
 
 import act.Act;
+import act.inject.DefVal;
 import org.osgl.mvc.annotation.GetAction;
 
 import static act.controller.Controller.Util.render;
@@ -15,8 +16,7 @@ import static act.controller.Controller.Util.render;
 public class HelloWorldApp {
 
     @GetAction
-    public void home(String who) {
-        who = null == who ? "world" : who;
+    public void home(@DefVal("world") String who) {
         render(who);
     }
 
