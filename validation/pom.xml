@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>validation</artifactId>
-  <version>0.6.0-SNAPSHOT</version>
+  <version>0.7.0-SNAPSHOT</version>
 
   <name>actframework app demo - validation</name>
   <description>demonstrate validation with actframework</description>
@@ -132,12 +132,6 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
-      <version>${act.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act-morphia</artifactId>
       <version>${act.version}</version>
     </dependency>
 
