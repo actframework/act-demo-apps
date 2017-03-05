@@ -19,6 +19,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 import static act.controller.Controller.Util.render;
+import static act.controller.Controller.Util.renderText;
 import static act.controller.Controller.Util.text;
 
 /**
@@ -49,33 +50,33 @@ public class ValidationDemoApp {
     @GetAction("/size")
     public void size(@Size(max = 5) String text, @Size(min = 2) List<H.Format> list) {
         if (context.hasViolation()) {
-            text("Error(s): \n%s", context.violationMessage());
+            renderText("Error(s): \n%s", context.violationMessage());
         }
-        text("size success with %s and %s", text, $.toString2(list));
+        renderText("size success with %s and %s", text, $.toString2(list));
     }
 
     @GetAction("/digits")
     public void digits(@Digits(integer = 4, fraction = 2) String str, @Digits(integer = 2, fraction = 0) Integer num, ActionContext context) {
         if (context.hasViolation()) {
-            text("Error(s): \n%s", context.violationMessage());
+            renderText("Error(s): \n%s", context.violationMessage());
         }
-        text("digits success with %s and %s", str, num);
+        renderText("digits success with %s and %s", str, num);
     }
 
     @GetAction("/max")
     public void max(@Max(100) int max) {
         if (context.hasViolation()) {
-            text("Error(s): \n%s", context.violationMessage());
+            renderText("Error(s): \n%s", context.violationMessage());
         }
-        text("max success with %s", max);
+        renderText("max success with %s", max);
     }
 
     @GetAction("/email")
     public void email(@Email String email) {
         if (context.hasViolation()) {
-            text("Error(s): \n%s", context.violationMessage());
+            renderText("Error(s): \n%s", context.violationMessage());
         }
-        text("max success with %s", email);
+        renderText("max success with %s", email);
     }
 
     public static class Foo {
@@ -92,9 +93,9 @@ public class ValidationDemoApp {
     @GetAction("foo")
     public void foo(@Valid Foo foo) {
         if (context.hasViolation()) {
-            text("Error(s): \n%s", context.violationMessage());
+            renderText("Error(s): \n%s", context.violationMessage());
         }
-        text("POJO validate success with %s", foo);
+        renderText("POJO validate success with %s", foo);
     }
 
     @Controller("sf")
@@ -109,9 +110,9 @@ public class ValidationDemoApp {
         @GetAction("foo")
         public void foo() {
             if (context.hasViolation()) {
-                text("Error(s): \n%s", context.violationMessage());
+                renderText("Error(s): \n%s", context.violationMessage());
             }
-            text("POJO validate success with %s", foo);
+            renderText("POJO validate success with %s", foo);
         }
 
     }
