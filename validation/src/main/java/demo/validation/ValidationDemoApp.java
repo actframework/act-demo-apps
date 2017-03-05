@@ -1,12 +1,17 @@
-package act.fsa.validation;
+package demo.validation;
 
+import act.Act;
 import act.app.ActionContext;
-import act.boot.app.RunApp;
+import act.controller.Controller;
+import act.validation.Email;
 import org.osgl.$;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
+import org.osgl.util.S;
 
+import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
@@ -25,6 +30,7 @@ import static act.controller.Controller.Util.text;
 @SuppressWarnings("unused")
 public class ValidationDemoApp {
 
+    @Inject
     private ActionContext context;
 
     @GetAction("/")
@@ -49,7 +55,7 @@ public class ValidationDemoApp {
     }
 
     @GetAction("/digits")
-    public void digits(@Digits(integer = 4, fraction = 2) String str, @Digits(integer = 2, fraction = 0) Integer num) {
+    public void digits(@Digits(integer = 4, fraction = 2) String str, @Digits(integer = 2, fraction = 0) Integer num, ActionContext context) {
         if (context.hasViolation()) {
             text("Error(s): \n%s", context.violationMessage());
         }
@@ -64,8 +70,54 @@ public class ValidationDemoApp {
         text("max success with %s", max);
     }
 
+    @GetAction("/email")
+    public void email(@Email String email) {
+        if (context.hasViolation()) {
+            text("Error(s): \n%s", context.violationMessage());
+        }
+        text("max success with %s", email);
+    }
+
+    public static class Foo {
+        @NotNull
+        public String name;
+        public int num;
+
+        @Override
+        public String toString() {
+            return S.concat("name:", name, "; num:", S.string(num));
+        }
+    }
+
+    @GetAction("foo")
+    public void foo(@Valid Foo foo) {
+        if (context.hasViolation()) {
+            text("Error(s): \n%s", context.violationMessage());
+        }
+        text("POJO validate success with %s", foo);
+    }
+
+    @Controller("sf")
+    public static class StatefulController {
+
+        @Valid
+        Foo foo;
+
+        @Inject
+        ActionContext context;
+
+        @GetAction("foo")
+        public void foo() {
+            if (context.hasViolation()) {
+                text("Error(s): \n%s", context.violationMessage());
+            }
+            text("POJO validate success with %s", foo);
+        }
+
+    }
+
     public static void main(String[] args) throws Exception {
-        RunApp.start(ValidationDemoApp.class);
+        Act.start("Validation Demo");
     }
 
 }

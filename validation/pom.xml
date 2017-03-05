@@ -19,13 +19,12 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.actframework</groupId>
-  <artifactId>demo-fsa-validation</artifactId>
-  <packaging>jar</packaging>
-  <version>0.1.1-SNAPSHOT</version>
+  <groupId>org.actframework.demo</groupId>
+  <artifactId>validation</artifactId>
+  <version>0.6.0-SNAPSHOT</version>
 
-  <name>actframework fullstack app demo - Validation</name>
-  <description>a simple app demonstrate validation in ACT framework</description>
+  <name>actframework app demo - validation</name>
+  <description>demonstrate validation with actframework</description>
   <url>http://actframework.org/</url>
 
   <parent>
@@ -37,8 +36,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <maven.test.skip>false</maven.test.skip>
+    <act.version>0.7.0-SNAPSHOT</act.version>
+    <app.entry>demo.validation.ValidationDemoApp</app.entry>
   </properties>
 
   <licenses>
@@ -56,6 +55,30 @@
         <filtering>true</filtering>
       </resource>
     </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.5</version>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptors>
+                <descriptor>src/assembly/pkg.xml</descriptor>
+              </descriptors>
+              <outputDirectory>${project.build.directory}/dist/</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
 
     <pluginManagement>
       <plugins>
@@ -89,7 +112,7 @@
               <argument>-Xmx512m</argument>
               <argument>-classpath</argument>
               <classpath/>
-              <argument>act.fsa.validation.ValidationDemoApp</argument>
+              <argument>${app.entry}</argument>
             </arguments>
           </configuration>
         </plugin>
@@ -107,21 +130,21 @@
     </dependency>
 
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.8.1</version>
+      <groupId>org.actframework</groupId>
+      <artifactId>act</artifactId>
+      <version>${act.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act</artifactId>
-      <version>0.2.0-SNAPSHOT</version>
+      <artifactId>act-morphia</artifactId>
+      <version>${act.version}</version>
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-simple</artifactId>
-      <version>1.7.12</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.1.6</version>
     </dependency>
 
   </dependencies>

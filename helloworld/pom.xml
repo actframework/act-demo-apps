@@ -136,6 +136,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-morphia</artifactId>
+      <version>${act.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.1.6</version>
