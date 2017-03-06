@@ -64,7 +64,7 @@ public class ValidationDemoApp {
     }
 
     @GetAction("/max")
-    public void max(@Max(100) int max) {
+    public void max(@Max(value = 100, message = "{foo.bar}") int max) {
         if (context.hasViolation()) {
             renderText("Error(s): \n%s", context.violationMessage());
         }
