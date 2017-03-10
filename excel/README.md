@@ -22,30 +22,34 @@ unzip *
 Once application has been started, you should see something like:
 
 ```
-| ____|__  __  ___   ___ | | |  _ \   ___  _ __ ___    ___  
-|  _|  \ \/ / / __| / _ \| | | | | | / _ \| '_ ` _ \  / _ \ 
-| |___  >  < | (__ |  __/| | | |_| ||  __/| | | | | || (_) |
-|_____|/_/\_\ \___| \___||_| |____/  \___||_| |_| |_| \___/ 
-                                                            
-                        powered by ActFramework v0.3.0-ec028
+  _       _   _         _    _         _  
+ |_  \/  /   |_  |     | \  |_  |\/|  / \ 
+ |_  /\  \_  |_  |_    |_/  |_  |  |  \_/ 
+                                          
+       powered by ActFramework R1.0.0-8707
 
- version: 0.0.1-SNAPSHOT
+ version: 1.0.0
+scan pkg: demo.excel
 base dir: /home/luog/p/act/samples/excel/target/dist
- profile: common
+     pid: 29357
+ profile: prod
     mode: PROD
 
-14:01:20.879 [main] INFO  a.Act - loading application(s) ...
-14:01:20.883 [main] INFO  a.Act - App starting ....
-14:01:20.939 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
-14:01:20.963 [main] WARN  a.a.DbServiceManager - DB service not initialized: No DB plugin found
-14:01:21.159 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
-14:01:21.159 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
-14:01:21.277 [main] INFO  a.Act - App[Excel Demo] loaded in 394ms
-14:01:21.292 [main] INFO  o.xnio - XNIO version 3.3.6.Final
-14:01:21.308 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
-14:01:21.410 [main] INFO  a.Act - network client hooked on port: 5460
-14:01:21.411 [main] INFO  a.Act - CLI server started on port: 5461
-14:01:21.412 [main] INFO  a.b.a.RunApp - it takes 2906ms to start the app
+     zen: Errors should never pass silently 
+          Unless explicitly silenced.
+
+15:35:54.341 [main] INFO  a.Act - loading application(s) ...
+15:35:54.346 [main] INFO  a.Act - App starting ....
+15:35:54.419 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
+15:35:54.454 [main] WARN  a.a.DbServiceManager - DB service not initialized: No DB plugin found
+15:35:54.735 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
+15:35:54.736 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
+15:35:54.872 [main] INFO  a.Act - App[Excel Demo] loaded in 526ms
+15:35:54.891 [main] INFO  o.xnio - XNIO version 3.3.6.Final
+15:35:54.906 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
+15:35:55.005 [main] INFO  a.Act - network client hooked on port: 5460
+15:35:55.006 [main] INFO  a.Act - CLI server started on port: 5461
+15:35:55.006 [main] INFO  a.Act - it takes 2841ms to start the app
 ```
 
 Now you can open browser at `http://localhost:5460` to view the home page.
@@ -85,19 +89,13 @@ public class ExcelApp {
     }
 
     public static void main(String[] args) throws Exception {
-        RunApp.start("Excel Demo", Version.appVersion(), ExcelApp.class);
+        Act.start("Excel Demo");
     }
 
 }
 ```
 
-The main method call `act.boot.app.RunApp.start(...)` method to bootstrap ActFramework and load this application:
-
-* The `Version.appVersion()` is also provided by ActFramework, however it relies on the application to put a 
-`app.version` file under the `resources` folder.
-
-* The `ExcelApp.class` is the application entry class, which tells ActFramework it shall scan all classes under
-`demo.excel` package
+The main method call `act.Act.start(...)` method to bootstrap ActFramework and load this application.
 
 ### Action handler
 

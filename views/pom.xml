@@ -21,28 +21,22 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>view</artifactId>
-  <version>0.7.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>actframework app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework</description>
   <url>http://actframework.org/</url>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>0.7.0-SNAPSHOT</act.version>
-    <act-morphia.version>0.7.0-SNAPSHOT</act-morphia.version>
-    <act.beetl.version>0.7.0-SNAPSHOT</act.beetl.version>
-    <act.freemark.version>0.7.0-SNAPSHOT</act.freemark.version>
-    <act.mustache.version>0.7.0-SNAPSHOT</act.mustache.version>
-    <act.thymeleaf.version>0.7.0-SNAPSHOT</act.thymeleaf.version>
-    <act.velocity.version>0.7.0-SNAPSHOT</act.velocity.version>
+    <act.version>[1.0.1,2.0.0)</act.version>
+    <act-morphia.version>[1.0.0,2.0.0)</act-morphia.version>
+    <act.beetl.version>[1.0.0,2.0.0)</act.beetl.version>
+    <act.freemark.version>[1.0.0,2.0.0)</act.freemark.version>
+    <act.mustache.version>[1.0.0,2.0.0)</act.mustache.version>
+    <act.thymeleaf.version>[1.0.0,2.0.0)</act.thymeleaf.version>
+    <act.velocity.version>[1.0.0,2.0.0)</act.velocity.version>
     <app.entry>demo.view.ViewDemo</app.entry>
   </properties>
 

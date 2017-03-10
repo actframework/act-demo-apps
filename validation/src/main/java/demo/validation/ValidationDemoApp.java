@@ -56,7 +56,7 @@ public class ValidationDemoApp {
     }
 
     @GetAction("/digits")
-    public void digits(@Digits(integer = 4, fraction = 2) String str, @Digits(integer = 2, fraction = 0) Integer num, ActionContext context) {
+    public void digits(@Digits(integer = 4, fraction = 2) String str, ActionContext context, @Digits(integer = 3, fraction = 0) Integer num) {
         if (context.hasViolation()) {
             renderText("Error(s): \n%s", context.violationMessage());
         }
@@ -84,25 +84,33 @@ public class ValidationDemoApp {
         public String name;
         public int num;
 
+        @Valid
+        public Bar bar;
+
         @Override
         public String toString() {
             return S.concat("name:", name, "; num:", S.string(num));
         }
     }
 
+    public static class Bar {
+        @Max(100)
+        public int num;
+    }
+
     @GetAction("foo")
-    public void foo(@Valid Foo foo) {
+    public void foo(@Valid Foo x) {
         if (context.hasViolation()) {
             renderText("Error(s): \n%s", context.violationMessage());
         }
-        renderText("POJO validate success with %s", foo);
+        renderText("POJO validate success with %s", x);
     }
 
     @Controller("sf")
     public static class StatefulController {
 
         @Valid
-        Foo foo;
+        Foo x;
 
         @Inject
         ActionContext context;
@@ -112,7 +120,7 @@ public class ValidationDemoApp {
             if (context.hasViolation()) {
                 renderText("Error(s): \n%s", context.violationMessage());
             }
-            renderText("POJO validate success with %s", foo);
+            renderText("POJO validate success with %s", x);
         }
 
     }

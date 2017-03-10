@@ -9,7 +9,7 @@ public class SomeOtherClass {
     @Before(only = "greeting")
     public void mockFormat(String fmt, ActionContext context) {
         if ("json".equals(fmt)) {
-            context.accept(H.Format.TXT);
+            context.accept(H.Format.JSON);
         }
     }
 

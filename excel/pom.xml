@@ -21,23 +21,17 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>excel</artifactId>
-  <version>0.7.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>actframework app demo - excel</name>
   <description>demonstrate how to generate Excel report in actframework application</description>
   <url>http://actframework.org/</url>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>0.7.0-SNAPSHOT</act.version>
-    <act-excel.version>0.0.1-SNAPSHOT</act-excel.version>
+    <act.version>[1.0.1, 2.0.0)</act.version>
+    <act-excel.version>[1.0.0, 2.0.0)</act-excel.version>
     <app.entry>demo.excel.ExcelApp</app.entry>
   </properties>
 

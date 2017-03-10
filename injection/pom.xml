@@ -21,22 +21,16 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>injection</artifactId>
-  <version>0.7.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>actframework app demo - dependency injection</name>
   <description>demonstrate how to use dependency injection in Act Application</description>
   <url>http://actframework.org/</url>
 
-  <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
-  </parent>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>0.7.0-SNAPSHOT</act.version>
+    <act.version>[1.0.1, 2.0.0)</act.version>
     <app.entry>demo.injection.InjectionApp</app.entry>
   </properties>
 

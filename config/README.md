@@ -22,31 +22,20 @@ unzip *
 Once application has been started, you should see something like:
  
 ```
-  ____                 __  _          ____                          
- / ___|  ___   _ __   / _|(_)  __ _  |  _ \   ___  _ __ ___    ___  
-| |     / _ \ | '_ \ | |_ | | / _` | | | | | / _ \| '_ ` _ \  / _ \ 
-| |___ | (_) || | | ||  _|| || (_| | | |_| ||  __/| | | | | || (_) |
- \____| \___/ |_| |_||_|  |_| \__, | |____/  \___||_| |_| |_| \___/ 
-                              |___/                                 
-                                powered by ActFramework v0.3.0-ec028
+  _   _          _  ___   __     _    _         _  
+ /   / \  |\ |  |_   |   /__    | \  |_  |\/|  / \ 
+ \_  \_/  | \|  |   _|_  \_|    |_/  |_  |  |  \_/ 
+                                                   
+                powered by ActFramework R1.0.0-8707
 
- version: 0.0.1-SNAPSHOT
+ version: 1.0.0
+scan pkg: demo.config
 base dir: /home/luog/p/act/samples/config/target/dist
+     pid: 24605
  profile: prod
     mode: PROD
 
-13:13:44.283 [main] INFO  a.Act - loading application(s) ...
-13:13:44.290 [main] INFO  a.Act - App starting ....
-13:13:44.368 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
-13:13:44.406 [main] WARN  a.a.DbServiceManager - DB service not initialized: No DB plugin found
-13:13:44.560 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
-13:13:44.561 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
-13:13:44.683 [main] INFO  a.Act - App[Config Demo] loaded in 393ms
-13:13:44.698 [main] INFO  o.xnio - XNIO version 3.3.6.Final
-13:13:44.713 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
-13:13:44.852 [main] INFO  a.Act - network client hooked on port: 5460
-13:13:44.852 [main] INFO  a.Act - CLI server started on port: 5461
-13:13:44.853 [main] INFO  a.b.a.RunApp - it takes 1133ms to start the app
+     zen: Simple is better than complex.
 ```
 
 Then you can can open browser at `http://localhost:5460` to get the home page.
@@ -61,19 +50,13 @@ public class ConfigDemo {
     ...
     
     public static void main(String[] args) throws Exception {
-        RunApp.start("Config Demo", Version.appVersion(), ConfigDemo.class);
+        Act.start("Config Demo");
     }
 
 }
 ```
 
-The main method call `act.boot.app.RunApp.start(...)` method to bootstrap ActFramework and load this application:
-
-* The `Version.appVersion()` is also provided by ActFramework, however it relies on the application to put a `app.version`
-file under the `resources` folder.
-
-* The `ConfigDemo.class` is the application entry class, which tells ActFramework it shall scan all classes under
-`demo.config` package
+The main method call `act.Act.start(...)` method to bootstrap ActFramework and load this application. The parameter "Config Demo" is the application name
 
 ### Action handler
 
@@ -91,7 +74,7 @@ The `ConfigDemo` class contains several action handler method:
 
     // This is going to be overwritten by routes.conf
     @GetAction("/bye")
-    public void byePlayAndSpring() {
+    public void byeSpring() {
         text("bye Spring!!");
     }
 

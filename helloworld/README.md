@@ -30,7 +30,7 @@ The demo application contains a single Java class `demo.helloworld.HelloWorldApp
 public class HelloWorldApp {
 
     @GetAction
-    public void home(String who) {
+    public void home(@DefaultValue("World") String who) {
         render(who);
     }
 
@@ -49,7 +49,7 @@ The `HelloWorldApp` class contains one action handler method:
 
 ```java
     @GetAction
-    public void home(String who) {
+    public void home(@DefaultValue("World") String who) {
         render(who);
     }
 ```

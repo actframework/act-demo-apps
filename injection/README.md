@@ -22,6 +22,37 @@ unzip *
 **Note** You need to turn off `http.secure` when running locally otherwise POST request will be blocked due to CSRF 
 check failure
 
+After app started you should see something in the console looks like:
+
+``` ___              _   _  ___     _    _         _  
+  |   |\ |    |  |_  /    |     | \  |_  |\/|  / \ 
+ _|_  | \|  \_|  |_  \_   |     |_/  |_  |  |  \_/ 
+                                                   
+                powered by ActFramework R1.0.0-8707
+
+ version: 1.0.0
+scan pkg: demo.injection
+base dir: /home/luog/p/act/samples/injection/target/dist
+     pid: 29954
+ profile: prod
+    mode: PROD
+
+     zen: Explicit is better than implicit.
+
+15:40:23.391 [main] INFO  a.Act - loading application(s) ...
+15:40:23.395 [main] INFO  a.Act - App starting ....
+15:40:23.472 [main] WARN  a.c.AppConfig - Application secret key not set! You are in the dangerous zone!!!
+15:40:23.503 [main] WARN  a.a.DbServiceManager - DB service not initialized: No DB plugin found
+15:40:23.732 [main] WARN  a.m.MailerConfig - smtp host configuration not found, will use mock smtp to send email
+15:40:23.732 [main] WARN  a.c.AppConfig - host is not configured. Use localhost as hostname
+15:40:23.850 [main] INFO  a.Act - App[Inject Demo] loaded in 455ms
+15:40:23.867 [main] INFO  o.xnio - XNIO version 3.3.6.Final
+15:40:23.882 [main] INFO  o.x.nio - XNIO NIO Implementation Version 3.3.6.Final
+15:40:23.973 [main] INFO  a.Act - network client hooked on port: 5460
+15:40:23.974 [main] INFO  a.Act - CLI server started on port: 5461
+15:40:23.974 [main] INFO  a.Act - it takes 1472ms to start the app
+```
+
 Once application has been started, you can open browser and locate to `http://localhost:5460` get the home page.
 
 
@@ -37,17 +68,12 @@ ActFramework:
 
 ```java
     public static void main(String[] args) throws Exception {
-        RunApp.start("Inject Demo", Version.appVersion(), InjectionApp.class);
+        Act.start("Inject Demo");
     }
 ```
 
-Here `RunApp` is ActFramework class that bootstrap the application.
+The main method call `act.Act.start(...)` method to bootstrap ActFramework and load this application. The parameter "Injection Demo" is the application name
 
-The `Version.appVersion()` is also provided by ActFramework, however it relies on the application to put a `app.version`
-file under the `resources` folder.
-
-The `InjectionApp.class` is the application entry class, which tells ActFramework it shall scan all classes under
-`demo.injection` package
 
 The class `InjectionApp` has a constructor which will inject `HiService` and `ByeService` implementation:
 

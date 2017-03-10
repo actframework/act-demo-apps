@@ -12,8 +12,8 @@
   <li><a href="/max?max=90">Max</a></li>
   <li><a href="/email?email=notvalidemail">Email with violations</a></li>
   <li><a href="/email?email=valid@@email.com">Email</a></li>
-  <li><a href="/foo?foo.num=33">Valid POJO with violations</a></li>
-  <li><a href="/foo?foo.name=bar&foo.num=3">Valid POJO</a></li>
-  <li><a href="/sf/foo?foo.num=33">Valid POJO with violations as field</a></li>
-  <li><a href="/sf/foo?foo.name=bar&foo.num=3">Valid POJO as field</a></li>
+  <li><a href="/foo?x.num=33&x.bar.num=300">Valid POJO with violations</a></li>
+  <li><a href="/foo?x.name=bar&x.num=3">Valid POJO</a></li>
+  <li><a href="/sf/foo?x.num=33">Valid POJO with violations as field</a></li>
+  <li><a href="/sf/foo?x.name=bar&x.num=3">Valid POJO as field</a></li>
 </ul>
