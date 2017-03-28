@@ -30,9 +30,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>[1.0.1, 2.0.0)</act.version>
-    <act-morphia.version>[1.0.0, 2.0.0)</act-morphia.version>
-    <act-storage.version>[0.7.0, 2.0.0)</act-storage.version>
+    <act.version>1.0.6</act.version>
+    <act-morphia.version>1.0.3</act-morphia.version>
+    <act-storage.version>0.8.0</act-storage.version>
     <app.entry>demo.upload.UploadDemo</app.entry>
   </properties>
 
