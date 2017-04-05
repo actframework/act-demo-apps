@@ -4,10 +4,13 @@ import org.beetl.sql.core.annotatoin.AssignID;
 import org.osgl.util.S;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class TodoItem  {
+    @Id
     private long _id;
+
     private String desc;
 
     private TodoItem() {
