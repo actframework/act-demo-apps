@@ -124,6 +124,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.osgl</groupId>
+      <artifactId>osgl-mvc</artifactId>
+      <version>1.0.4-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
       <version>${act.version}</version>
