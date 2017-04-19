@@ -6,6 +6,7 @@ classes
 *.DS_Store
 *all.sql
 tmp/
+**/*.pid
 **/.act*
 **/.classpath
 **/.settings

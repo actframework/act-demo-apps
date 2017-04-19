@@ -30,7 +30,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.0.6</act.version>
+    <act.version>1.1.2</act.version>
     <act-excel.version>1.0.0</act-excel.version>
     <app.entry>demo.excel.ExcelApp</app.entry>
   </properties>

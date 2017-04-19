@@ -1,12 +1,15 @@
 package demo.upload;
 
 import act.Act;
+import act.data.SObjectResolver;
 import act.db.DbBind;
 import act.db.morphia.MorphiaDao;
+import act.storage.StorageServiceManager;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.storage.ISObject;
+import org.osgl.storage.IStorageService;
 import org.osgl.storage.impl.SObject;
 
 import javax.inject.Inject;
@@ -34,6 +37,16 @@ public class UploadDemo {
     // stored in resources/rythm/demo/upload/UploadDemo/home.html
     @GetAction
     public void home() {
+    }
+
+    @GetAction("/rmt")
+    public String testRemoteFetch(StorageServiceManager ssm) {
+        String url = "https://propertymanage.atlassian.net/secure/projectavatar?pid=10400&avatarId=11200";
+        ISObject sobj = new SObjectResolver().resolve(url);
+        //sobj.setAttribute(ISObject.ATTR_FILE_NAME, "remote_file.png");
+        IStorageService ss = ssm.storageService("store1");
+        sobj = ss.put(ss.getKey(), sobj);
+        return sobj.getUrl();
     }
 
     @GetAction("/multi")

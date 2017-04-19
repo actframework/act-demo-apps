@@ -30,7 +30,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.0.6</act.version>
+    <act.version>1.1.2</act.version>
     <app.entry>demo.helloworld.HelloWorldApp</app.entry>
   </properties>
 
@@ -121,12 +121,6 @@
       <artifactId>junit</artifactId>
       <version>4.10</version>
       <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.osgl</groupId>
-      <artifactId>osgl-mvc</artifactId>
-      <version>1.0.4-SNAPSHOT</version>
     </dependency>
 
     <dependency>

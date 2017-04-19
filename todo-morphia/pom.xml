@@ -30,8 +30,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.0.6</act.version>
-    <act-morphia.version>1.0.3</act-morphia.version>
+    <act.version>1.1.2</act.version>
+    <act-morphia.version>1.1.0</act-morphia.version>
     <app.entry>demo.todo.morphia.Todo</app.entry>
   </properties>
 

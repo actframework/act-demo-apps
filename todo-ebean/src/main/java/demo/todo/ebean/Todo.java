@@ -1,7 +1,7 @@
 package demo.todo.ebean;
 
 import act.Act;
-import act.db.ebean2.EbeanDao;
+import act.db.ebean.EbeanDao;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
