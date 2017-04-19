@@ -1,46 +1,43 @@
 package demo.todo.beetlsql;
 
-import org.beetl.sql.core.annotatoin.AssignID;
-import org.osgl.util.S;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.beetl.sql.core.annotatoin.AutoID;;
 @Entity
 public class TodoItem  {
-    @Id
-    private long _id;
+   
+	@Id
+    private Long id;
 
     private String desc;
 
-    private TodoItem() {
+    public TodoItem() {
     }
 
-    public TodoItem(String desc) {
-        this.desc = desc;
-    }
-
-    @AssignID
+    @AutoID //beetlsql 注解
     public Long getId() {
-        return _id;
+        return id;
     }
 
-    public void setId(Long id) {
-        _id = id;
-    }
 
-    public String getDesc() {
-        return desc;
-    }
 
-    public TodoItem setDesc(String desc) {
-        this.desc = desc;
-        return this;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @Override
-    public String toString() {
-        return S.fmt("%3s|%s", getId(), getDesc());
-    }
+
+	public String getDesc() {
+		return desc;
+	}
+
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+    
 
 }
