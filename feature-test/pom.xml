@@ -20,19 +20,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework.demo</groupId>
-  <artifactId>todo-morphia</artifactId>
+  <artifactId>feature-test</artifactId>
   <version>1.0.0</version>
 
-  <name>actframework app demo - TODO (mongodb)</name>
-  <description>demonstrates a simple TODO application for mongodb</description>
+  <name>actframework Feature Test App</name>
   <url>http://actframework.org/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>1.3.0</act.version>
-    <act-morphia.version>1.1.0</act-morphia.version>
-    <app.entry>demo.todo.morphia.Todo</app.entry>
+    <app.entry>demo.helloworld.HelloWorldApp</app.entry>
   </properties>
 
   <licenses>
@@ -128,12 +126,6 @@
       <groupId>org.actframework</groupId>
       <artifactId>act</artifactId>
       <version>${act.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act-morphia</artifactId>
-      <version>${act-morphia.version}</version>
     </dependency>
 
     <dependency>
