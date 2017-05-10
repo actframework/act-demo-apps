@@ -1,6 +1,7 @@
-package act.fsa.email;
+package demo.email;
 
-import act.boot.app.RunApp;
+import act.Act;
+import act.app.ActionContext;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
 import org.osgl.mvc.annotation.GetAction;
@@ -25,25 +26,34 @@ public class EmailDemoApp {
     }
 
     @PostAction("/welcome")
-    public Result welcome(String who) {
+    public Result welcome(String who, ActionContext context) {
         logger.info(">> welcome action handler");
-        postOffice.sendWelcome(who);
+        if (!PostOffice.isValidEmail(who)) {
+            context.flash().error("Please type in valid email");
+        } else {
+            postOffice.sendWelcome(who);
+            context.flash().success("welcome email sent");
+        }
         logger.info("<< welcome action handler");
         return redirect("/");
     }
 
     @PostAction("/bye")
-    public Result bye(String who) {
+    public Result bye(String who, ActionContext context) {
         logger.info(">> bye action handler");
-        postOffice.sendBye(who);
+        if (!PostOffice.isValidEmail(who)) {
+            context.flash().error("Please type in valid email");
+        } else {
+            postOffice.sendBye(who);
+            context.flash().success("farewell email sent");
+        }
         logger.info("<< bye action handler");
         return redirect("/");
     }
 
 
     public static void main(String[] args) throws Exception {
-        Thread.sleep(3000);
-        RunApp.start(EmailDemoApp.class);
+        Act.start("Email Demo");
     }
 
 }

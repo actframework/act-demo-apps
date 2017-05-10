@@ -1,9 +1,9 @@
-package act.fsa.email;
+package demo.email;
 
 import act.conf.AppConfig;
 import act.job.Every;
 import act.mail.Mailer;
-import org.osgl.logging.L;
+import org.osgl.logging.LogManager;
 import org.osgl.logging.Logger;
 import org.osgl.util.E;
 import org.osgl.util.S;
@@ -17,7 +17,7 @@ import javax.inject.Inject;
 @Mailer
 public class PostOffice extends Mailer.Util {
 
-    private static Logger logger = L.get(PostOffice.class);
+    private static Logger logger = LogManager.get(PostOffice.class);
 
     @Inject
     private AppConfig conf;
@@ -57,7 +57,7 @@ public class PostOffice extends Mailer.Util {
         return who;
     }
 
-    private static boolean isValidEmail(String who) {
+    public static boolean isValidEmail(String who) {
         if (S.blank(who)) return false;
         return who.toLowerCase().matches("^[_a-z0-9-']+(\\.[_a-z0-9-']+)*(\\+[0-9]+)?@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$");
     }

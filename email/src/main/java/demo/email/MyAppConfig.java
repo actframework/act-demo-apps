@@ -1,4 +1,4 @@
-package act.fsa.email;
+package demo.email;
 
 import act.app.conf.AppConfigurator;
 

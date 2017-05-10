@@ -1,0 +1,39 @@
+@extends(_base)
+<style>
+  input {width: 380px;}
+  div.alert {
+    border: 1px solid #edf759;
+    background-color: #fcffd6;
+    padding: 20px;
+  }
+  div.alert-error {
+    border: 1px solid #f7201b;
+    background-color: #ffb6ce;
+  }
+  h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+</style>
+<h1>Welcome to ACT Framework Email Demo</h1>
+@if(_flash.success()) {
+<div class="alert alert-info">
+  <h4>@_flash.success()</h4>
+  <div>Please check the console log to see the email content</div>
+  <div>If you have configured your smpt in your email.properties file, you can see the email in the inbox</div>
+</div>
+} else if (_flash.error()) {
+<div class="alert alert-error">
+  @_flash.error()
+</div>
+}
+<form action="/welcome" method="post">
+  <p>Send Welcome Email</p>
+  <input type="text" name="who" placeholder="type in the email of the recipient you want to send a welcome">
+  <button>Submit</button>
+</form>
+<form action="/bye" method="post">
+  <p>Send Farewell Email</p>
+  <input type="text" name="who" placeholder="type in the email of the recipient you want to say a bye">
+  <button>Submit</button>
+</form>
