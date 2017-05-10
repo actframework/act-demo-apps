@@ -11,14 +11,14 @@ import java.io.InputStream;
 import static act.controller.Controller.Util.render;
 
 @TemplateContext("/gh")
-public class GH158 {
+public class GH158 extends GHTest {
 
     @GetAction("/login")
     public String login() {
         return "login";
     }
 
-    @GetAction("gh158")
+    @GetAction("158")
     public final void gh158() throws IOException {
         try (InputStream is = new FileInputStream("pom.xml")) {
             String pom = IO.readContentAsString(is);

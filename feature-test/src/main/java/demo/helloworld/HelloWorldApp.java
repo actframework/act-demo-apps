@@ -19,19 +19,6 @@ import static act.controller.Controller.Util.render;
 @TemplateContext("hello")
 public class HelloWorldApp {
 
-    @Output
-    private String x = "X-" + S.random(3);
-
-    @Output("yy")
-    @NoBind
-    private int y = 5 + N.randInt(100);
-
-    @Before
-    @Global
-    public void logUrl(H.Request req) {
-        Act.LOGGER.info("url: %s", req.fullUrl());
-    }
-
     @ProvidesImplicitTemplateVariable("foo")
     public String foo() {
         return "bar";
@@ -104,6 +91,26 @@ public class HelloWorldApp {
     @TemplateContext("wow")
     public void z() {
         render();
+    }
+
+    @Output
+    private String x = "X-" + S.random(3);
+
+    @Output("yy")
+    @NoBind
+    private int y = 5 + N.randInt(100);
+
+
+    @Global
+    @Before
+    public void injectorA() {
+        System.out.println("injector A");
+    }
+
+    @Before
+    @Global
+    public void logUrl(H.Request req) {
+        Act.LOGGER.info("url: %s", req.fullUrl());
     }
 
     public static void main(String[] args) throws Exception {

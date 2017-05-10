@@ -1,0 +1,4 @@
+#!/bin/bash
+find . -name target -exec rm -rf {} +
+find . -name ".act*" -delete
+find . -name "*.log" -delete
