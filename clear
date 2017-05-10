@@ -2,3 +2,5 @@
 find . -name target -exec rm -rf {} +
 find . -name ".act*" -delete
 find . -name "*.log" -delete
+rm -f *.zip
+rm -f *.tar
