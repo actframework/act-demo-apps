@@ -19,6 +19,9 @@ package demo.helloworld;
  */
 
 import io.undertow.Undertow;
+import io.undertow.server.HttpHandler;
+import io.undertow.server.HttpServerExchange;
+import io.undertow.server.handlers.CookieImpl;
 import io.undertow.server.handlers.resource.ClassPathResourceManager;
 import io.undertow.websockets.WebSocketConnectionCallback;
 import io.undertow.websockets.core.AbstractReceiveListener;
@@ -26,6 +29,7 @@ import io.undertow.websockets.core.BufferedTextMessage;
 import io.undertow.websockets.core.WebSocketChannel;
 import io.undertow.websockets.core.WebSockets;
 import io.undertow.websockets.spi.WebSocketHttpExchange;
+import org.osgl.util.S;
 
 import static io.undertow.Handlers.*;
 
@@ -59,6 +63,13 @@ public class ChatServer {
                             }
 
                         }))
+                        .addPrefixPath("/hi", new HttpHandler() {
+                            @Override
+                            public void handleRequest(HttpServerExchange exchange) throws Exception {
+                                exchange.setResponseCookie(new CookieImpl("_id", S.random()));
+                                exchange.getResponseSender().send("Hi");
+                            }
+                        })
                         .addPrefixPath("/", resource(new ClassPathResourceManager(ChatServer.class.getClassLoader(), ChatServer.class.getPackage()))
                                 .addWelcomeFiles("index.html")))
                 .build();

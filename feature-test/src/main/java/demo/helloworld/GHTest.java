@@ -1,7 +1,10 @@
 package demo.helloworld;
 
+import act.controller.Controller;
+import act.controller.annotation.TemplateContext;
 import act.controller.annotation.UrlContext;
 
 @UrlContext("/gh")
-public class GHTest {
+@TemplateContext("/gh")
+public class GHTest extends Controller.Util {
 }

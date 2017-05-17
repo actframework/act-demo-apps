@@ -1,6 +1,5 @@
 package demo.helloworld;
 
-import act.controller.annotation.TemplateContext;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.util.IO;
 
@@ -10,7 +9,6 @@ import java.io.InputStream;
 
 import static act.controller.Controller.Util.render;
 
-@TemplateContext("/gh")
 public class GH158 extends GHTest {
 
     @GetAction("/login")

@@ -19,12 +19,13 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.actframework.demo</groupId>
-  <artifactId>feature-test</artifactId>
+  <groupId>demo.chatroom</groupId>
+  <artifactId>chatroom</artifactId>
   <version>1.0.0</version>
 
-  <name>actframework Feature Test App</name>
-  <url>http://actframework.org/</url>
+  <name>chatroom</name>
+  <description>Description of your application goes here</description>
+  <url>http://thinking.studio</url>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -36,9 +37,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>1.4.0-SNAPSHOT</act.version>
-    <act.morphia.version>1.1.0</act.morphia.version>
-    <app.entry>demo.helloworld.HelloWorldApp</app.entry>
-    <kotlin.version>1.1.2-3</kotlin.version>
+    <app.entry>demo.chatroom.ChatApp</app.entry>
   </properties>
 
   <licenses>
@@ -76,47 +75,6 @@
               </descriptors>
               <outputDirectory>${project.build.directory}/dist/</outputDirectory>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-maven-plugin</artifactId>
-        <version>${kotlin.version}</version>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>test-compile</id>
-            <phase>test-compile</phase>
-            <goals>
-              <goal>test-compile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>testCompile</id>
-            <phase>test-compile</phase>
-            <goals>
-              <goal>testCompile</goal>
-            </goals>
           </execution>
         </executions>
       </plugin>
@@ -163,6 +121,9 @@
   </build>
 
   <dependencies>
+    <!-- 
+    Insert Maven Deps here...
+     -->
 
     <dependency>
       <groupId>junit</groupId>
@@ -178,26 +139,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act-morphia</artifactId>
-      <version>${act.morphia.version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.1.6</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-test</artifactId>
-      <version>${kotlin.version}</version>
-      <scope>test</scope>
     </dependency>
 
   </dependencies>

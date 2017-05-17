@@ -1,6 +1,6 @@
 #!/bin/bash
 ./clear
-find . * -maxdepth 0 -type d ! -path . ! -name obsolete -execdir zip '{}.zip' '{}' \;
+find . * -maxdepth 0 -type d ! -path . ! -name obsolete -execdir zip -r '{}.zip' '{}' \;
 tar cf samples.tar *.zip
 rm -f *.zip
 scp samples.tar greenlaw110.com:act/skeleton
