@@ -1,7 +1,7 @@
 <!--
   ~ JBoss, Home of Professional Open Source.
   ~ Copyright 2014 Red Hat, Inc., and individual contributors
-  ~ as indicated by the @@author tags.
+  ~ as indicated by the @author tags.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
   <script>
       var socket;
       if (window.WebSocket) {
-          socket = new WebSocket("ws://localhost:5460/msg");
+          socket = new WebSocket("ws://localhost:5460/chat/socket");
           socket.onmessage = function (event) {
               var home = document.getElementById('chat');
               home.innerHTML = home.innerHTML + event.data + "<br />";
@@ -43,13 +43,7 @@
       }
   </script>
   <style type="text/css">
-    html,body {
-      width:100%;
-      height:100%;
-      background-color: black;
-      color: beige;
-    }
-
+    html,body {width:100%;height:100%;}
     body {
       height: 80%;
     }
@@ -62,6 +56,7 @@
       margin-left: auto;
       margin-right: auto;
       width: 70%;
+      background: white;
     }
 
     .chatform {
@@ -87,14 +82,14 @@
 <body>
 <div class="page">
   <div class="center" >
-    <h1>WebSocket @i18n("demo") - @i18n("chatroom")</h1>
+    <h1>Web Socket Chat Demo</h1>
     <div id="chat" style="height:100%;width: 100%; overflow: auto;">
 
 
     </div>
 
     <form onsubmit="return false;" class="chatform" action="">
-      <label for="msg">@i18n("message")</label>
+      <label for="msg">Message</label>
       <input type="text" name="message" id="msg"  onkeypress="if(event.keyCode==13) { send(this.form.message.value); this.value='' } " />
     </form>
   </div>

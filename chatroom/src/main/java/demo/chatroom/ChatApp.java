@@ -15,10 +15,10 @@ public class ChatApp {
 
     @WsAction("msg")
     public void onMessage(String message, WebSocketContext context) {
+        // suppress blank lines
         if (S.notBlank(message)) {
             context.sendToPeers(message);
         }
-        // otherwise we strip off the empty blank lines
     }
 
     public static void main(String[] args) throws Exception {
