@@ -17,7 +17,8 @@
   -->
 
 <html>
-<head><title>WebSocket Chat</title>
+<head>
+  <title>WebSocket Chat</title>
   <script>
       var socket;
       if (window.WebSocket) {
@@ -89,10 +90,7 @@
   <div class="center" >
     <h1>WebSocket @i18n("demo") - @i18n("chatroom")</h1>
     <div id="chat" style="height:100%;width: 100%; overflow: auto;">
-
-
     </div>
-
     <form onsubmit="return false;" class="chatform" action="">
       <label for="msg">@i18n("message")</label>
       <input type="text" name="message" id="msg"  onkeypress="if(event.keyCode==13) { send(this.form.message.value); this.value='' } " />

@@ -13,6 +13,8 @@ import org.osgl.mvc.annotation.*;
 import org.osgl.util.N;
 import org.osgl.util.S;
 
+import java.math.BigDecimal;
+
 import static act.controller.Controller.Util.render;
 
 @SuppressWarnings("unused")
@@ -70,6 +72,13 @@ public class HelloWorldApp {
         return "xlogin";
     }
 
+    @DeleteAction
+    public void deleteTest() {
+    }
+
+    @PostAction
+    public void postTest() {}
+
     @GetAction
     @CacheFor(5)
     public void home(@DefaultValue("world") @Output String who, H.Response response) {
@@ -114,7 +123,11 @@ public class HelloWorldApp {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Hello World");
+        //Act.start("OS China");
+        BigDecimal a = new BigDecimal(3.3);
+        System.out.println(a);
+        System.out.println(a.subtract(BigDecimal.ONE));
+        System.out.println(a.add(BigDecimal.ONE.negate()));
     }
 
 }
