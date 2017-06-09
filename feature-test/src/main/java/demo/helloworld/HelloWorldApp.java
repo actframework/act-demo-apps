@@ -13,8 +13,6 @@ import org.osgl.mvc.annotation.*;
 import org.osgl.util.N;
 import org.osgl.util.S;
 
-import java.math.BigDecimal;
-
 import static act.controller.Controller.Util.render;
 
 @SuppressWarnings("unused")
@@ -123,11 +121,7 @@ public class HelloWorldApp {
     }
 
     public static void main(String[] args) throws Exception {
-        //Act.start("OS China");
-        BigDecimal a = new BigDecimal(3.3);
-        System.out.println(a);
-        System.out.println(a.subtract(BigDecimal.ONE));
-        System.out.println(a.add(BigDecimal.ONE.negate()));
+        Act.start("OS China");
     }
 
 }

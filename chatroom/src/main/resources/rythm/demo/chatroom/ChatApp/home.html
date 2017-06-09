@@ -22,7 +22,7 @@
   <script>
       var socket;
       if (window.WebSocket) {
-          socket = new WebSocket("ws://localhost:5460/msg");
+          socket = new WebSocket("ws://chat.com/msg");
           socket.onmessage = function (event) {
               var home = document.getElementById('chat');
               home.innerHTML = home.innerHTML + event.data + "<br />";

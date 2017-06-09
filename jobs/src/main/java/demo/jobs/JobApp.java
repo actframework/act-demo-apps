@@ -2,6 +2,8 @@ package demo.jobs;
 
 import act.Act;
 import act.app.ActionContext;
+import act.cli.Command;
+import act.cli.Required;
 import act.job.OnAppStart;
 import org.osgl.logging.L;
 import org.osgl.logging.Logger;
@@ -28,6 +30,11 @@ public class JobApp {
             return json(JobLog.logs(limit));
         }
         return render();
+    }
+
+    @Command(name = "set.num", help = "test negative number in CLI")
+    public int testCli(@Required("specify the number, can be negative") int number) {
+        return number * 2;
     }
 
     @GetAction("foo")
