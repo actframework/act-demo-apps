@@ -35,7 +35,6 @@ public class ConsoleApp {
         @Override
         public void onMessage(WebSocket webSocket, String text) {
             context.println(text);
-            webSocket.close(1000, null);
         }
     }
 
