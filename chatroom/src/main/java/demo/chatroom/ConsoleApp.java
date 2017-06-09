@@ -5,6 +5,7 @@ import act.cli.Command;
 import act.cli.Required;
 import act.util.Lazy;
 import okhttp3.*;
+import org.osgl.util.S;
 
 import javax.inject.Singleton;
 
@@ -34,7 +35,7 @@ public class ConsoleApp {
 
         @Override
         public void onMessage(WebSocket webSocket, String text) {
-            context.println(text);
+            context.println(S.concat("[ws]", text));
         }
     }
 
