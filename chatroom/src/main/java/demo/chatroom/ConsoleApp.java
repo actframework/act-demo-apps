@@ -38,7 +38,6 @@ public class ConsoleApp {
         }
     }
 
-    @Command("open")
     public void open(CliContext context) {
         WebSocket ws = context.session().attribute("ws");
         if (null != ws) {
@@ -53,8 +52,8 @@ public class ConsoleApp {
         client.dispatcher().executorService().shutdown();
     }
 
-    @Command("send")
-    public void send(@Required String message, CliContext context) {
+    @Command(name = "send", help = "Send message to websocket server")
+    public void send(@Required("specify the message to be sent") String message, CliContext context) {
         WebSocket ws = context.session().attribute("ws");
         if (null == ws) {
             open(context);
