@@ -6,6 +6,6 @@ import javax.inject.Named;
 public class FooProcessService implements DataProcessService {
     @Override
     public void process(String context) {
-        JobLog.log("FooProcessService: processing data | " + context);
+        //JobLog.log("FooProcessService: processing data | " + context);
     }
 }

@@ -3,7 +3,6 @@ package demo.jobs;
 import act.app.event.AppEventId;
 import act.job.*;
 import act.sys.Env;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.osgl.util.S;
 
 /**
@@ -53,7 +52,7 @@ public class SomeService {
     /**
      * This method is scheduled to run every minute
      */
-    @Cron("0 * * * * ?")
+    @Cron("0 43 * * * ?")
     public void backup() {
         JobLog.log("SomeService.backup");
     }

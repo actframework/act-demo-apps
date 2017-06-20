@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.actframework.demo</groupId>
-  <artifactId>todo-ebean</artifactId>
+  <artifactId>todo-ebean2</artifactId>
   <version>1.0.0</version>
 
   <name>actframework app demo - TODO (ebean)</name>
@@ -31,7 +31,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>1.4.0</act.version>
-    <act-ebean.version>1.2.0-SNAPSHOT</act-ebean.version>
+    <act-ebean2.version>1.1.0</act-ebean2.version>
     <HikariCP.version>2.6.1</HikariCP.version>
     <h2.version>1.4.193</h2.version>
     <app.entry>demo.todo.ebean.Todo</app.entry>
@@ -134,8 +134,8 @@
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-ebean</artifactId>
-      <version>${act-ebean.version}</version>
+      <artifactId>act-ebean2</artifactId>
+      <version>${act-ebean2.version}</version>
     </dependency>
 
     <dependency>

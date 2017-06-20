@@ -33,7 +33,6 @@
       $('#list').html('');
       for (var i = 0, j = data.length; i < j; ++i) {
         var todo = data[i];
-        console.log(todo);
         var $li = $('<li id="' + todo.id + '"><a class="edit btn">edit</a>&nbsp;<a class="delete btn">done</a>&nbsp;&nbsp;<span>' + todo.desc + '</span></li>');
         $li.appendTo($('#list'));
       }
