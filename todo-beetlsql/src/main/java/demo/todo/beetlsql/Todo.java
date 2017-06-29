@@ -1,16 +1,14 @@
 package demo.todo.beetlsql;
 
-import static act.controller.Controller.Util.notFoundIfNull;
-
-import javax.inject.Inject;
-
-import org.beetl.sql.core.OnConnection;
+import act.Act;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import org.osgl.mvc.annotation.PutAction;
 
-import act.Act;
+import javax.inject.Inject;
+
+import static act.controller.Controller.Util.notFoundIfNull;
 
 /**
  * A Simple Todo application controller
@@ -19,7 +17,7 @@ import act.Act;
 public class Todo {
 
     @Inject
-    private TodoItemMapper mapper;
+    private TodoItem.Mapper mapper;
 
     @GetAction
     public void home() {}
@@ -27,7 +25,7 @@ public class Todo {
     @GetAction("/list")
     public Iterable<TodoItem> list(String q) {
     		// mapper.all();
-        return mapper.selectAll();
+        return mapper.all();
     }
 
     @PostAction("/list")

@@ -1,6 +1,7 @@
 package demo.helloworld;
 
 import act.Act;
+import act.controller.Controller;
 import act.controller.annotation.TemplateContext;
 import act.inject.DefaultValue;
 import act.inject.param.NoBind;
@@ -12,6 +13,8 @@ import org.osgl.http.H;
 import org.osgl.mvc.annotation.*;
 import org.osgl.util.N;
 import org.osgl.util.S;
+
+import java.io.File;
 
 import static act.controller.Controller.Util.render;
 
@@ -106,6 +109,12 @@ public class HelloWorldApp {
     @Output("yy")
     @NoBind
     private int y = 5 + N.randInt(100);
+
+    @GetAction("/download")
+    public void download() {
+        File file = new File("/etc/issue");
+        Controller.Util.download(file);
+    }
 
 
     @Global

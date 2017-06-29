@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>upload</artifactId>
-  <version>1.0.0</version>
+  <version>1.4.0</version>
 
   <name>actframework app demo - upload</name>
   <description>demonstrate upload in Act Application</description>
@@ -30,9 +30,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.3.3</act.version>
-    <act-morphia.version>1.1.0</act-morphia.version>
-    <act-storage.version>0.9.0</act-storage.version>
+    <act.version>1.4.3</act.version>
+    <act-morphia.version>1.2.0</act-morphia.version>
+    <act-storage.version>0.10.1</act-storage.version>
     <app.entry>demo.upload.UploadDemo</app.entry>
   </properties>
 
@@ -153,12 +153,6 @@
       <groupId>org.actframework</groupId>
       <artifactId>act-storage</artifactId>
       <version>${act-storage.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.osgl</groupId>
-      <artifactId>osgl-storage</artifactId>
-      <version>1.1.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>

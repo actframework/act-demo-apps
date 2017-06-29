@@ -30,8 +30,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.1</act.version>
-    <act-beetlsql.version>1.2.0-SNAPSHOT</act-beetlsql.version>
+    <act.version>1.4.3</act.version>
+    <act-beetlsql.version>1.2.1</act-beetlsql.version>
     <HikariCP.version>2.6.1</HikariCP.version>
     <h2.version>1.4.193</h2.version>
     <app.entry>demo.todo.beetlsql.Todo</app.entry>

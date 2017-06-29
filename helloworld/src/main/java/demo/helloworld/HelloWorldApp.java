@@ -2,9 +2,9 @@ package demo.helloworld;
 
 import act.Act;
 import act.inject.DefaultValue;
-import act.util.Output;
 import org.osgl.mvc.annotation.GetAction;
-import org.osgl.util.E;
+
+import static act.controller.Controller.Util.render;
 
 /**
  * The simple hello world app.
@@ -16,17 +16,13 @@ import org.osgl.util.E;
 public class HelloWorldApp {
 
     @GetAction
-    public void home(@DefaultValue("world") @Output String who) {
+    public void home(@DefaultValue("world") String who) {
+        render(who);
     }
 
-    @GetAction("/error")
-    public void throwError() {
-        throw E.tbd();
-    }
-
-    @GetAction("/echo2")
-    public String echo(String message) {
-        return message;
+    @GetAction("/echo/{msg}")
+    public String echo(String msg) {
+        return msg + "xsyy";
     }
 
     public static void main(String[] args) throws Exception {

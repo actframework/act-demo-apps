@@ -30,7 +30,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.0</act.version>
+    <act.version>1.4.3</act.version>
     <act-ebean2.version>1.1.0</act-ebean2.version>
     <HikariCP.version>2.6.1</HikariCP.version>
     <h2.version>1.4.193</h2.version>

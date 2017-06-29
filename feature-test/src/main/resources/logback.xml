@@ -4,7 +4,7 @@
   <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 
   <!-- Send debug messages to System.out -->
-  <appender name="OUTPUT" class="ch.qos.logback.core.ConsoleAppender">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <withJansi>true</withJansi>
     <encoder>
       <pattern>%date %highlight(%-5level) %cyan(%logger{5}@[%-4.30thread]) - %msg%n</pattern>

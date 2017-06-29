@@ -24,6 +24,16 @@ public class Todo {
     @GetAction
     public void home() {}
 
+    @GetAction("/echo/{msg}")
+    public String echo(String msg) {
+        return msg + "d1ddsfd";
+    }
+
+    @GetAction("/foo")
+    public String foo() {
+        return "foo";
+    }
+
     @GetAction("/list")
     public Iterable<TodoItem> list(String q) {
         if (S.notBlank(q)) {

@@ -1,11 +1,13 @@
 package demo.todo.beetlsql;
 
 
+import org.beetl.sql.core.annotatoin.AutoID;
+import org.beetl.sql.core.mapper.BaseMapper;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import org.beetl.sql.core.annotatoin.AutoID;;
+;
 @Entity
 public class TodoItem  {
    
@@ -38,6 +40,8 @@ public class TodoItem  {
 		this.desc = desc;
 	}
 
-    
+	public interface Mapper extends BaseMapper<TodoItem> {
+	}
+
 
 }
