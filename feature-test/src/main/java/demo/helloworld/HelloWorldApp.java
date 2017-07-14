@@ -1,6 +1,8 @@
 package demo.helloworld;
 
 import act.Act;
+import act.cli.Command;
+import act.cli.Required;
 import act.controller.Controller;
 import act.controller.annotation.TemplateContext;
 import act.inject.DefaultValue;
@@ -11,6 +13,8 @@ import act.util.Output;
 import act.view.ProvidesImplicitTemplateVariable;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.*;
+import org.osgl.mvc.result.Redirect;
+import org.osgl.mvc.result.Result;
 import org.osgl.util.N;
 import org.osgl.util.S;
 
@@ -116,11 +120,100 @@ public class HelloWorldApp {
         Controller.Util.download(file);
     }
 
+    @Action("/redirect/301")
+    public Result test301(H.Response response) {
+        response.header("Location", "/redirected/301");
+        return new Result() {}.status(H.Status.MOVED_PERMANENTLY);
+    }
+
+    @GetAction("/redirected/301")
+    public String test301Redirected() {
+        return 301 + " GET";
+    }
+
+    @PostAction("/redirected/301")
+    public String test301RedirectedPost() {
+        return 301 + " POST";
+    }
+
+    @Action("/redirect/302")
+    public Result test302(H.Response response) {
+        response.header("Location", "/redirected/302");
+        return new Result() {}.status(H.Status.FOUND);
+    }
+
+    @GetAction("/redirected/302")
+    public String test302Redirected() {
+        return 302 + " GET";
+    }
+
+    @PostAction("/redirected/302")
+    public String test302RedirectedPost() {
+        return 302 + " POST";
+    }
+
+    @Action("/redirect/303")
+    public Result test303(H.Response response) {
+        response.header("Location", "/redirected/303");
+        return new Result() {}.status(H.Status.SEE_OTHER);
+    }
+
+    @GetAction("/redirected/303")
+    public String test303Redirected() {
+        return 303 + " GET";
+    }
+
+    @PostAction("/redirected/303")
+    public String test303RedirectedPost() {
+        return 303 + " POST";
+    }
+
+    @Action("/redirect/307")
+    public Result test307(H.Request req, H.Response response) {
+        response.header("Location", "/redirected/307");
+        return new Result() {}.status(H.Status.of(307));
+    }
+
+    @GetAction("/redirected/307")
+    public String test307GetRedirected() {
+        return 307 + " GET";
+    }
+
+    @PostAction("/redirected/307")
+    public String test307PostRedirected() {
+        return 307 + " POST";
+    }
+
+    @Action("/redirect/308")
+    public Result test308(H.Request req, H.Response response) {
+        response.header("Location", "/redirected/308");
+        return new Result() {}.status(H.Status.of(308));
+    }
+
+    @GetAction("/redirected/308")
+    public String test308GetRedirected() {
+        return 308 + " GET";
+    }
+
+    @PostAction("/redirected/308")
+    public String test308PostRedirected() {
+        return 308 + " POST";
+    }
+
+    @GetAction("/interceptor/exception")
+    public String testExceptionInterceptor() {
+        throw new XyzExcpetion();
+    }
 
     @Global
     @Before
     public void injectorA() {
         System.out.println("injector A");
+    }
+
+    @Command("enc")
+    public String encrypt(@Required("specify the message") String msg) {
+        return Act.crypto().encrypt(msg);
     }
 
     @Before
@@ -129,8 +222,22 @@ public class HelloWorldApp {
         Act.LOGGER.info("url: %s", req.fullUrl());
     }
 
+    @Action("/see-other")
+    public Result seeOther() {
+        return Redirect.seeOther("http://google.com");
+    }
+
+    @Action("/401")
+    public Result unauthorized() {
+        return Controller.Util.unauthorized("Access to the staging site");
+    }
+
     public static void main(String[] args) throws Exception {
-        Act.start("OS China");
+        //Act.start("OS China");
+        File file = new File("/tmp/tst/noaccess");
+        System.out.println(file.exists());
+        System.out.println(file.canRead());
+        System.out.println(file.canExecute());
     }
 
 }

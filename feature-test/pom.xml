@@ -35,8 +35,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.3</act.version>
-    <act.morphia.version>1.1.0</act.morphia.version>
+    <act.version>1.5.0-SNAPSHOT</act.version>
+    <act.morphia.version>1.3.0-SNAPSHOT</act.morphia.version>
+    <act-excel.version>1.1.0</act-excel.version>
     <app.entry>demo.helloworld.HelloWorldApp</app.entry>
     <kotlin.version>1.1.2-3</kotlin.version>
   </properties>
@@ -181,6 +182,12 @@
       <groupId>org.actframework</groupId>
       <artifactId>act-morphia</artifactId>
       <version>${act.morphia.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-excel</artifactId>
+      <version>${act-excel.version}</version>
     </dependency>
 
     <dependency>

@@ -20,11 +20,6 @@ public class HelloWorldApp {
         render(who);
     }
 
-    @GetAction("/echo/{msg}")
-    public String echo(String msg) {
-        return msg + "xsyy";
-    }
-
     public static void main(String[] args) throws Exception {
         Act.start("Hello World");
     }
