@@ -232,12 +232,13 @@ public class HelloWorldApp {
         return Controller.Util.unauthorized("Access to the staging site");
     }
 
+    @Action("/ia")
+    public int[] testArray(int[] ia) {
+        return ia;
+    }
+
     public static void main(String[] args) throws Exception {
-        //Act.start("OS China");
-        File file = new File("/tmp/tst/noaccess");
-        System.out.println(file.exists());
-        System.out.println(file.canRead());
-        System.out.println(file.canExecute());
+        Act.start("OS China");
     }
 
 }

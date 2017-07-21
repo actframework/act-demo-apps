@@ -14,6 +14,12 @@
     </li>
   </#macro>
 
+  <#macro optInline engine>
+    <li>
+      <a href="/${engine?lower_case}/inline">Say hello inline ${engine}</a>
+    </li>
+  </#macro>
+
   <#macro optError engine>
     <li>
       <a href="/${engine?lower_case}/error">Trigger error in ${engine} template</a>

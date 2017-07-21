@@ -14,6 +14,12 @@
   </li>
   #end
 
+  #macro(optInline $engine)
+  <li>
+    <a href="/${engine.toLowerCase()}/inline">Say hello inline ${engine}</a>
+  </li>
+  #end
+
   #macro(optError $engine)
   <li>
     <a href="/${engine.toLowerCase()}/error">Trigger error in ${engine} template</a>
@@ -31,7 +37,13 @@
   #opt("FreeMarker")
   #opt("Mustache")
   #opt("Thymeleaf")
+  <li>---</li>
 
+  #optInline("Rythm")
+  #optInline("Beetl")
+  #optInline("FreeMarker")
+  #optInline("Mustache")
+  #optInline("Thymeleaf")
   #if ($_app.isDev())
   <li>---</li>
   #optError("Rythm")

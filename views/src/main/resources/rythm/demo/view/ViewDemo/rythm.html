@@ -14,6 +14,11 @@
     <a href="/@(engine.toLowerCase())?who=@engine">Say hello in @engine</a>
   </li>
   }
+  @def optInline(String engine) {
+  <li>
+    <a href="/@(engine.toLowerCase())/inline">Say hello inline @engine</a>
+  </li>
+  }
   @def optError(String engine) {
   <li>
     <a href="/@(engine.toLowerCase())/error">Trigger error in @engine template</a>
@@ -30,6 +35,13 @@
   @opt("Velocity")
   @opt("Mustache")
   @opt("Thymeleaf")
+  <li>---</li>
+  @optInline("Beetl")
+  @optInline("FreeMarker")
+  @optInline("Velocity")
+  @optInline("Mustache")
+  @optInline("Thymeleaf")
+
   @if(_app.isDev()) {
   <li>---</li>
   @optError("Rythm")

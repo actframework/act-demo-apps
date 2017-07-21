@@ -13,6 +13,10 @@
     <a data-th-href="'/' + ${#strings.toLowerCase(engine)} + '?who=' + ${engine}">Say hello in <span data-th-text="${engine}"></span></a>
   </div>
 
+  <div data-th-fragment="optInline (engine)">
+    <a data-th-href="'/' + ${#strings.toLowerCase(engine)} + '/inline'">Say hello inline <span data-th-text="${engine}"></span></a>
+  </div>
+
   <div data-th-fragment="optError (engine)">
     <a data-th-href="'/' + ${#strings.toLowerCase(engine)} + '/error'">Trigger error in <span data-th-text="${engine}"></span> engine</a>
   </div>
@@ -28,6 +32,13 @@
   <li data-th-insert=":: opt ('Freemarker')"></li>
   <li data-th-insert=":: opt ('Velocity')"></li>
   <li data-th-insert=":: opt ('Mustache')"></li>
+
+  <li>---</li>
+  <li data-th-insert=":: optInline ('Rythm')"></li>
+  <li data-th-insert=":: optInline ('Beetl')"></li>
+  <li data-th-insert=":: optInline ('Freemarker')"></li>
+  <li data-th-insert=":: optInline ('Velocity')"></li>
+  <li data-th-insert=":: optInline ('Mustache')"></li>
 
   <li>---</li>
   <li data-th-insert=":: optError ('Rythm')"></li>

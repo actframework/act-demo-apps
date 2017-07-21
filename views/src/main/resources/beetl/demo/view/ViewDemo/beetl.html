@@ -16,6 +16,14 @@
   <#opt engine="Mustache"/>
   <#opt engine="Thymeleaf"/>
 
+  <li>---</li>
+
+  <#optInline engine="Rythm"/>
+  <#optInline engine="FreeMarker"/>
+  <#optInline engine="Velocity"/>
+  <#optInline engine="Mustache"/>
+  <#optInline engine="Thymeleaf"/>
+
   <%if(_app.dev) {%>
   <li>---</li>
   <#optError engine="Rythm"/>
@@ -24,7 +32,6 @@
   <#optError engine="Mustache"/>
   <#optError engine="Velocity"/>
   <#optError engine="Thymeleaf"/>
-  <%}%>
 
   <li>---</li>
   <#optErrorRuntime engine="Rythm"/>
@@ -38,6 +45,10 @@
   <li>
     <a href="/e500">Demonstrate backend server error reporting on dev mode</a>
   </li>
+
+  <%}%>
+
+
 </ul>
 </body>
 

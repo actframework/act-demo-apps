@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>view</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 
   <name>actframework app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework</description>
@@ -36,12 +36,12 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.3</act.version>
-    <act.beetl.version>1.0.0</act.beetl.version>
-    <act.freemark.version>1.0.1</act.freemark.version>
-    <act.mustache.version>1.0.0</act.mustache.version>
-    <act.thymeleaf.version>1.0.0</act.thymeleaf.version>
-    <act.velocity.version>1.0.0</act.velocity.version>
+    <act.version>1.5.0-SNAPSHOT</act.version>
+    <act.beetl.version>1.1.0-SNAPSHOT</act.beetl.version>
+    <act.freemark.version>1.1.0-SNAPSHOT</act.freemark.version>
+    <act.mustache.version>1.1.0-SNAPSHOT</act.mustache.version>
+    <act.thymeleaf.version>1.1.0-SNAPSHOT</act.thymeleaf.version>
+    <act.velocity.version>1.1.0-SNAPSHOT</act.velocity.version>
     <app.entry>demo.view.ViewDemo</app.entry>
   </properties>
 

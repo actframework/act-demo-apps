@@ -6,8 +6,9 @@
   <!-- Send debug messages to System.out -->
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <!-- By default, encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+    <withJansi>true</withJansi>
     <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+      <pattern>%date %highlight(%-5level) %cyan(%logger{5}@[%-4.30thread]) - %msg%n</pattern>
     </encoder>
   </appender>
 
@@ -29,34 +30,13 @@
     </triggeringPolicy>
   </appender>
 
-  <appender name="METRIC_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>act.metric.log</file>
-    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-      <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
-    </encoder>
-
-    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <FileNamePattern>/jcg.%i.log.zip</FileNamePattern>
-      <MinIndex>1</MinIndex>
-      <MaxIndex>10</MaxIndex>
-    </rollingPolicy>
-
-    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-      <MaxFileSize>2MB</MaxFileSize>
-    </triggeringPolicy>
-  </appender>
-
   <logger name="act" level="INFO" additivity="false">
     <appender-ref ref="FILE" />
     <appender-ref ref="STDOUT" />
   </logger>
 
-  <logger name="metric.act" level="OFF">
+  <logger name="metric.act" level="TRACE">
     <appender-ref ref="METRIC_FILE" />
-  </logger>
-
-  <logger name="demo.helloworld.PersonController" level="OFF" additivity="false">
-    <appender-ref ref="STDOUT" />
   </logger>
 
 
