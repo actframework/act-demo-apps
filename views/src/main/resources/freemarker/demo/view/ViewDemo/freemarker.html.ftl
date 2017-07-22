@@ -37,6 +37,13 @@
   <@opt engine="Velocity"/>
   <@opt engine="Mustache"/>
   <@opt engine="Thymeleaf"/>
+  <li>---</li>
+  <@optInline engine="Rythm"/>
+  <@optInline engine="Beetl"/>
+  <@optInline engine="FreeMarker"/>
+  <@optInline engine="Mustache"/>
+  <@optInline engine="Velocity"/>
+  <@optInline engine="Thymeleaf"/>
 
   <#if _app.isDev()>
   <li>---</li>
