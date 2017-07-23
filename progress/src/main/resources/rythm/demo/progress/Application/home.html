@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="@_lang">
+<head>
+  <meta charset="UTF-8">
+  <title>progress</title>
+  <script src="/asset/act/js/jquery.js"></script>
+</head>
+<body>
+
+<button id="btn-launch">Launch backend job</button>
+
+<script>
+
+  $('#btn-launch').click(function() {
+      $.get('/job', function(data) {
+          var jobId = data.jobId;
+          subscribe(jobId);
+      })
+  })
+
+  function subscribe(jobId) {
+      var socket;
+      if (window.WebSocket) {
+          var port = location.port;
+          var url = "ws://" + location.hostname;
+          if (port !== 80 && port !== 443) {
+              url = url + ":" + port;
+          }
+          url = url + "/job/" + jobId + "/progress";
+          console.log(url)
+          socket = new WebSocket(url);
+          socket.onmessage = function (event) {
+              console.log(JSON.parse(event.data));
+          };
+      } else {
+          alert("Your browser does not support Websockets. (Use Chrome)");
+      }
+  }
+</script>
+
+</body>
+</html>
