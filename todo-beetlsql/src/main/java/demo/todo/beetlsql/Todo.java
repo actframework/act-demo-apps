@@ -1,10 +1,8 @@
 package demo.todo.beetlsql;
 
 import act.Act;
-import org.osgl.mvc.annotation.DeleteAction;
-import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.annotation.PostAction;
-import org.osgl.mvc.annotation.PutAction;
+import org.osgl.http.H;
+import org.osgl.mvc.annotation.*;
 
 import javax.inject.Inject;
 
@@ -47,6 +45,12 @@ public class Todo {
         notFoundIfNull(item);
         item.setDesc(desc);
         mapper.updateById(item);
+    }
+
+    @PostAction("/create")
+    @ResponseContentType(H.MediaType.JSON)
+    public TodoItem testCreate(TodoItem todo) {
+        return todo;
     }
 
     @GetAction("/list/{id}")

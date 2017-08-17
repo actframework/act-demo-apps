@@ -31,6 +31,11 @@ public class Admin {
         }
     }
 
+    @Command("gh322")
+    public static void cliHandlerWithException() {
+        throw new IllegalStateException("github issue 322");
+    }
+
     @Async
     @ReportProgress(type = ReportProgress.Type.TEXT)
     @Command("countdown")

@@ -15,7 +15,7 @@ import org.osgl.mvc.annotation.GetAction;
 public class HelloWorldApp {
 
     @GetAction
-    public void home(@DefaultValue("Java") @Output String who) {
+    public void home(@DefaultValue("World") @Output String who) {
     }
 
     public static void main(String[] args) throws Exception {

@@ -3,10 +3,8 @@ package demo.todo.ebean;
 import act.Act;
 import act.db.DbBind;
 import act.db.ebean.EbeanDao;
-import org.osgl.mvc.annotation.DeleteAction;
-import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.annotation.PostAction;
-import org.osgl.mvc.annotation.PutAction;
+import org.osgl.http.H;
+import org.osgl.mvc.annotation.*;
 import org.osgl.util.S;
 
 import javax.inject.Inject;
@@ -22,7 +20,8 @@ public class Todo {
     private EbeanDao<Long, TodoItem> dao;
 
     @GetAction
-    public void home() {}
+    public void home() {
+    }
 
     @GetAction("/echo/{msg}")
     public String echo(String msg) {
@@ -40,6 +39,12 @@ public class Todo {
             return dao.findBy("desc like", q);
         }
         return dao.findAll();
+    }
+
+    @PostAction("/create")
+    @ResponseContentType(H.MediaType.JSON)
+    public TodoItem testCreate(TodoItem todo) {
+        return todo;
     }
 
     @PostAction("/list")
