@@ -5,6 +5,7 @@ import act.data.SObjectResolver;
 import act.db.DbBind;
 import act.db.morphia.MorphiaDao;
 import act.storage.StorageServiceManager;
+import act.validation.NotBlank;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
@@ -13,6 +14,7 @@ import org.osgl.storage.IStorageService;
 import org.osgl.storage.impl.SObject;
 
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.List;
 
@@ -100,7 +102,7 @@ public class UploadDemo {
     // This action handler demonstrates how to take java.util.File
     // as parameter to handle file upload.
     @PostAction("/single/by_file")
-    public void uploadSingleWithFile(String title, File image) {
+    public void uploadSingleWithFile(@NotBlank String title, @NotNull File image) {
         singleDao.save(new SingleImage(title, SObject.of(image)));
         redirect("/single");
     }

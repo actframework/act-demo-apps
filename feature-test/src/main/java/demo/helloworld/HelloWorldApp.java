@@ -11,6 +11,7 @@ import act.util.CacheFor;
 import act.util.Global;
 import act.util.Output;
 import act.view.ProvidesImplicitTemplateVariable;
+import org.osgl.exception.UnexpectedIOException;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.*;
 import org.osgl.mvc.result.Redirect;
@@ -24,7 +25,19 @@ import static act.controller.Controller.Util.render;
 
 @SuppressWarnings("unused")
 @TemplateContext("hello")
+@With(ExceptionAdvice.class)
 public class HelloWorldApp {
+
+
+    @GetAction("/e1")
+    public void triggerException() {
+        throw new UnexpectedIOException("x");
+    }
+
+    @GetAction("/e2")
+    public void triggerException2() throws IllegalAccessException {
+        throw new IllegalAccessException("");
+    }
 
     @ProvidesImplicitTemplateVariable("foo")
     public String foo() {
