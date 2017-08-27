@@ -1,6 +1,9 @@
 package demo.helloworld;
 
+import static act.controller.Controller.Util.render;
+
 import act.Act;
+import act.apidoc.Description;
 import act.cli.Command;
 import act.cli.Required;
 import act.controller.Controller;
@@ -21,13 +24,10 @@ import org.osgl.util.S;
 
 import java.io.File;
 
-import static act.controller.Controller.Util.render;
-
 @SuppressWarnings("unused")
 @TemplateContext("hello")
 @With(ExceptionAdvice.class)
 public class HelloWorldApp {
-
 
     @GetAction("/e1")
     public void triggerException() {
@@ -94,11 +94,15 @@ public class HelloWorldApp {
     public void deleteTest() {
     }
 
+    /**
+     * Post to home
+     */
     @PostAction
     public void postTest() {}
 
     @GetAction
     @CacheFor(5)
+    @Description("This is a home endpoint")
     public void home(@DefaultValue("world") @Output String who, H.Response response) {
         response.contentType(H.Format.HTML.contentType());
         response.characterEncoding("UTF-8");
