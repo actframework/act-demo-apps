@@ -1,6 +1,9 @@
 package demo.helloworld;
 
+import static act.controller.Controller.Util.render;
+
 import act.Act;
+import act.apidoc.Description;
 import act.cli.Command;
 import act.cli.Required;
 import act.controller.Controller;
@@ -21,14 +24,12 @@ import org.osgl.util.S;
 
 import java.io.File;
 
-import static act.controller.Controller.Util.render;
-
 @SuppressWarnings("unused")
 @TemplateContext("hello")
 @With(ExceptionAdvice.class)
 public class HelloWorldApp {
 
-
+    @Description("E1 endpoint")
     @GetAction("/e1")
     public void triggerException() {
         throw new UnexpectedIOException("x");
