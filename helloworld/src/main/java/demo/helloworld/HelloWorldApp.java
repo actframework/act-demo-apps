@@ -1,9 +1,7 @@
 package demo.helloworld;
 
 import act.Act;
-import act.app.App;
 import act.inject.DefaultValue;
-import act.job.OnAppStart;
 import act.util.Output;
 import org.osgl.mvc.annotation.GetAction;
 
@@ -18,11 +16,6 @@ public class HelloWorldApp {
 
     @GetAction
     public void home(@DefaultValue("World") @Output String who) {
-    }
-
-    @OnAppStart
-    public static void printId(App app) {
-        System.out.println(app.id());
     }
 
     public static void main(String[] args) throws Exception {
