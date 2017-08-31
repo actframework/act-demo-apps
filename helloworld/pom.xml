@@ -110,6 +110,21 @@
           <shortRevisionLength>4</shortRevisionLength>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <configuration>
+          <executable>java</executable>
+          <arguments>
+            <argument>-Xms512m</argument>
+            <argument>-Xmx512m</argument>
+            <argument>-classpath</argument>
+            <classpath/>
+            <argument>${app.entry}</argument>
+          </arguments>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
