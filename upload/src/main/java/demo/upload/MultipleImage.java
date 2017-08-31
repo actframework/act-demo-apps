@@ -3,6 +3,7 @@ package demo.upload;
 import act.db.morphia.MorphiaModel;
 import act.storage.Store;
 import org.mongodb.morphia.annotations.Entity;
+import org.osgl.$;
 import org.osgl.storage.ISObject;
 import org.osgl.storage.impl.SObject;
 import org.osgl.util.C;
@@ -46,7 +47,7 @@ public class MultipleImage extends MorphiaModel<MultipleImage> {
     }
 
     public List<String> getImageUrls() {
-        return C.list(images).map(ISObject::getUrl);
+        return C.list(images).filter($.F.notNull()).map(ISObject::getUrl);
     }
 
     public static MultipleImage ofSObjects(String title, List<ISObject> images) {

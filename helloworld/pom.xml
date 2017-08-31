@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>helloworld</artifactId>
-  <version>1.0.0</version>
+  <version>1.4.0-SNAPSHOT</version>
 
   <name>actframework app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework</description>
