@@ -21,7 +21,6 @@ unzip *
 
 Once application has been started, you can open browser and locate to `http://localhost:5460` get the home page.
 
-
 ## Understanding the Demo app
 
 The demo application contains a single Java class `demo.helloworld.HelloWorldApp`
@@ -30,18 +29,17 @@ The demo application contains a single Java class `demo.helloworld.HelloWorldApp
 public class HelloWorldApp {
 
     @GetAction
-    public void home(@DefaultValue("World") String who) {
-        render(who);
+    public void home(@DefaultValue("World") @Output String who) {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("HelloWorld");
+        Act.start();
     }
 
 }
 ```
 
-The main method call `act.Act.start(...)` method to bootstrap ActFramework and load this application:
+The main method call `act.Act.start()` method to bootstrap ActFramework and load this application:
 
 ### Action handler
 
@@ -49,25 +47,19 @@ The `HelloWorldApp` class contains one action handler method:
 
 ```java
     @GetAction
-    public void home(@DefaultValue("World") String who) {
-        render(who);
+    public void home(@DefaultValue("World") @Output String who) {
     }
 ```
 
-`@GetAction` annotation without parameter tells ActFramework that this method is a handler that answers request sent to
-`/`. 
+`@GetAction` annotation without parameter tells ActFramework that this method is a handler that answers request sent to `/`. 
 
-Parameter `String who` tells ActFramework that if there is a request parameter named `who` the value shall be inject
-to this parameter when calling to this handler method.
+Parameter `String who` tells ActFramework that if there is a request parameter named `who` the value shall be inject to this parameter when calling to this handler method.
 
-`render(who)` tells ActFramework to call template (if exists) and pass variable `who` to the template with name
-`who`.
+The `@Output` annotation before `String who` tells ActFramework to put the value of `who` to the template using name `who`.
 
-The template `home.html` is located at `resources/rythm/demo/helloworld/HelloWorldApp`. Literally the path is corresponding
-to the package/class/method hierarchy, based in `resources/rythm` template root.
+The template `home.html` is located at `resources/rythm/demo/helloworld/HelloWorldApp`. Literally the path is corresponding to the package/class/method hierarchy, based in `resources/rythm` template root.
  
-The template is created using [Rythm Engine](http://rythmengine.org). For more information about Rythm engine, please
- visit the official site at http://rythmenigne.org
+The template is created using [Rythm Engine](http://rythmengine.org). For more information about Rythm engine, please visit the official site at http://rythmenigne.org
  
 ## FAQ
 
