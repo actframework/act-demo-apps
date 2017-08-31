@@ -1,12 +1,11 @@
 package demo.helloworld;
 
 import act.Act;
+import act.app.App;
 import act.inject.DefaultValue;
+import act.job.OnAppStart;
 import act.util.Output;
 import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.annotation.PostAction;
-import org.osgl.mvc.result.Created;
-import org.osgl.mvc.result.Result;
 
 /**
  * The simple hello world app.
@@ -21,13 +20,13 @@ public class HelloWorldApp {
     public void home(@DefaultValue("World") @Output String who) {
     }
 
-    @PostAction("/create")
-    public Result testCreated() {
-        return Created.withLocation("/");
+    @OnAppStart
+    public static void printId(App app) {
+        System.out.println(app.id());
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Hello World");
+        Act.start();
     }
 
 }
