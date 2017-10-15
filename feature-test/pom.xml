@@ -35,7 +35,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.11-SNAPSHOT</act.version>
+    <act.version>1.4.13-SNAPSHOT</act.version>
     <act.morphia.version>1.2.0</act.morphia.version>
     <act-excel.version>1.1.0</act-excel.version>
     <app.entry>demo.helloworld.HelloWorldApp</app.entry>

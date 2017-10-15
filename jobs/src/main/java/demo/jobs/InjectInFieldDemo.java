@@ -10,7 +10,7 @@ public class InjectInFieldDemo {
     @Named("foo")
     private DataProcessService processor;
 
-    @Every("3s")
+    @Every("30s")
     public void schedule() {
         processor.process("DI in field");
     }

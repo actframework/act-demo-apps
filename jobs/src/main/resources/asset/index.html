@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Job Demo</title>
+  <link rel="stylesheet" href="/asset/css/app.css" type="text/css"/>
+</head>
+<body>
+<h1 id="heading" class="header">Job Demo</h1>
+<app></app>
+<script src="/~/asset/js/jquery.js"></script>
+<script src="/~/asset/js/jquery.ext.js"></script>
+<script src="/~/asset/js/riotjs.js"></script>
+<script src="/asset/js/lodash.js"></script>
+<script type="riot/tag" src="/asset/tag/app.tag"></script>
+<script type="riot/tag" src="/asset/tag/nav.tag"></script>
+<script type="riot/tag" src="/asset/tag/main.tag"></script>
+<script type="riot/tag" src="/asset/tag/log.tag"></script>
+<script type="riot/tag" src="/asset/tag/progress.tag"></script>
+<script type="riot/tag" src="/asset/tag/welcome.tag"></script>
+<script>
+    var Store = function () {
+        riot.observable(this)
+    }
+    riot.store = new Store()
+    riot.mount('*');
+</script>
+</body>
+</html>

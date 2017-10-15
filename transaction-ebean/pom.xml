@@ -30,8 +30,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.3</act.version>
-    <act-ebean.version>1.1.5</act-ebean.version>
+    <act.version>1.4.13-SNAPSHOT</act.version>
+    <act-ebean.version>1.1.4</act-ebean.version>
     <h2.version>1.4.193</h2.version>
     <app.entry>demo.transaction.ebean.TransactionEbeanApp</app.entry>
   </properties>
@@ -131,7 +131,7 @@
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-ebean</artifactId>
+      <artifactId>act-ebean2</artifactId>
       <version>${act-ebean.version}</version>
     </dependency>
 

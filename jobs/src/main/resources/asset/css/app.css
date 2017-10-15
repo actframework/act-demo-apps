@@ -1,0 +1,137 @@
+body {
+    background-color: #222;
+    color: #f1f1f1;
+    font-family: "Roboto", "San Francisco Text", "Noto Sans", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14pt;
+}
+form input, form select {
+    font-size: 14pt;
+}
+
+a {
+    color: #00b8b6;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Roboto Condensed", "San Francisco Display", "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", "Noto Sans", Arial, sans-serif;
+    font-weight: normal;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 42px;
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px solid;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+.code, code {
+    font-family: "Roboto Mono", "Envy Code R", Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+}
+
+h1.header {
+    position: fixed;
+    top: 0;
+    left: 10px;
+    right: 10px;
+    background-color: #222;
+    z-index: 99;
+    margin: 0;
+    padding: 20px 0;
+}
+
+form > div {
+    margin: 20px 0;
+}
+label, input {
+    display: inline-block;
+}
+label {
+    width: 100px;
+}
+input, button, select {
+    padding: 3px 8px;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+ul.menu > li {
+    display: block;
+    cursor: pointer;
+    padding: 5px 25px;
+    margin: auto;
+}
+
+ul.menu > li.current {
+    font-weight: bold;
+}
+
+ul.menu > li.current ul.menu {
+    font-weight: normal;
+}
+
+
+ul.menu > li:hover {
+    background-color: #666;
+}
+
+ul.menu > li.current:hover {
+    background-color: transparent;
+}
+
+.float-right {
+    float: right;
+}
+
+.badge {
+    font-size: 60%;
+    background: #f1f1f1;
+    color: #222;
+    padding: 1px 2px;
+    min-width: 15px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+ul.menu li .badge {
+    margin-top: 4px;
+}
+
+.hover-visible {
+    display: none;
+}
+
+li:hover .hover-visible {
+    display: block;
+}
+
+li.current .hover-visible {
+    display: block;
+}
+
+.heading {
+    font-weight: bold;
+}
+
+.pointer {
+    cursor: pointer;
+}

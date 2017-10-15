@@ -19,30 +19,8 @@
 <html>
 <head>
   <title>WebSocket Chat</title>
-  <script>
-      var socket;
-      if (window.WebSocket) {
-          socket = new WebSocket("ws://chat.com/msg");
-          socket.onmessage = function (event) {
-              var home = document.getElementById('chat');
-              home.innerHTML = home.innerHTML + event.data + "<br />";
-          };
-      } else {
-          alert("Your browser does not support Websockets. (Use Chrome)");
-      }
-
-      function send(message) {
-          if (!window.WebSocket) {
-              return false;
-          }
-          if (socket.readyState == WebSocket.OPEN) {
-              socket.send(message);
-          } else {
-              alert("The socket is not open.");
-          }
-          return false;
-      }
-  </script>
+  <script src="/~/asset/js/jquery.js"></script>
+  <script src="/~/asset/js/jquery.ext.js"></script>
   <style type="text/css">
     html,body {
       width:100%;
@@ -97,5 +75,46 @@
     </form>
   </div>
 </div>
+<script>
+      var socket;
+
+      function connect() {
+          socket = $.createWebSocket('/msg');
+          //socket = new WebSocket(((window.location.protocol === "https:") ? "wss://" : "ws://") + window.location.host + "/msg");
+          socket.onmessage = function (event) {
+              var home = document.getElementById('chat');
+              home.innerHTML = home.innerHTML + event.data + "<br />";
+          };
+      }
+
+      if (window.WebSocket) {
+          connect();
+      } else {
+          alert("Your browser does not support Websockets. (Use Chrome)");
+      }
+
+      function send(message) {
+          if (!window.WebSocket) {
+              return false;
+          }
+          if (socket.readyState === WebSocket.OPEN) {
+              socket.send(message);
+          } else {
+              reconnect(message);
+          }
+          return false;
+      }
+
+      function reconnect(message) {
+          connect();
+          setTimeout(function() {
+            if (socket.readyState == WebSocket.OPEN) {
+                socket.send(message);
+            } else {
+                alert("The socket is not open.");
+            }
+          }, 500);
+      }
+  </script>
 </body>
 </html>

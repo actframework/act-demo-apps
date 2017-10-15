@@ -5,6 +5,7 @@ import act.cli.Optional;
 import act.util.PropertySpec;
 import org.osgl.logging.LogManager;
 import org.osgl.logging.Logger;
+import org.osgl.mvc.annotation.GetAction;
 import org.osgl.util.C;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class JobLog {
 
     @Command(name = "log.list", help = "List job logs")
     @PropertySpec("this as log")
+    @GetAction("/log")
     public static List<String> logs(
             @Optional(help = "limit the lines returned") Integer limit
     ) {

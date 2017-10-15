@@ -1,7 +1,7 @@
 package demo.transaction.ebean;
 
-import act.db.ebean.EbeanDao;
-import com.avaje.ebean.annotation.Transactional;
+import act.db.ebean2.EbeanDao;
+import io.ebean.annotation.Transactional;
 import org.osgl.util.E;
 
 import javax.persistence.Entity;

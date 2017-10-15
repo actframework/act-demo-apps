@@ -1,47 +1,16 @@
 package demo.jobs;
 
 import act.Act;
-import act.app.ActionContext;
-import act.cli.Command;
-import act.cli.Required;
 import act.job.OnAppStart;
-import org.osgl.logging.L;
-import org.osgl.logging.Logger;
-import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.result.Result;
-
-import static act.controller.Controller.Util.json;
-import static act.controller.Controller.Util.render;
+import org.osgl.mvc.annotation.WsAction;
 
 /**
  * Demonstrate Job annotations
  */
 public class JobApp {
 
-    private static final Logger logger = L.get(JobApp.class);
-
-    public JobApp() {
-        //logger.info(new RuntimeException(), "JobApp initialized");
-    }
-
-    @GetAction
-    public Result home(int limit, ActionContext context) {
-        if (context.isAjax()) {
-            return json(JobLog.logs(limit));
-        }
-        return render();
-    }
-
-    @Command(name = "set.num", help = "test negative number in CLI")
-    public int testCli(@Required("specify the number, can be negative") int number) {
-        return number * 2;
-    }
-
-    @GetAction("foo")
-    public void foo() {}
-
-    public static void main(String[] args) throws Exception {
-        Act.start("Job Demo");
+    @WsAction("/ws")
+    public static void placeholder() {
     }
 
     @OnAppStart(async = true)
@@ -53,5 +22,9 @@ public class JobApp {
     public static void onAppStartSync() {
         JobLog.log("onAppStartSync called");
     }
- 
+
+    public static void main(String[] args) throws Exception {
+        Act.start("Job Demo");
+    }
+
 }
