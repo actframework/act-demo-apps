@@ -10,16 +10,22 @@ import java.util.Random;
 @UrlContext("/task")
 public class Task {
 
-    private int duration;
-
-    @PostAction
+    /**
+     * This method simulate a long time task that should run in background.
+     *
+     * @param gauge
+     *      framework injected progress gauge, developer can update task progress
+     *      using this helper
+     * @throws Exception
+     */
     @Async
+    @PostAction
     public void create(ProgressGauge gauge) throws Exception {
-        duration = randomDuration();
+        int duration = randomDuration();
         gauge.updateMaxHint(duration);
         while (duration-- > 0) {
             gauge.step();
-            Thread.sleep(50 * (new Random().nextInt(10) +  1));
+            Thread.sleep(10 * (new Random().nextInt(10) +  1));
         }
     }
 
