@@ -17,6 +17,7 @@ public class Task {
      *      framework injected progress gauge, developer can update task progress
      *      using this helper
      * @throws Exception
+     *      any exception raised during executing the long-time task
      */
     @Async
     @PostAction
