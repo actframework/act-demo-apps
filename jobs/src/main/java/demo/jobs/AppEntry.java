@@ -2,16 +2,13 @@ package demo.jobs;
 
 import act.Act;
 import act.job.OnAppStart;
-import org.osgl.mvc.annotation.WsAction;
+import act.ws.WsEndpoint;
 
 /**
  * Demonstrate Job annotations
  */
-public class JobApp {
-
-    @WsAction("/ws")
-    public static void placeholder() {
-    }
+@WsEndpoint("/ws")
+public class AppEntry {
 
     @OnAppStart(async = true)
     public void onAppStartAsync() {

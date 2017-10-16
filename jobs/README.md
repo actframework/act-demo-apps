@@ -1,4 +1,4 @@
-# Actframework Job scheduling demo
+# Actframework Job demo
 
 This sample project demonstrates how to schedule backend jobs in actframework
 

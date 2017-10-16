@@ -31,7 +31,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <act.version>1.4.13-SNAPSHOT</act.version>
-    <app.entry>demo.jobs.JobApp</app.entry>
+    <app.entry>demo.jobs.AppEntry</app.entry>
   </properties>
 
   <licenses>

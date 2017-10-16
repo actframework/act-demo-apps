@@ -25,11 +25,19 @@ public class Task {
         gauge.updateMaxHint(duration);
         while (duration-- > 0) {
             gauge.step();
+            randomError();
             Thread.sleep(10 * (new Random().nextInt(10) +  1));
         }
     }
 
-    private int randomDuration() {
+    private static void randomError() {
+        int n = new Random().nextInt(200);
+        if (n % 197 == 0) {
+            throw new RuntimeException();
+        }
+    }
+
+    private static int randomDuration() {
         return 5 + new Random().nextInt(200);
     }
 

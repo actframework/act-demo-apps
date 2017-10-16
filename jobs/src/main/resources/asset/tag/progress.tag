@@ -10,8 +10,8 @@
     self.ws = $.createWebSocket('/ws')
     self.ws.onmessage = function (event) {
         var gauge = JSON.parse(event.data).act_job_progress
-        console.log(gauge)
-        if (gauge.progressPercent >= 100) {
+        if (!gauge) return
+        if (gauge.progressPercent >= 100 || gauge.destroyed) {
             _.remove(self.jobs, function(job) {return job.jobId === gauge.id})
             self.update()
             return
@@ -21,8 +21,6 @@
         if (progress) {
             progress.value = gauge.currentSteps
             progress.max = gauge.maxHint
-        } else {
-            console.log('unknown gauge: ' + gauge.id)
         }
     }
     launch() {
