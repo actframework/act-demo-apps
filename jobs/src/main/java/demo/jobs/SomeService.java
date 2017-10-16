@@ -3,17 +3,12 @@ package demo.jobs;
 import act.app.event.AppEventId;
 import act.job.*;
 import act.sys.Env;
-import org.osgl.util.S;
 
 /**
  * This class demonstrate how to use annotation to schedule jobs
  * in an ActFramework application
  */
 public class SomeService {
-
-    public String foo() {
-        return S.random();
-    }
 
     /**
      * This method will get called every x, where
@@ -26,6 +21,10 @@ public class SomeService {
         JobLog.log("SomeService.checkStatus");
     }
 
+    /**
+     * The method is invoked by framework automatically before invocation of
+     * {@link #checkStatus()} method
+     */
     @InvokeBefore("CHECK_STATUS")
     public void beforeCheckingStatus() {
         JobLog.log("Before checking status");
@@ -66,11 +65,17 @@ public class SomeService {
         JobLog.log("checking password expiration and sending out password reminder");
     }
 
+    /**
+     * The method get invoked when ActFramework's {@link act.event.EventBus} is initialized
+     */
     @OnAppEvent(AppEventId.EVENT_BUS_INITIALIZED)
     public static void onAppEventBusInitialized() {
         JobLog.log("onAppEventBusInitialized called");
     }
 
+    /**
+     * The method get invoked asynchronously when ActFramework's {@link act.event.EventBus} is initialized
+     */
     @OnAppEvent(value = AppEventId.EVENT_BUS_INITIALIZED, async = true)
     public static void onAppEventBusInitializedAsync() {
         JobLog.log("onAppEventBusInitializedAsync called");

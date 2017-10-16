@@ -4,9 +4,6 @@ import act.Act;
 import act.job.OnAppStart;
 import act.ws.WsEndpoint;
 
-/**
- * Demonstrate Job annotations
- */
 @WsEndpoint("/ws")
 public class AppEntry {
 
