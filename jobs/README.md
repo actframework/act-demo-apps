@@ -6,10 +6,10 @@ This sample project demonstrates how to schedule backend jobs in actframework
 
 There are two ways to run the app:
 
-* Run `demo.jobs.JobApp` directly in your IDE (you have to import the project as maven project) into your IDE
-* type `mvn clean compile exec:exec` in the project dir
+1. Run `demo.jobs.JobApp` directly in your IDE (you have to import the project as maven project) into your IDE
+2. type `mvn clean compile exec:exec` in the project dir
 
-Now you can navigate the browser to http://localhost:5460 and play around with it.
+Now you can navigate the browser to [http://localhost:5460](http://localhost:5460) and play around with it.
 
 ## Application explained
 

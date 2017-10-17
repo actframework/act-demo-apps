@@ -14,6 +14,9 @@
             list-style: disc;
             padding-left: 20px;
         }
+        #doc-content {
+            max-width: 800px;
+        }
     </style>
     <script>
         $.get("https://raw.githubusercontent.com/actframework/act-demo-apps/master/jobs/README.md", function(result) {
@@ -56,6 +59,8 @@
                         hljs.lineNumbersBlock(block);
                     });
                 })
+
+                $('h1:not([id])').remove()
             }
 
             setOutput(result);
