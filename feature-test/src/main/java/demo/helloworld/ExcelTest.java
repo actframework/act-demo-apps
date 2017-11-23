@@ -1,5 +1,7 @@
 package demo.helloworld;
 
+import static act.controller.Controller.Util.render;
+
 import act.app.ActionContext;
 import act.controller.annotation.TemplateContext;
 import act.data.annotation.Data;
@@ -7,8 +9,6 @@ import act.util.SimpleBean;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.result.Result;
 import org.osgl.util.S;
-
-import static act.controller.Controller.Util.render;
 
 @SuppressWarnings("unused")
 public class ExcelTest {
