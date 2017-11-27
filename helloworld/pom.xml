@@ -42,7 +42,7 @@
     <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
     <logback.version>1.2.3</logback.version>
     <osgl-ut.version>1.0.1</osgl-ut.version>
-    <act.version>1.4.13-SNAPSHOT</act.version>
+    <act.version>1.6.0-SNAPSHOT</act.version>
 
     <app.entry>demo.helloworld.HelloWorldApp</app.entry>
   </properties>
@@ -129,6 +129,11 @@
   </build>
 
   <dependencies>
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>3.1.0</version>
+    </dependency>
     <dependency>
       <groupId>org.osgl</groupId>
       <artifactId>osgl-ut</artifactId>
