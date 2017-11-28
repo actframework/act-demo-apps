@@ -29,12 +29,11 @@ public class ConfigDemo {
 
     // This will display all application setttings
     @GetAction("/setting")
-    public static Result showAppSettings() {
-        return render();
+    public static void showAppSettings() {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Config Demo");
+        Act.start();
     }
 
 }

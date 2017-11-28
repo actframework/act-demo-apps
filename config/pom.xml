@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>config</artifactId>
-  <version>1.0.0</version>
+  <version>1.6.0</version>
 
   <name>actframework app demo - configuration</name>
   <description>demonstrate use configuration in Act Application</description>
@@ -30,7 +30,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.3</act.version>
+    <act.version>1.6.0-BETA-2</act.version>
     <app.entry>demo.config.ConfigDemo</app.entry>
   </properties>
 

@@ -21,12 +21,11 @@ public class EmailDemoApp {
     private PostOffice postOffice;
 
     @GetAction("/")
-    public Result home() {
-        return render();
+    public void home() {
     }
 
     @PostAction("/welcome")
-    public Result welcome(String who, ActionContext context) {
+    public void welcome(String who, ActionContext context) {
         logger.info(">> welcome action handler");
         if (!PostOffice.isValidEmail(who)) {
             context.flash().error("Please type in valid email");
@@ -35,11 +34,11 @@ public class EmailDemoApp {
             context.flash().success("welcome email sent");
         }
         logger.info("<< welcome action handler");
-        return redirect("/");
+        redirect("/");
     }
 
     @PostAction("/bye")
-    public Result bye(String who, ActionContext context) {
+    public void bye(String who, ActionContext context) {
         logger.info(">> bye action handler");
         if (!PostOffice.isValidEmail(who)) {
             context.flash().error("Please type in valid email");
@@ -48,12 +47,12 @@ public class EmailDemoApp {
             context.flash().success("farewell email sent");
         }
         logger.info("<< bye action handler");
-        return redirect("/");
+        redirect("/");
     }
 
 
     public static void main(String[] args) throws Exception {
-        Act.start("Email Demo");
+        Act.start();
     }
 
 }

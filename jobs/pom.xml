@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>jobs</artifactId>
-  <version>1.0.0</version>
+  <version>1.6.0</version>
 
   <name>actframework app demo - job scheduling</name>
   <description>demonstrate how to schedule jobs in actframework</description>
@@ -30,7 +30,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.4.13</act.version>
+    <act.version>1.6.0-BETA-2-SNAPSHOT</act.version>
     <app.entry>demo.jobs.AppEntry</app.entry>
   </properties>
 

@@ -31,9 +31,9 @@ public class InjectionApp {
     }
 
     @Action("/hi")
-    public Result hi(String who) {
+    public void hi(String who) {
         String message = hi.sayHi(who);
-        return render(message);
+        render(message);
     }
 
     @Action("/bye")
@@ -42,7 +42,7 @@ public class InjectionApp {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Inject Demo");
+        Act.start();
     }
 
 }

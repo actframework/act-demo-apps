@@ -3,7 +3,7 @@
 @args List<SingleImage> images;
 
 <form action="/single/by_file" method="post" enctype="multipart/form-data">
-  <h3>Upload method 1</h3>
+  <h3>By File</h3>
   <div class="line">
     <input type="text" name="title">
   </div>
@@ -16,7 +16,7 @@
 </form>
 
 <form action="/single/by_sobj" method="post" enctype="multipart/form-data">
-  <h3>Upload method 2</h3>
+  <h3>By SObject</h3>
   <div class="line">
     <input type="text" name="title">
   </div>
@@ -30,7 +30,7 @@
 
 
 <form action="/single/by_bind" method="post" enctype="multipart/form-data">
-  <h3>Upload method 1</h3>
+  <h3>Direct POJO Bind</h3>
   <div class="line">
     <input type="text" name="image.title">
   </div>

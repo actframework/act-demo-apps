@@ -18,7 +18,7 @@ public class AppEntry {
     }
 
     public static void main(String[] args) throws Exception {
-        Act.start("Job Demo");
+        Act.start();
     }
 
 }

@@ -30,7 +30,7 @@ public class Todo {
 
     @GetAction("/list")
     public Iterable<TodoItem> list() {
-        return dao.findAll();
+        return dao.q();
     }
 
     @PostAction("/list")
@@ -75,7 +75,7 @@ public class Todo {
 
     @DeleteAction("/list/{id}")
     public void delete(String id) {
-        dao.deleteById(new ObjectId(id));
+        dao.deleteById(id);
     }
 
     public static void main(String[] args) throws Exception {

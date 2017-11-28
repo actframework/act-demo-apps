@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>helloworld-single-jar</artifactId>
-  <version>1.4-SNAPSHOT</version>
+  <version>1.6.0</version>
 
   <name>hello world demo - package in single jar</name>
   <description>demonstrate how to package an actframework app in a single jar</description>
@@ -42,7 +42,7 @@
     <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
     <logback.version>1.2.3</logback.version>
     <osgl-ut.version>1.0.1</osgl-ut.version>
-    <act.version>1.4.13-SNAPSHOT</act.version>
+    <act.version>1.6.0-BETA-2</act.version>
 
     <app.entry>demo.helloworld.HelloWorldApp</app.entry>
   </properties>
