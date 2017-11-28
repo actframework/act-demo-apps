@@ -30,7 +30,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <act.version>1.6.0-BETA-2</act.version>
+    <act.version>1.6.0-BETA-3</act.version>
     <app.entry>demo.progress.Application</app.entry>
   </properties>
 
