@@ -1,6 +1,8 @@
 TODO App Demo
 ==============
 
+**NOTE** THIS PROJECT IS OUT TO DATE - IT NEEDS TO BE UPDATED WHEN ACT-BEETSQL PLUGIN IS UPDATED
+
 A simple TODO Application built on top of ActFramework and Ebean
 
 **To run this application in dev mode:**

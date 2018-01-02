@@ -21,24 +21,20 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-ebean2</artifactId>
-  <version>1.0.0</version>
+  <version>1.6.0</version>
 
   <name>actframework app demo - TODO (ebean)</name>
   <description>demonstrates a simple TODO application for ebeean</description>
   <url>http://actframework.org/</url>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <HikariCP.version>2.7.1</HikariCP.version>
-    <h2.version>1.4.193</h2.version>
     <app.entry>demo.todo.ebean.Todo</app.entry>
   </properties>
 
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.0.2</version>
   </parent>
 
   <build>
@@ -55,13 +51,11 @@
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.zaxxer</groupId>
       <artifactId>HikariCP</artifactId>
-      <version>${HikariCP.version}</version>
     </dependency>
 
   </dependencies>

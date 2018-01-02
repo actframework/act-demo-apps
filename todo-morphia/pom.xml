@@ -31,18 +31,10 @@
     <app.entry>demo.todo.morphia.Todo</app.entry>
   </properties>
 
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.0.2</version>
   </parent>
 
   <build>

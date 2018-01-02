@@ -34,36 +34,18 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.0.2</version>
   </parent>
 
   <build>
     <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-        <excludes>
-          <exclude>**/*.xls</exclude>
-          <exclude>**/*.xlsx</exclude>
-        </excludes>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>false</filtering>
-        <includes>
-          <include>**/*.xlsx</include>
-          <include>**/*.xls</include>
-        </includes>
-      </resource>
-    </resources>
   </build>
 
   <dependencies>
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-excel</artifactId>
+      <artifactId>act-starter-excel</artifactId>
     </dependency>
 
   </dependencies>

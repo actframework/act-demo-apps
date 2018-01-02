@@ -29,7 +29,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.1</version>
+    <version>1.6.0.2</version>
   </parent>
 
   <properties>
@@ -43,13 +43,12 @@
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-starter-morphia</artifactId>
-      <version>1.6.1</version>
+      <artifactId>act-morphia</artifactId>
     </dependency>
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act-excel</artifactId>
+      <artifactId>act-starter-excel</artifactId>
     </dependency>
 
     <dependency>
