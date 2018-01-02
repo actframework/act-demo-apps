@@ -20,22 +20,23 @@ package demo.helloworld;
  * #L%
  */
 
-import act.controller.annotation.UrlContext;
-import act.util.CacheFor;
+import static act.controller.annotation.Throttled.ExpireScale.ENABLED;
+
+import act.controller.annotation.Throttled;
 import org.osgl.mvc.annotation.GetAction;
 
-@UrlContext("192")
-public class GH192 extends GHTest {
+public class GH435 {
 
-    @GetAction
-    public void test() {
-        throw new NullPointerException();
+    @GetAction("gh/435")
+    @Throttled(1) // maximum 1 requests per second from the same ip
+    public String test() {
+        return "GH435 - throttle control";
     }
 
-    @GetAction("home")
-    @CacheFor
-    public String home() {
-        return "home";
+    @GetAction("gh/435/2")
+    @Throttled(value = 1, expireScale = ENABLED)
+    public String test2() {
+        return "GH435 - throttle control with expire scale";
     }
 
 }

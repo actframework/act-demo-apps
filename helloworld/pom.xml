@@ -27,129 +27,18 @@
   <description>demonstrate a minimal hello world application for actframework</description>
   <url>http://actframework.org/</url>
 
+  <parent>
+    <groupId>org.actframework</groupId>
+    <artifactId>act-starter-parent</artifactId>
+    <version>1.6.1</version>
+  </parent>
+
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <scm.url>git@github.com:actframework/act-demo-apps.git</scm.url>
-
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-
-    <maven-assemply-plugin.version>3.1.0</maven-assemply-plugin.version>
-    <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
-    <logback.version>1.2.3</logback.version>
-    <osgl-ut.version>1.0.1</osgl-ut.version>
-    <act.version>1.6.0-BETA-3</act.version>
-
     <app.entry>demo.helloworld.HelloWorldApp</app.entry>
   </properties>
 
-  <scm>
-    <connection>scm:git:${scm.url}</connection>
-    <developerConnection>scm:git:${scm.url}</developerConnection>
-    <url>${scm.url</url>
-  </scm>
-
-  <licenses>
-    <license>
-      <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-  </licenses>
-
   <build>
-
     <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>${maven-assemply-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>create-archive</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <appendAssemblyId>false</appendAssemblyId>
-              <descriptors>
-                <descriptor>src/assembly/pkg.xml</descriptor>
-              </descriptors>
-              <outputDirectory>${project.build.directory}/dist/</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>buildnumber-maven-plugin</artifactId>
-        <version>${buildnumber-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <phase>validate</phase>
-            <goals>
-              <goal>create</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <shortRevisionLength>4</shortRevisionLength>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
-        <configuration>
-          <executable>java</executable>
-          <arguments>
-            <argument>-Xms256m</argument>
-            <argument>-Xmx512m</argument>
-            <argument>-classpath</argument>
-            <classpath/>
-            <argument>${app.entry}</argument>
-          </arguments>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.webjars</groupId>
-      <artifactId>bootstrap</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.osgl</groupId>
-      <artifactId>osgl-ut</artifactId>
-      <version>${osgl-ut.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act</artifactId>
-      <version>${act.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
-    </dependency>
-  </dependencies>
 
 </project>

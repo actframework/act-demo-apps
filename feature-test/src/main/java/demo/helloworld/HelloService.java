@@ -20,22 +20,9 @@ package demo.helloworld;
  * #L%
  */
 
-import act.controller.annotation.UrlContext;
-import act.util.CacheFor;
-import org.osgl.mvc.annotation.GetAction;
-
-@UrlContext("192")
-public class GH192 extends GHTest {
-
-    @GetAction
-    public void test() {
-        throw new NullPointerException();
+public class HelloService implements GreetingService {
+    @Override
+    public String greet() {
+        return "Hello";
     }
-
-    @GetAction("home")
-    @CacheFor
-    public String home() {
-        return "home";
-    }
-
 }
