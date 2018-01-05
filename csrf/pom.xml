@@ -19,16 +19,16 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>demo.progress</groupId>
-  <artifactId>progress</artifactId>
-  <version>1.6.0</version>
+  <groupId>demo.csrf</groupId>
+  <artifactId>csrf</artifactId>
+  <version>1.0.0</version>
 
-  <name>progress</name>
+  <name>csrf</name>
   <description>Description of your application goes here</description>
   <url>https://thinking.studio</url>
 
   <properties>
-    <app.entry>demo.progress.Application</app.entry>
+    <app.entry>demo.csrf.AppEntry</app.entry>
   </properties>
 
   <parent>
@@ -36,6 +36,24 @@
     <artifactId>act-starter-parent</artifactId>
     <version>1.6.0.3</version>
   </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act</artifactId>
+      <version>1.6.1-SNAPSHOT</version>
+    </dependency>
+    <!-- 
+    Insert Maven Deps here...
+     -->
+
+<!-- ACT MODULES Do not delete or edit this tag -->
+
+
+
+<!-- END ACT MODULES Do not delete or edit this tag -->
+
+  </dependencies>
 
   <build>
     <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>

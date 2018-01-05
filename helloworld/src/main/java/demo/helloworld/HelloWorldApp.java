@@ -25,6 +25,8 @@ import act.inject.DefaultValue;
 import act.util.Output;
 import org.osgl.mvc.annotation.GetAction;
 
+import java.io.File;
+
 /**
  * The simple hello world app.
  * <p>Run this app, try to update some of the code, then
@@ -36,6 +38,13 @@ public class HelloWorldApp {
 
     @GetAction
     public void home(@DefaultValue("World") @Output String who) {
+    }
+
+    private static final File base = new File("/home/luog");
+
+    @GetAction("/vulnerable")
+    public File loadExternalFile(String key) {
+        return new File(base, key);
     }
 
     public static void main(String[] args) throws Exception {

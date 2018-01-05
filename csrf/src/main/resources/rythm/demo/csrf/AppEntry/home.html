@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="@_lang">
+<head>
+  <meta charset="UTF-8">
+  <title>csrf</title>
+  <style>
+    section {
+      border: 1px solid black;
+      padding: 5px;
+      margin-top: 5px;
+      width: 800px;
+    }
+  </style>
+</head>
+<h1>CSRF Demo</h1>
+@if(_flash.get("message")) {
+<div class="info">@_flash.get("message")</div>
+}
+<div>Form with CSRF token</div>
+<section>
+  <p>
+    This form has a CSRF field built inside. Submit through this form
+    will successfully display the message.
+  </p>
+  <pre>
+  &lt;form method="post"&gt;
+    @@_csrfField
+    &lt;div&gt;
+      &lt;label&gt;message&lt;/label&gt;
+      &lt;input name="message"&gt;
+    &lt;/div>
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form>
+  </pre>
+  <form method="post">
+    <div>Try it</div>
+    @_csrfField
+    <div>
+      <label>message</label>
+      <input name="message">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<br/>
+<div>Form without CSRF token</div>
+<section>
+  <p>
+    This form miss the CSRF field. Submit through this form
+    will trigger 401 Unauthorised response.
+  </p>
+  <pre>
+  &lt;form method="post"&gt;
+    &lt;div&gt;
+      &lt;label&gt;message&lt;/label&gt;
+      &lt;input name="message"&gt;
+    &lt;/div>
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form>
+  </pre>
+  <form method="post">
+    <div>Try it</div>
+    <div>
+      <label>message</label>
+      <input name="message">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<body>
+</body>
+</html>
