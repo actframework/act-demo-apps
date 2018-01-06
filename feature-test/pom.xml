@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>feature-test</artifactId>
-  <version>1.6.0</version>
+  <version>1.6.1</version>
 
   <name>actframework Feature Test App</name>
   <description>A project to test new features</description>
@@ -29,7 +29,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.0.3</version>
+    <version>1.6.1.1</version>
   </parent>
 
   <properties>

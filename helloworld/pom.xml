@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>helloworld</artifactId>
-  <version>1.6.0</version>
+  <version>1.6.1</version>
 
   <name>actframework app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework</description>
@@ -30,7 +30,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.0.3</version>
+    <version>1.6.1.1</version>
   </parent>
 
   <properties>
