@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-ebean2</artifactId>
-  <version>1.6.1</version>
+  <version>1.6.2</version>
 
   <name>actframework app demo - TODO (ebean)</name>
   <description>demonstrates a simple TODO application for ebeean</description>
@@ -34,7 +34,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.1.1</version>
+    <version>1.6.2.0</version>
   </parent>
 
   <build>
