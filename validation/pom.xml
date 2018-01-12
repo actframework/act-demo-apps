@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>validation</artifactId>
-  <version>1.6.2</version>
+  <version>1.6.3</version>
 
   <name>actframework app demo - validation</name>
   <description>demonstrate validation with actframework</description>
@@ -34,7 +34,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.2.0</version>
+    <version>1.6.3.0</version>
   </parent>
 
   <build>
