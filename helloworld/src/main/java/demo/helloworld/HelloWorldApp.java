@@ -21,11 +21,12 @@ package demo.helloworld;
  */
 
 import act.Act;
+import act.handler.NonBlock;
 import act.inject.DefaultValue;
 import act.util.Output;
+import act.view.NoImplicitTemplateVariable;
 import org.osgl.mvc.annotation.GetAction;
-
-import java.io.File;
+import org.osgl.mvc.annotation.SessionFree;
 
 /**
  * The simple hello world app.
@@ -37,14 +38,18 @@ import java.io.File;
 public class HelloWorldApp {
 
     @GetAction
+    //@NonBlock
+    //@NoImplicitTemplateVariable
+    //@SessionFree
     public void home(@DefaultValue("World") @Output String who) {
     }
 
-    private static final File base = new File("/home/luog");
-
-    @GetAction("/vulnerable")
-    public File loadExternalFile(String key) {
-        return new File(base, key);
+    @GetAction("/txt")
+    //@NonBlock
+    //@NoImplicitTemplateVariable
+    //@SessionFree
+    public String text() {
+        return "Hello World";
     }
 
     public static void main(String[] args) throws Exception {
