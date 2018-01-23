@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>email</artifactId>
-  <version>1.6.4</version>
+  <version>1.6.5</version
 
   <name>actframework app demo - email</name>
   <description>demonstrate sending email in actframework</description>
@@ -34,7 +34,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.6.4.0</version>
+    <version>1.6.5.0</version>
   </parent>
 
   <build>

@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>helloworld-single-jar</artifactId>
-  <version>1.6.4</version>
+  <version>1.6.5</version
 
   <name>hello world demo - package in single jar</name>
   <description>demonstrate how to package an actframework app in a single jar</description>
