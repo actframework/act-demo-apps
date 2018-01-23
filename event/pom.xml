@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>event</artifactId>
-  <version>1.6.5</version
+  <version>1.6.5</version>
 
   <name>actframework app demo - event</name>
   <description>demonstrate event dispatching in actframework</description>

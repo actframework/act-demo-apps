@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>excel</artifactId>
-  <version>1.6.5</version
+  <version>1.6.5</version>
 
   <name>actframework app demo - excel</name>
   <description>demonstrate how to generate Excel report in actframework application</description>

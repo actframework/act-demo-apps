@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>ebean-transaction</artifactId>
-  <version>1.6.5</version
+  <version>1.6.5</version>
 
   <name>actframework app demo - Transaction (ebean)</name>
   <description>demonstrates a simple transaction app with Ebean</description>

@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-morphia</artifactId>
-  <version>1.6.5</version
+  <version>1.6.5</version>
 
   <name>actframework app demo - TODO (mongodb)</name>
   <description>demonstrates a simple TODO application for mongodb</description>
