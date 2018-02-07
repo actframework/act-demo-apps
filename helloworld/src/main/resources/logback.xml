@@ -20,7 +20,43 @@
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <FileNamePattern>/jcg.%i.log.zip</FileNamePattern>
+      <FileNamePattern>/act.%i.log.zip</FileNamePattern>
+      <MinIndex>1</MinIndex>
+      <MaxIndex>10</MaxIndex>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>2MB</MaxFileSize>
+    </triggeringPolicy>
+  </appender>
+
+  <!-- Access log file -->
+  <appender name="ACCESS_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>access.log</file>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>%msg%n</Pattern>
+    </encoder>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <FileNamePattern>/access.%i.log.zip</FileNamePattern>
+      <MinIndex>1</MinIndex>
+      <MaxIndex>10</MaxIndex>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>2MB</MaxFileSize>
+    </triggeringPolicy>
+  </appender>
+
+  <!-- Handler invocation trace file -->
+  <appender name="TRACE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>trace.log</file>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} - %msg%n</Pattern>
+    </encoder>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <FileNamePattern>/trace.%i.log.zip</FileNamePattern>
       <MinIndex>1</MinIndex>
       <MaxIndex>10</MaxIndex>
     </rollingPolicy>
@@ -69,9 +105,21 @@
     <appender-ref ref="METRIC_FILE" />
   </logger>
 
+  <logger name="metric.app" level="TRACE">
+    <appender-ref ref="METRIC_FILE" />
+  </logger>
+
   <logger name="demo.helloworld" level="DEBUG" additivity="false">
     <appender-ref ref="FILE" />
     <appender-ref ref="STDOUT" />
+  </logger>
+
+  <logger name="act.trace.request" level="TRACE">
+    <appender-ref ref="ACCESS_LOG_FILE" />
+  </logger>
+
+  <logger name="act.trace.handler" level="TRACE">
+    <appender-ref ref="TRACE_FILE" />
   </logger>
 
   <!-- By default, the level of the root level is set to DEBUG -->

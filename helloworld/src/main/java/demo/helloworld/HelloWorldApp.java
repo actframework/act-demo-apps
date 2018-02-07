@@ -9,9 +9,9 @@ package demo.helloworld;
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,12 +21,16 @@ package demo.helloworld;
  */
 
 import act.Act;
-import act.handler.NonBlock;
 import act.inject.DefaultValue;
+import act.metric.MeasureTime;
+import act.metric.MetricContext;
+import act.util.JsonView;
+import act.util.LogSupport;
 import act.util.Output;
-import act.view.NoImplicitTemplateVariable;
+import org.osgl.inject.annotation.Provided;
 import org.osgl.mvc.annotation.GetAction;
-import org.osgl.mvc.annotation.SessionFree;
+
+import java.util.Map;
 
 /**
  * The simple hello world app.
@@ -35,7 +39,8 @@ import org.osgl.mvc.annotation.SessionFree;
  * in the browser!</p>
  */
 @SuppressWarnings("unused")
-public class HelloWorldApp {
+@MetricContext("app")
+public class HelloWorldApp extends LogSupport {
 
     @GetAction
     //@NonBlock
@@ -48,8 +53,47 @@ public class HelloWorldApp {
     //@NonBlock
     //@NoImplicitTemplateVariable
     //@SessionFree
-    public String text() {
+    public String text(@Provided String x) {
         return "Hello World";
+    }
+
+    @GetAction("/enc/{pass}")
+    public String testEnc(String pass) {
+        String hash = Act.crypto().passwordHash(pass);
+        boolean verified = Act.crypto().verifyPassword(pass, hash);
+        info("\n\tpass: %s\n\thash: %s\n\tverified: %s", pass, hash, verified);
+        return hash;
+    }
+
+    @GetAction("/enc/verify")
+    public boolean testDec(String hash, String pass) {
+        return Act.crypto().verifyPassword(pass, hash);
+    }
+
+    @GetAction("x")
+    @JsonView
+    public Object x(Map<String, String> bar) {
+        return bar;
+    }
+
+    @GetAction("pi")
+    public double pi(@DefaultValue("100") Integer len) {
+        return calculatePi(len);
+    }
+
+    @MeasureTime("pi")
+    private static double calculatePi(int len) {
+        double pi = 4;
+        boolean plus = false;
+        for (int i = 3; i < len; i += 2) {
+            if (plus) {
+                pi += 4.0 / i;
+            } else {
+                pi -= 4.0 / i;
+            }
+            plus = !plus;
+        }
+        return pi;
     }
 
     public static void main(String[] args) throws Exception {
