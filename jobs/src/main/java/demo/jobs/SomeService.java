@@ -20,7 +20,7 @@ package demo.jobs;
  * #L%
  */
 
-import act.app.event.AppEventId;
+import act.app.event.SysEventId;
 import act.job.*;
 import act.sys.Env;
 
@@ -88,17 +88,17 @@ public class SomeService {
     /**
      * The method get invoked when ActFramework's {@link act.event.EventBus} is initialized
      */
-    @OnAppEvent(AppEventId.EVENT_BUS_INITIALIZED)
-    public static void onAppEventBusInitialized() {
-        JobLog.log("onAppEventBusInitialized called");
+    @OnSysEvent(SysEventId.EVENT_BUS_INITIALIZED)
+    public static void onSysEventBusInitialized() {
+        JobLog.log("onSysEventBusInitialized called");
     }
 
     /**
      * The method get invoked asynchronously when ActFramework's {@link act.event.EventBus} is initialized
      */
-    @OnAppEvent(value = AppEventId.EVENT_BUS_INITIALIZED, async = true)
-    public static void onAppEventBusInitializedAsync() {
-        JobLog.log("onAppEventBusInitializedAsync called");
+    @OnSysEvent(value = SysEventId.EVENT_BUS_INITIALIZED, async = true)
+    public static void onSysEventBusInitializedAsync() {
+        JobLog.log("onSysEventBusInitializedAsync called");
     }
 
 }

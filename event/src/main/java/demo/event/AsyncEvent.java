@@ -20,25 +20,24 @@ package demo.event;
  * #L%
  */
 
+import act.event.ActEvent;
 import act.event.OnEvent;
 import act.util.Async;
 import org.osgl.logging.LogManager;
 import org.osgl.logging.Logger;
 
 @Async
-public class AsyncEvent {
+public class AsyncEvent extends ActEvent<String> {
 
     private static final Logger LOGGER = LogManager.get(AsyncEvent.class);
 
-    private String name;
-
     public AsyncEvent(String name) {
-        this.name = name;
+        super(name);
     }
 
     @OnEvent
     public static void handleEvent(AsyncEvent event) {
-        LOGGER.info("async event: " + event.name);
+        LOGGER.info("async event: " + event.source());
     }
 
 }

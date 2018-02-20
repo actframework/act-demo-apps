@@ -23,6 +23,7 @@ package demo.todo.hibernate;
 import act.Act;
 import act.db.DbBind;
 import act.db.jpa.JPADao;
+import act.db.sql.tx.Transactional;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.*;
 import org.osgl.util.S;
@@ -62,12 +63,14 @@ public class Todo {
     }
 
     @PostAction("/create")
+    @Transactional
     @ResponseContentType(H.MediaType.JSON)
     public TodoItem testCreate(TodoItem todo) {
         return todo;
     }
 
     @PostAction("/list")
+    @Transactional
     public void post(String desc) {
         TodoItem item = new TodoItem(desc);
         dao.save(item);
@@ -102,12 +105,14 @@ public class Todo {
      * will automatically respond with 404 Not Found
      */
     @PutAction("/list/{item}")
+    @Transactional
     public void update(@DbBind @NotNull TodoItem item, String desc) {
         item.setDesc(desc);
         dao.save(item);
     }
 
     @DeleteAction("/list/{id}")
+    @Transactional
     public void delete(long id) {
         dao.deleteById(id);
     }
