@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-hibernate</artifactId>
-  <version>1.7.0</version>
+  <version>1.7.3</version>
 
   <name>actframework app demo - TODO (JPA/hibernate)</name>
   <description>demonstrates a simple TODO application for JPA/hibernate</description>
@@ -34,7 +34,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.7.0.0</version>
+    <version>1.7.3.0</version>
   </parent>
 
   <build>
