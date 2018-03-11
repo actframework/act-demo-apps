@@ -59,8 +59,8 @@ public class Todo {
     }
 
     @PostAction("/list")
-    public void post(String desc) {
-        TodoItem item = new TodoItem(desc);
+    public void post(String description) {
+        TodoItem item = new TodoItem(description);
         dao.save(item);
     }
 
@@ -93,8 +93,8 @@ public class Todo {
      * will automatically respond with 404 Not Found
      */
     @PutAction("/list/{item}")
-    public void update(@DbBind @NotNull TodoItem item, String desc) {
-        item.setDesc(desc);
+    public void update(@DbBind @NotNull TodoItem item, String description) {
+        item.setDescription(description);
         dao.save(item);
     }
 

@@ -21,10 +21,12 @@ package demo.helloworld;
  */
 
 import act.Act;
+import act.controller.Controller;
 import act.inject.DefaultValue;
-import act.util.LogSupport;
 import act.util.Output;
 import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.result.Result;
+import org.osgl.util.S;
 
 /**
  * The simple hello world app.
@@ -33,7 +35,7 @@ import org.osgl.mvc.annotation.GetAction;
  * in the browser!</p>
  */
 @SuppressWarnings("unused")
-public class HelloWorldApp extends LogSupport {
+public class HelloWorldApp extends Controller.Base {
 
     @GetAction
     public void home(@DefaultValue("World") @Output String who) {

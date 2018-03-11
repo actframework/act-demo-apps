@@ -26,7 +26,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "todo")
-public class TodoItem  {
+public class TodoItem extends ModelBase {
     @Id
     private long _id;
     private String desc;

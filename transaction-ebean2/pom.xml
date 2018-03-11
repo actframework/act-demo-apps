@@ -21,21 +21,20 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>ebean2-transaction</artifactId>
-  <version>1.7.3</version>
+  <version>1.8.1</version>
 
   <name>actframework app demo - Transaction (ebean2)</name>
   <description>demonstrates a simple transaction app with Ebean2</description>
   <url>http://actframework.org/</url>
 
   <properties>
-    <h2.version>1.4.193</h2.version>
     <app.entry>demo.transaction.ebean2.TransactionEbeanApp</app.entry>
   </properties>
 
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.7.3.0</version>
+    <version>1.8.1.0</version>
   </parent>
 
   <build>
@@ -46,20 +45,13 @@
 
     <dependency>
       <groupId>org.actframework</groupId>
-      <artifactId>act</artifactId>
-      <version>1.7.3</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.actframework</groupId>
       <artifactId>act-ebean2</artifactId>
-      <version>1.4.0-SNAPSHOT</version>
+      <version>1.5.1</version>
     </dependency>
 
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
     </dependency>
 
   </dependencies>

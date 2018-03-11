@@ -20,10 +20,11 @@ package demo.todo.morphia;
  * #L%
  */
 
+import static act.controller.Controller.Util.render;
+
 import act.Act;
 import act.db.DbBind;
 import act.db.morphia.MorphiaDao;
-import org.bson.types.ObjectId;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
@@ -32,8 +33,6 @@ import org.osgl.mvc.result.Result;
 
 import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
-
-import static act.controller.Controller.Util.render;
 
 /**
  * A Simple Todo application controller
@@ -57,6 +56,11 @@ public class Todo {
     public void add(String desc) {
         TodoItem item = new TodoItem(desc);
         dao.save(item);
+    }
+
+    @PostAction("/test")
+    public TodoItem submit(TodoItem todo) {
+        return todo;
     }
 
     /**

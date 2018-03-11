@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>event</artifactId>
-  <version>1.7.3</version>
+  <version>1.8.1</version>
 
   <name>actframework app demo - event</name>
   <description>demonstrate event dispatching in actframework</description>
@@ -42,7 +42,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.7.3.0</version>
+    <version>1.8.1.0</version>
   </parent>
 
   <build>

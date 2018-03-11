@@ -26,16 +26,16 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity(name = "todo")
-public class TodoItem  {
+public class TodoItem extends ModelBase {
     @Id
     private long _id;
-    private String desc;
+    private String description;
 
     private TodoItem() {
     }
 
-    public TodoItem(String desc) {
-        this.desc = desc;
+    public TodoItem(String description) {
+        this.description = description;
     }
 
     public Long getId() {
@@ -46,17 +46,17 @@ public class TodoItem  {
         _id = id;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public TodoItem setDesc(String desc) {
-        this.desc = desc;
+    public TodoItem setDescription(String description) {
+        this.description = description;
         return this;
     }
 
     @Override
     public String toString() {
-        return S.fmt("%3s|%s", getId(), getDesc());
+        return S.fmt("%s[%s]", getDescription(), getLastModified());
     }
 }

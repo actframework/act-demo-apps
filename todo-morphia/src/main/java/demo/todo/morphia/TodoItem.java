@@ -20,15 +20,22 @@ package demo.todo.morphia;
  * #L%
  */
 
-import act.db.morphia.MorphiaModel;
+import act.data.Sensitive;
+import act.db.morphia.MorphiaAdaptiveRecord;
+import act.db.morphia.MorphiaDao;
 import org.mongodb.morphia.annotations.Entity;
 
 @Entity("todo")
-public class TodoItem extends MorphiaModel<TodoItem> {
+public class TodoItem extends MorphiaAdaptiveRecord<TodoItem> {
 
+    @Sensitive
     public String desc;
 
     public TodoItem(String desc) {
         this.desc = desc;
     }
+
+    public static class Dao extends MorphiaDao<TodoItem> {
+    }
+
 }

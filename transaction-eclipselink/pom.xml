@@ -21,21 +21,20 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>transaction-eclipselink</artifactId>
-  <version>1.7.3</version>
+  <version>1.8.1</version>
 
   <name>actframework app demo - Transaction (JPA/EclipseLink)</name>
   <description>demonstrates a simple transaction app with JPA/EclipseLink</description>
   <url>http://actframework.org/</url>
 
   <properties>
-    <h2.version>1.4.193</h2.version>
     <app.entry>demo.transaction.eclipselink.TransactionEclipseLinkApp</app.entry>
   </properties>
 
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.7.3.0</version>
+    <version>1.8.1.0</version>
   </parent>
 
   <build>
@@ -47,24 +46,16 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-eclipselink</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act</artifactId>
-      <version>1.7.3</version>
     </dependency>
 
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-      <version>${h2.version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.zaxxer</groupId>
-      <artifactId>HikariCP-java7</artifactId>
+      <artifactId>HikariCP</artifactId>
     </dependency>
 
   </dependencies>

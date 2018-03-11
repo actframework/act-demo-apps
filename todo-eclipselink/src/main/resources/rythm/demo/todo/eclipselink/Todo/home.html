@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #list {
+      list-style-type: none;
+    }
+    #list li {
+      margin: 15px;
+    }
+    #list a.btn {
+      padding: 2px 5px;
+      border: 1px solid #aaa;
+      cursor: pointer;
+    }
+    #list a.btn:hover {
+      background-color: #ccc;
+    }
+  </style>
+  <script src="/asset/js/jquery-1.11.3.min.js"></script>
+  <script src="/asset/js/jquery-ajax-ext.js"></script>
+</head>
+<body>
+
+<h1>Todo Demo</h1>
+<ul id="list">
+
+</ul>
+<button id="add">Add</button>
+<script>
+
+  var refresh = function() {
+    $.getJSON("/list", function(data){
+      $('#list').html('');
+      for (var i = 0, j = data.length; i < j; ++i) {
+        var todo = data[i];
+        console.log(todo);
+        var $li = $('<li id="' + todo.id + '"><a class="edit btn">edit</a>&nbsp;<a class="delete btn">done</a>&nbsp;&nbsp;<span>' + todo.desc + '</span></li>');
+        $li.appendTo($('#list'));
+      }
+    })
+  };
+
+  $('#add').click(function() {
+    var desc = prompt("Input description");
+    if (!desc) {
+      alert("Todo description required");
+      return;
+    }
+    $.post("/list", {desc: desc, __csrf__: '@_csrf'}, refresh);
+  });
+
+  $('body').on('click', '.btn.delete', function() {
+    var id = $(this).parent().attr('id');
+    $.delete('/list/' + id, {__csrf__: '@_csrf'}, refresh);
+  });
+
+  $('body').on('click', '.btn.edit', function() {
+    var id = $(this).parent().attr('id');
+    var desc0 = $(this).parent().children('span').text();
+    var desc = prompt("Type in new description", desc0);
+    if (!desc) {
+      alert("Todo description required");
+      return;
+    }
+    $.put('/list/' + id, {desc: desc, __csrf__: '@_csrf'}, refresh);
+  });
+
+  refresh();
+</script>
