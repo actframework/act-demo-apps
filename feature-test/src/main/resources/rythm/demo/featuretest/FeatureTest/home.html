@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+@args String who
+<html lang="@_lang">
+<head>
+  <meta charset="UTF-8">
+  <script src="/~/asset/js/jquery.js"></script>
+  <script src="/~/asset/js/jquery.ext.js"></script>
+  <title>Hello @who!</title>
+</head>
+<body>
+<h1>Hello @who!</h1>
+
+<h2>Timestamp: @ts()</h2>
+<h2>Foo: @foo</h2>
+<h2>Bar: @bar</h2>
+<h2>URL: @reqUrl</h2>
+
+@args String x, int yy
+<h2>x: @x</h2>
+<h2>y: @yy</h2>
+
+<p>
+  <button id="post">Post</button>
+  <button id="put">Put</button>
+  <button id="patch">Patch</button>
+  <button id="delete">Delete</button>
+</p>
+
+<p>
+  <button id="postJSON">Post JSON</button>
+  <button id="putJSON">Put JSON</button>
+  <button id="patchJSON">Patch JSON</button>
+  <button id="deleteJSON">Delete JSON</button>
+</p>
+<script>
+  $('#post').click(function() {
+      $.post("/post", {n : 1}, function(data) {
+          alert(data)
+      })
+  })
+  $('#put').click(function() {
+      $.put("/put", {n : 1}, function(data) {
+          alert(data)
+      })
+  })
+  $('#patch').click(function() {
+      $.patch("/patch", {n : 1}, function(data) {
+          alert(data)
+      })
+  })
+  $('#delete').click(function() {
+      $.delete("/delete", {n : 1}, function(data) {
+          alert(data)
+      })
+  })
+  $('#postJSON').click(function() {
+      $.postJSON("/post", {n : 1}, function(data) {
+          alert(data.result)
+      })
+  })
+  $('#putJSON').click(function() {
+      $.putJSON("/put", {n : 1}, function(data) {
+          alert(data.result)
+      })
+  })
+  $('#patchJSON').click(function() {
+      $.patchJSON("/patch", {n : 1}, function(data) {
+          alert(data.result)
+      })
+  })
+  $('#deleteJSON').click(function() {
+      $.deleteJSON("/delete", {n : 1}, function(data) {
+          alert(data.result)
+      })
+  })
+
+</script>
+</body>
+</html>

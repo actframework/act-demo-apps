@@ -24,7 +24,7 @@ Once application has been started, you can open browser and locate to `http://lo
 
 ## Understanding the Demo app
 
-The demo application contains a single Java class `demo.helloworld.HelloWorldApp`
+The demo application contains a single Java class `demo.featuretest.HelloWorldApp`
 
 ```java
 public class HelloWorldApp {
@@ -63,7 +63,7 @@ to this parameter when calling to this handler method.
 `render(who)` tells ActFramework to call template (if exists) and pass variable `who` to the template with name
 `who`.
 
-The template `home.html` is located at `resources/rythm/demo/helloworld/HelloWorldApp`. Literally the path is corresponding
+The template `home.html` is located at `resources/rythm/demo/featuretest/HelloWorldApp`. Literally the path is corresponding
 to the package/class/method hierarchy, based in `resources/rythm` template root.
  
 The template is created using [Rythm Engine](http://rythmengine.org). For more information about Rythm engine, please

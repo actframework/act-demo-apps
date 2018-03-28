@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>feature-test</artifactId>
-  <version>1.8.1</version>
+  <version>1.8.4</version>
 
   <name>actframework Feature Test App</name>
   <description>A project to test new features</description>
@@ -29,23 +29,15 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.1.0</version>
+    <version>1.8.4.0</version>
   </parent>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <app.entry>demo.helloworld.HelloWorldApp</app.entry>
-    <kotlin.version>1.1.2-3</kotlin.version>
+    <java.version>1.8</java.version>
+    <app.entry>demo.featuretest.FeatureTest</app.entry>
   </properties>
 
   <dependencies>
-
-    <dependency>
-      <groupId>org.actframework</groupId>
-      <artifactId>act</artifactId>
-      <version>1.8.1-SNAPSHOT</version>
-    </dependency>
 
     <dependency>
       <groupId>org.actframework</groupId>
@@ -55,19 +47,6 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-starter-excel</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-stdlib-jre8</artifactId>
-      <version>${kotlin.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.jetbrains.kotlin</groupId>
-      <artifactId>kotlin-test</artifactId>
-      <version>${kotlin.version}</version>
-      <scope>test</scope>
     </dependency>
 
   </dependencies>
