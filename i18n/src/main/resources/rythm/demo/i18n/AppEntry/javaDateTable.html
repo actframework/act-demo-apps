@@ -1,0 +1,72 @@
+@args Date javaDate
+<table>
+  <thead>
+  <tr>
+    <th>@i18n("type")</th>
+    <th>@i18n("source.code")</th>
+    <th>@i18n("output")</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="non-format">
+    <td>@i18n("no_format")</td>
+    <td class="code">@@javaDate</td>
+    <td>@javaDate</td>
+  </tr>
+  <tr class="default">
+    <td>@i18n("default")</td>
+    <td class="code">@@javaDate.format()</td>
+    <td>@javaDate.format()</td>
+  </tr>
+  <tr class="long">
+    <td>@i18n("long") Date</td>
+    <td class="code">@@javaDate.longDate()</td>
+    <td>@javaDate.longDate()</td>
+  </tr>
+  <tr class="long">
+    <td>@i18n("long") Time</td>
+    <td class="code">@@javaDate.longTime()</td>
+    <td>@javaDate.longTime()</td>
+  </tr>
+  <tr class="long">
+    <td>@i18n("long") DateTime</td>
+    <td class="code">@@javaDate.longDateTime()</td>
+    <td>@javaDate.longDateTime()</td>
+  </tr>
+  <tr class="medium">
+    <td>@i18n("medium") Date</td>
+    <td class="code">@@javaDate.mediumDate()</td>
+    <td>@javaDate.mediumDate()</td>
+  </tr>
+  <tr class="medium">
+    <td>@i18n("medium") Time</td>
+    <td class="code">@@javaDate.mediumTime()</td>
+    <td>@javaDate.mediumTime()</td>
+  </tr>
+  <tr class="medium">
+    <td>@i18n("medium") DateTime</td>
+    <td class="code">@@javaDate.mediumDateTime()</td>
+    <td>@javaDate.mediumDateTime()</td>
+  </tr>
+  <tr class="short">
+    <td>@i18n("short") Date</td>
+    <td class="code">@@javaDate.shortDate()</td>
+    <td>@javaDate.shortDate()</td>
+  </tr>
+  <tr class="short">
+    <td>@i18n("short") Time</td>
+    <td class="code">@@javaDate.shortTime()</td>
+    <td>@javaDate.shortTime()</td>
+  </tr>
+  <tr class="short">
+    <td>@i18n("short") DateTime</td>
+    <td class="code">@@javaDate.shortDateTime()</td>
+    <td>@javaDate.shortDateTime()</td>
+  </tr>
+  <tr class="custom">
+    <td>@i18n("custom_pattern")</td>
+    <td class="code">@@javaDate.format("EEE YYYY MM dd")</td>
+    <td>@javaDate.format("EEE YYYY MM dd")</td>
+  </tr>
+  </tbody>
+</table>

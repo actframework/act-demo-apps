@@ -21,7 +21,7 @@
 
   <groupId>demo.progress</groupId>
   <artifactId>progress</artifactId>
-  <version>1.8.4</version>
+  <version>1.8.7</version>
 
   <name>progress</name>
   <description>Description of your application goes here</description>
@@ -34,11 +34,15 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.7.0</version>
   </parent>
 
-  <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act</artifactId>
+      <version>1.8.8-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 
 </project>

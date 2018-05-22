@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-beetsql</artifactId>
-  <version>1.8.4</version>
+  <version>1.8.8</version>
 
   <name>actframework app demo - TODO (beetsql)</name>
   <description>demonstrates a simple TODO application with BeetlSQL</description>
@@ -34,7 +34,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.8.3</version>
   </parent>
 
   <build>
@@ -46,6 +46,12 @@
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-beetlsql</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
     </dependency>
 
     <dependency>

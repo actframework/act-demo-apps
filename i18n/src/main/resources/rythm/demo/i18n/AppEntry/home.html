@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+@import org.joda.time.*
+<html>
+@args String who, Date javaDate, DateTime dateTime, LocalDateTime localDateTime, LocalDate localDate, LocalTime localTime
+<head>
+  <title>Hello World - ActFramework</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 5px 15px;
+      text-align: left;
+    }
+    td {
+      width: 250px;
+    }
+    td.code {
+      font-family: "Courier New", Monaco, monospace, monospace;
+      width: 330px;
+    }
+    tr.default  {
+      background-color: #eea;
+    }
+    tr.long {
+      background-color: #aee;
+    }
+    tr.medium  {
+      background-color: #eae;
+    }
+    tr.short {
+      background-color: #eaa;
+    }
+    tr.custom {
+      background-color: #8f3;
+    }
+    form.i18n {
+      display: inline-block;
+    }
+    form.i18n button, a.link {
+      display: inline-block;
+      background:none!important;
+      color:#444;
+      border:none;
+      padding:0!important;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      width: 80px;
+    }
+    a.link {
+      width: 140px;
+    }
+    a.link:visited {
+      color:#444;
+    }
+    form.i18n button:hover, a.link:hover {
+      color: #08d;
+    }
+  </style>
+</head>
+<body>
+  <h1>ActFramework @i18n("i18n") @i18n("and") @i18n("i10n") @i18n("demo")</h1>
+  <div>
+    <a class="link" href="/json" target="_blank">@i18n("check_json_result")</a>
+    <form class="i18n" action="/~/i18n/locale?act_locale=en_AU" method="post"><button>Australia</button></form>
+    <form class="i18n" action="/~/i18n/locale?act_locale=en_GB" method="post"><button>British</button></form>
+    <form class="i18n" action="/~/i18n/locale?act_locale=en_US" method="post"><button>American</button></form>
+    <form class="i18n" action="/~/i18n/locale?act_locale=zh" method="post"><button>简体中文</button></form>
+    <form class="i18n" action="/~/i18n/locale?act_locale=zh_TW" method="post"><button>繁體中文</button></form>
+  </div>
+  <section>
+    <h4>Java @i18n("date_object") - @i18n("default") locale</h4>
+    @javaDateTable()
+  </section>
+  <section>
+    <h4>Java @i18n("date_object") - Italy</h4>
+    @locale("it") {
+      @javaDateTable()
+    }
+  </section>
+  <section>
+    <h4>Joda @i18n("date_object") - @i18n("default") locale</h4>
+    @jodaDateTable()
+  </section>
+  <section>
+    <h4>Joda @i18n("date_object") - Italy</h4>
+    @locale("it") {
+      @jodaDateTable()
+    }
+  </section>
+  <p>
+    @i18n("powered_by_act", act.Act.VERSION.getVersion())
+  </p>
+</body>
+</html>

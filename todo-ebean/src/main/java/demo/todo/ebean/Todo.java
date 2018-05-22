@@ -23,6 +23,7 @@ package demo.todo.ebean;
 import act.Act;
 import act.db.DbBind;
 import act.db.ebean.EbeanDao;
+import org.osgl.$;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.*;
 import org.osgl.util.S;
@@ -81,6 +82,14 @@ public class Todo {
     @GetAction("/list/{no}")
     public TodoItem showItem(@DbBind("no") TodoItem item) {
         return item;
+    }
+
+    @GetAction("/list/duplicate/{no}")
+    public TodoItem duplicate(@DbBind("no") TodoItem origin) {
+        TodoItem copy = new TodoItem("");
+        $.copy(origin).rootClass(ModelBase.class).filter("-_id").to(copy);
+        dao.save(copy);
+        return copy;
     }
 
     /**

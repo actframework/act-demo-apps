@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>view</artifactId>
-  <version>1.8.4</version>
+  <version>1.8.8</version>
 
   <name>actframework app demo - hello world</name>
   <description>demonstrate a minimal hello world application for actframework</description>
@@ -34,11 +34,17 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.8.2-SNAPSHOT</version>
   </parent>
 
   <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.actframework</groupId>
+        <artifactId>act-maven-plugin</artifactId>
+        <version>1.8.5</version>
+      </plugin>
+    </plugins>
   </build>
 
   <dependencies>

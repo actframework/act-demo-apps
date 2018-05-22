@@ -1,0 +1,117 @@
+@import org.joda.time.*
+@args DateTime dateTime, LocalDateTime localDateTime, LocalDate localDate, LocalTime localTime
+<table>
+  <thead>
+  <tr>
+    <th>@i18n("type")</th>
+    <th>@i18n("source.code")</th>
+    <th>@i18n("output")</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="non-format">
+    <td>@i18n("no_format") LocalDate</td>
+    <td class="code">@@localDate</td>
+    <td>@localDate</td>
+  </tr>
+  <tr class="non-format">
+    <td>@i18n("no_format") LocalTime</td>
+    <td class="code">@@localTime</td>
+    <td>@localTime</td>
+  </tr>
+  <tr class="non-format">
+    <td>@i18n("no_format") LocalDateTime</td>
+    <td class="code">@@localDateTime</td>
+    <td>@localDateTime</td>
+  </tr>
+  <tr class="non-format">
+    <td>@i18n("no_format") DateTime</td>
+    <td class="code">@@dateTime</td>
+    <td>@dateTime</td>
+  </tr>
+
+  <tr class="default">
+    <td>@i18n("default") LocalDate</td>
+    <td class="code">@@localDate.format()</td>
+    <td>@localDate.format()</td>
+  </tr>
+  <tr class="default">
+    <td>@i18n("default") LocalTime</td>
+    <td class="code">@@localTime.format()</td>
+    <td>@localTime.format()</td>
+  </tr>
+  <tr class="default">
+    <td>@i18n("default") LocalDateTime</td>
+    <td class="code">@@localDateTime.format()</td>
+    <td>@localDateTime.format()</td>
+  </tr>
+  <tr class="default">
+    <td>@i18n("default") DateTime</td>
+    <td class="code">@@dateTime.format()</td>
+    <td>@dateTime.format()</td>
+  </tr>
+
+  <tr class="long">
+    <td>@i18n("long") LocalDate</td>
+    <td class="code">@@localDate.longStyle()</td>
+    <td>@localDate.longStyle()</td>
+  </tr>
+  <tr class="long">
+    <td>@i18n("long") LocalTime</td>
+    <td class="code">@@localTime.longStyle()</td>
+    <td>@localTime.longStyle()</td>
+  </tr>
+  <tr class="long">
+    <td>@i18n("long") LocalDateTime</td>
+    <td class="code">@@localDateTime.longStyle()</td>
+    <td>@localDateTime.longStyle()</td>
+  </tr>
+  <tr class="long">
+    <td>@i18n("long") DateTime</td>
+    <td class="code">@@dateTime.longStyle()</td>
+    <td>@dateTime.longStyle()</td>
+  </tr>
+
+  <tr class="medium">
+    <td>@i18n("medium") LocalDate</td>
+    <td class="code">@@localDate.mediumStyle()</td>
+    <td>@localDate.mediumStyle()</td>
+  </tr>
+  <tr class="medium">
+    <td>@i18n("medium") LocalTime</td>
+    <td class="code">@@localTime.mediumStyle()</td>
+    <td>@localTime.mediumStyle()</td>
+  </tr>
+  <tr class="medium">
+    <td>@i18n("medium") LocalDateTime</td>
+    <td class="code">@@localDateTime.mediumStyle()</td>
+    <td>@localDateTime.mediumStyle()</td>
+  </tr>
+  <tr class="medium">
+    <td>@i18n("medium") DateTime</td>
+    <td class="code">@@dateTime.mediumStyle()</td>
+    <td>@dateTime.mediumStyle()</td>
+  </tr>
+
+  <tr class="short">
+    <td>@i18n("short") LocalDate</td>
+    <td class="code">@@localDate.shortStyle()</td>
+    <td>@localDate.shortStyle()</td>
+  </tr>
+  <tr class="short">
+    <td>@i18n("short") LocalTime</td>
+    <td class="code">@@localTime.shortStyle()</td>
+    <td>@localTime.shortStyle()</td>
+  </tr>
+  <tr class="short">
+    <td>@i18n("short") LocalDateTime</td>
+    <td class="code">@@localDateTime.shortStyle()</td>
+    <td>@localDateTime.shortStyle()</td>
+  </tr>
+  <tr class="short">
+    <td>@i18n("short") DateTime</td>
+    <td class="code">@@dateTime.shortStyle()</td>
+    <td>@dateTime.shortStyle()</td>
+  </tr>
+  </tbody>
+</table>
