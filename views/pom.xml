@@ -34,18 +34,8 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.8.2-SNAPSHOT</version>
+    <version>1.8.8.5</version>
   </parent>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.actframework</groupId>
-        <artifactId>act-maven-plugin</artifactId>
-        <version>1.8.5</version>
-      </plugin>
-    </plugins>
-  </build>
 
   <dependencies>
 

@@ -34,28 +34,14 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.8.5-SNAPSHOT</version>
   </parent>
-
-  <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-  </build>
 
   <dependencies>
 
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-eclipselink</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>com.zaxxer</groupId>
-      <artifactId>HikariCP</artifactId>
     </dependency>
 
   </dependencies>

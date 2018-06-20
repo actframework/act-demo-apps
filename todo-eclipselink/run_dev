@@ -1,2 +1,3 @@
 #!/bin/sh
-mvn clean compile exec:exec
+echo building ...
+mvn -q clean compile act:run

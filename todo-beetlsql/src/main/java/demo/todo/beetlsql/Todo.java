@@ -1,17 +1,20 @@
 package demo.todo.beetlsql;
 
+import static act.controller.Controller.Util.notFoundIfNull;
+
 import act.Act;
+import act.db.beetlsql.BeetlSqlTransactional;
+import act.db.sql.tx.Transactional;
 import org.osgl.http.H;
 import org.osgl.mvc.annotation.*;
 
 import javax.inject.Inject;
 
-import static act.controller.Controller.Util.notFoundIfNull;
-
 /**
  * A Simple Todo application controller
  */
 @SuppressWarnings("unused")
+@With(BeetlSqlTransactional.class)
 public class Todo {
 
     @Inject
@@ -27,6 +30,7 @@ public class Todo {
     }
 
     @PostAction("/list")
+    @Transactional
     public void post(String desc) {
         TodoItem item = new TodoItem();
         item.setDesc(desc);

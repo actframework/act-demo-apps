@@ -7,7 +7,6 @@ import org.beetl.sql.core.mapper.BaseMapper;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-;
 @Entity
 public class TodoItem  {
    

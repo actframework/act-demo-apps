@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>todo-morphia</artifactId>
-  <version>1.8.4</version>
+  <version>1.8.8</version>
 
   <name>actframework app demo - TODO (mongodb)</name>
   <description>demonstrates a simple TODO application for mongodb</description>
@@ -34,19 +34,14 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.8.5-SNAPSHOT</version>
   </parent>
-
-  <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-  </build>
 
   <dependencies>
 
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-morphia</artifactId>
-      <version>${act-morphia.version}</version>
     </dependency>
 
   </dependencies>

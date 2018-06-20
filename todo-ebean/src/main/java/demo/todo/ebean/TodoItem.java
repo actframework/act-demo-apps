@@ -22,6 +22,7 @@ package demo.todo.ebean;
 
 import org.osgl.util.S;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -29,6 +30,8 @@ import javax.persistence.Id;
 public class TodoItem extends ModelBase {
     @Id
     private long _id;
+
+    @Column(name = "description")
     private String desc;
 
     private TodoItem() {

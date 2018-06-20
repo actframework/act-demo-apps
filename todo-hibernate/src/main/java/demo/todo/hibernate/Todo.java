@@ -25,7 +25,10 @@ import act.db.DbBind;
 import act.db.jpa.JPADao;
 import act.db.sql.tx.Transactional;
 import org.osgl.http.H;
-import org.osgl.mvc.annotation.*;
+import org.osgl.mvc.annotation.DeleteAction;
+import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
+import org.osgl.mvc.annotation.PutAction;
 import org.osgl.util.S;
 
 import javax.inject.Inject;
@@ -44,16 +47,6 @@ public class Todo {
     public void home() {
     }
 
-    @GetAction("/echo/{msg}")
-    public String echo(String msg) {
-        return msg + "d1ddsfd";
-    }
-
-    @GetAction("/foo")
-    public String foo() {
-        return "foo";
-    }
-
     @GetAction("/list")
     public Iterable<TodoItem> list(String q) {
         if (S.notBlank(q)) {
@@ -62,16 +55,15 @@ public class Todo {
         return dao.findAll();
     }
 
-    @PostAction("/create")
-    @Transactional
-    @ResponseContentType(H.MediaType.JSON)
-    public TodoItem testCreate(TodoItem todo) {
-        return todo;
+    @GetAction("/search")
+    public TodoItem search(String q) {
+        return dao.q("desc like", q).first();
     }
 
     @PostAction("/list")
     @Transactional
-    public void post(String desc) {
+    public void post(String desc, H.Response resp) {
+        resp.addCookie(new H.Cookie("foo", "bar"));
         TodoItem item = new TodoItem(desc);
         dao.save(item);
     }

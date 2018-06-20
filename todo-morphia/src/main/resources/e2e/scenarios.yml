@@ -1,0 +1,26 @@
+Scenario:
+  interactions:
+    - description: Create a TodoItem
+      request:
+        method: POST
+        url: /list
+        params:
+          desc: Task A
+    - description: Get TodoItem list
+      request:
+        json: true
+        method: GET
+        url: /list
+      response:
+        json:
+          size: 1
+          0:
+            desc: Task A
+    - description: Get TodoItem by ID
+      request:
+        json: true
+        method: GET
+        url: /list/${last:0.id}
+      response:
+        json:
+          desc: Task A

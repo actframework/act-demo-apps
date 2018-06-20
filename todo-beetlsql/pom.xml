@@ -34,29 +34,14 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.8.3</version>
+    <version>1.8.8.4</version>
   </parent>
-
-  <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-  </build>
 
   <dependencies>
 
     <dependency>
       <groupId>org.actframework</groupId>
       <artifactId>act-beetlsql</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.h2database</groupId>
-      <artifactId>h2</artifactId>
     </dependency>
 
     <dependency>

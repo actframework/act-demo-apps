@@ -24,8 +24,10 @@ import act.Act;
 import act.db.DbBind;
 import act.db.ebean.EbeanDao;
 import org.osgl.$;
-import org.osgl.http.H;
-import org.osgl.mvc.annotation.*;
+import org.osgl.mvc.annotation.DeleteAction;
+import org.osgl.mvc.annotation.GetAction;
+import org.osgl.mvc.annotation.PostAction;
+import org.osgl.mvc.annotation.PutAction;
 import org.osgl.util.S;
 
 import javax.inject.Inject;
@@ -44,28 +46,12 @@ public class Todo {
     public void home() {
     }
 
-    @GetAction("/echo/{msg}")
-    public String echo(String msg) {
-        return msg + "d1ddsfd";
-    }
-
-    @GetAction("/foo")
-    public String foo() {
-        return "foo";
-    }
-
     @GetAction("/list")
     public Iterable<TodoItem> list(String q) {
         if (S.notBlank(q)) {
             return dao.findBy("desc like", q);
         }
         return dao.findAll();
-    }
-
-    @PostAction("/create")
-    @ResponseContentType(H.MediaType.JSON)
-    public TodoItem testCreate(TodoItem todo) {
-        return todo;
     }
 
     @PostAction("/list")
