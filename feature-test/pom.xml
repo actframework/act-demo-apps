@@ -21,7 +21,7 @@
 
   <groupId>org.actframework.demo</groupId>
   <artifactId>feature-test</artifactId>
-  <version>1.8.4</version>
+  <version>1.8.8</version>
 
   <name>actframework Feature Test App</name>
   <description>A project to test new features</description>
@@ -29,7 +29,7 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.8.6</version>
   </parent>
 
   <properties>
@@ -38,6 +38,12 @@
   </properties>
 
   <dependencies>
+
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act</artifactId>
+      <version>1.8.8-RC12-SNAPSHOT</version>
+    </dependency>
 
     <dependency>
       <groupId>org.actframework</groupId>
@@ -50,9 +56,5 @@
     </dependency>
 
   </dependencies>
-
-  <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-  </build>
 
 </project>

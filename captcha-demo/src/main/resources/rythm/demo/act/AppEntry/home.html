@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CAPTCHA Demo</title>
+  <style>
+    .error {
+      color: red;
+    }
+    form div {
+      margin-top: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="/~/asset/css/act_captcha.css" >
+  <script src="/~/asset/js/act_captcha.js"></script>
+</head>
+<body>
+  <h1>CAPTCHA DEMO</h1>
+
+  @if(_flash.get("result")) {
+    <div>Result: @_flash.get("result")</div>
+  }
+  @if(_flash.error()) {
+    <div class="error">@_flash.error()</div>
+  }
+  <form method="post" action="/">
+    <div>
+      Name:
+    </div>
+    <div>
+      <input name="name">
+    </div>
+    <div id="act_captcha_dock"></div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+
+  <p>
+    Powered by ActFramework @act.Act.VERSION.getVersion()
+  </p>
+
+</body>
+</html>

@@ -24,7 +24,6 @@ import static act.controller.Controller.Util.render;
 
 import act.Act;
 import act.db.DbBind;
-import act.db.morphia.MorphiaDao;
 import org.osgl.mvc.annotation.DeleteAction;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
@@ -40,7 +39,7 @@ import javax.validation.constraints.NotNull;
 public class Todo {
 
     @Inject
-    private MorphiaDao<TodoItem> dao;
+    private TodoItem.Dao dao;
 
     @GetAction
     public Result home() {
@@ -103,6 +102,8 @@ public class Todo {
     }
 
     public static void main(String[] args) throws Exception {
+        System.setProperty("http.port", "8888");
+        System.setProperty("cli.port", "8889");
         Act.start("TODO-Morphia");
     }
 
