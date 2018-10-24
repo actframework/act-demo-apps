@@ -16,6 +16,11 @@
 <body>
   <h1>CAPTCHA DEMO</h1>
 
+  <ul>
+    <li>default: @appCached("foo")</li>
+    <li>5s: @appCached("foo", "5")</li>
+    <li>50s: @appCached("foo", "50")</li>
+  </ul>
   @if(_flash.get("result")) {
     <div>Result: @_flash.get("result")</div>
   }

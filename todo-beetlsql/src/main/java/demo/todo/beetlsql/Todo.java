@@ -38,13 +38,13 @@ public class Todo {
     }
 
     @DeleteAction("/list/{id}")
-    public void delete(long id) {
+    public void delete(int id) {
         TodoItem item = mapper.single(id);
         mapper.deleteById(id);
     }
 
     @PutAction("/list/{id}")
-    public void update(long id, String desc) {
+    public void update(int id, String desc) {
         TodoItem item = mapper.single(id);
         notFoundIfNull(item);
         item.setDesc(desc);

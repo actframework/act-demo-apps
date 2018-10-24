@@ -21,6 +21,7 @@ package demo.helloworld;
  */
 
 import act.Act;
+import act.controller.Controller;
 import act.inject.DefaultValue;
 import act.util.Output;
 import org.osgl.mvc.annotation.GetAction;
@@ -32,7 +33,7 @@ import org.osgl.mvc.annotation.GetAction;
  * in the browser!</p>
  */
 @SuppressWarnings("unused")
-public class HelloWorldApp {
+public class HelloWorldApp extends Controller.Util {
 
     @GetAction("/{who}")
     public void home(@DefaultValue("World") @Output String who) {

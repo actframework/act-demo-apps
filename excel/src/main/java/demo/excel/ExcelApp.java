@@ -21,7 +21,7 @@ package demo.excel;
  */
 
 import act.Act;
-import act.app.ActionContext;
+import act.util.PropertySpec;
 import org.osgl.inject.annotation.LoadCollection;
 import org.osgl.mvc.annotation.GetAction;
 
@@ -36,8 +36,14 @@ public class ExcelApp {
     @LoadCollection(TestDataGenerator.class)
     private List<Employee> employees;
 
+    @GetAction("direct")
+    @PropertySpec("id as Student#, -grade")
+    public List<Employee> directExcel() {
+        return employees;
+    }
+
     @GetAction
-    public List<Employee> home(ActionContext context) {
+    public List<Employee> home() {
         return employees;
     }
 

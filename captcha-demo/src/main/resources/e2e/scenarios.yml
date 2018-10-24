@@ -1,23 +1,21 @@
-Scenario(Hello World):
-  description: a web page says Hello
+Scenario(Main):
+  description: Home page post test
   interactions:
-    - description: send request to the app without parameter
+    - description: display home page
       request:
         method: GET
         url: /
       response:
         html:
-          h1: Hello World
-          head title:
-            - contains: Hello World
-            - contains: ActFramework
-          p:
-            <any>:
-              - contains: Powered by ActFramework
-    - description: send request to the app with [who = ActFramework]
+          h1: CAPTCHA DEMO
+          head title: CAPTCHA Demo
+          form div: "Name:"
+    - description: post to home page
       request:
-        method: GET
-        url: /?who=ActFramework
+        method: POST
+        url: /
+        params:
+          name: actframework
       response:
         html:
-          h1: Hello ActFramework
+          body div: "Result: actframework"

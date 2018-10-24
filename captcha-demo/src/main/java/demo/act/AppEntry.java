@@ -2,10 +2,12 @@ package demo.act;
 
 import act.Act;
 import act.app.ActionContext;
+import act.app.App;
 import act.controller.Controller;
 import act.controller.captcha.RequireCaptcha;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
+import org.osgl.util.S;
 
 /**
  * A simple hello world app entry
@@ -21,7 +23,7 @@ public class AppEntry extends Controller.Util {
      * Load the form
      */
     @GetAction
-    public void home() {
+    public void home(App app) {
     }
 
     /**
@@ -38,6 +40,13 @@ public class AppEntry extends Controller.Util {
             ctx.flash("result", name);
         }
         redirect("/");
+    }
+
+    @GetAction("cache_test")
+    public void cacheTest(App app) {
+        app.cache().put("foo", S.random());
+        app.cache("5").put("foo", "five");
+        app.cache("50").put("foo", "fifty");
     }
 
     public static void main(String[] args) throws Exception {

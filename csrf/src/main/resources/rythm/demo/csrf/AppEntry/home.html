@@ -19,8 +19,11 @@
 <div>Form with CSRF token</div>
 <section>
   <p>
-    This form has a CSRF field built inside. Submit through this form
+    This form has a CSRF field built inside with `@@_csrfField` tag. Submit through this form
     will successfully display the message.
+  </p>
+  <p>
+    Use this method when you are rendering HTML page with Rythm template
   </p>
   <pre>
   &lt;form method="post"&gt;
@@ -32,9 +35,37 @@
     &lt;button type="submit"&gt;Submit&lt;/button&gt;
     &lt;/form>
   </pre>
+  <div>Try it</div>
   <form method="post">
-    <div>Try it</div>
     @_csrfField
+    <div>
+      <label>message</label>
+      <input name="message">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<br/>
+<section>
+  <p>
+    This form has a CSRF field built inside by `jquery.ext.js`. Submit through this form
+    will successfully display the message.
+  </p>
+  <p>You must have jquery and `/~/asset/js/jquery.ext.js` file imported into your HTML file</p>
+  <p>
+    Use this method when your HTML page is static asset and you cannot use rythm tag.
+  </p>
+  <pre>
+  &lt;form method="post"&gt;
+    &lt;div&gt;
+      &lt;label&gt;message&lt;/label&gt;
+      &lt;input name="message"&gt;
+    &lt;/div>
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+    &lt;/form>
+  </pre>
+  <div>Try it</div>
+  <form method="post">
     <div>
       <label>message</label>
       <input name="message">
@@ -46,11 +77,11 @@
 <div>Form without CSRF token</div>
 <section>
   <p>
-    This form miss the CSRF field. Submit through this form
+    This form does not have the CSRF field. Submit through this form
     will trigger 401 Unauthorised response.
   </p>
   <pre>
-  &lt;form method="post"&gt;
+  &lt;form method="post" class='no-csrf'&gt;
     &lt;div&gt;
       &lt;label&gt;message&lt;/label&gt;
       &lt;input name="message"&gt;
@@ -58,7 +89,7 @@
     &lt;button type="submit"&gt;Submit&lt;/button&gt;
     &lt;/form>
   </pre>
-  <form method="post">
+  <form method="post" class="no-csrf">
     <div>Try it</div>
     <div>
       <label>message</label>
@@ -67,6 +98,8 @@
     <button type="submit">Submit</button>
   </form>
 </section>
+<script src="/~/asset/js/jquery.js"></script>
+<script src="/~/asset/js/jquery.ext.js"></script>
 <body>
 </body>
 </html>

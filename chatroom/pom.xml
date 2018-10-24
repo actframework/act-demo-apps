@@ -21,7 +21,7 @@
 
   <groupId>demo.chatroom</groupId>
   <artifactId>chatroom</artifactId>
-  <version>1.8.4</version>
+  <version>1.8.8</version>
 
   <name>chatroom</name>
   <description>Description of your application goes here</description>
@@ -29,15 +29,11 @@
   <parent>
     <groupId>org.actframework</groupId>
     <artifactId>act-starter-parent</artifactId>
-    <version>1.8.4.0</version>
+    <version>1.8.8.7-SNAPSHOT</version>
   </parent>
 
   <properties>
     <app.entry>demo.chatroom.ChatApp</app.entry>
   </properties>
-
-  <build>
-    <finalName>${project.artifactId}-${project.version}-r${buildNumber}</finalName>
-  </build>
 
 </project>

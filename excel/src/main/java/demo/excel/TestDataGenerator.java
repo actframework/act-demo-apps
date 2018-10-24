@@ -22,18 +22,15 @@ package demo.excel;
 
 import act.app.App;
 import org.osgl.$;
-import org.osgl.Osgl;
 import org.osgl.inject.BeanSpec;
 import org.osgl.inject.Genie;
 import org.osgl.inject.loader.ElementLoaderBase;
 import org.osgl.util.C;
 import org.osgl.util.S;
 
+import java.util.*;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @Singleton
 public class TestDataGenerator extends ElementLoaderBase<Employee> {
@@ -51,14 +48,17 @@ public class TestDataGenerator extends ElementLoaderBase<Employee> {
     }
 
     @Override
-    public Osgl.Function<Employee, Boolean> filter(Map<String, Object> map, BeanSpec beanSpec) {
+    public $.Function<Employee, Boolean> filter(Map<String, Object> map, BeanSpec beanSpec) {
         return $.F.yes();
     }
 
     private void generateTestData(App app) {
-        testData = new ArrayList<Employee>();
+        testData = new ArrayList<>();
         Employee.Grade[] grades = Employee.Grade.values();
-        for (String name : names) {
+        List<String> nameList = new ArrayList<>();
+        nameList.addAll(names);
+        Collections.shuffle(nameList);
+        for (String name : nameList) {
             testData.add(generateEmployee(app.cuid(), name, $.random(grades)));
         }
     }

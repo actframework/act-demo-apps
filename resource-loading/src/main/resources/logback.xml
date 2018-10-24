@@ -12,16 +12,7 @@
     </encoder>
   </appender>
 
-  <!-- Console output for act-e2e test log -->
-  <appender name="E2E_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <!-- By default, encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
-    <withJansi>true</withJansi>
-    <encoder>
-      <pattern>%msg%n</pattern>
-    </encoder>
-  </appender>
-
-  <!-- main log file -->
+  <!-- Send debug messages to a file at "c:/jcg.log" -->
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>act.log</file>
     <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -39,22 +30,33 @@
     </triggeringPolicy>
   </appender>
 
-  <!-- act-e2e test log file -->
-  <appender name="E2E_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>e2e.log</file>
+  <!-- Access log file -->
+  <appender name="ACCESS_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>access.log</file>
     <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
       <Pattern>%msg%n</Pattern>
     </encoder>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <FileNamePattern>/access.%i.log.zip</FileNamePattern>
+      <MinIndex>1</MinIndex>
+      <MaxIndex>10</MaxIndex>
+    </rollingPolicy>
+
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>2MB</MaxFileSize>
+    </triggeringPolicy>
   </appender>
 
-  <appender name="DB_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>act-db.log</file>
+  <!-- Handler invocation trace file -->
+  <appender name="TRACE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>trace.log</file>
     <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-      <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+      <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} - %msg%n</Pattern>
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <FileNamePattern>/act-db.%i.log.zip</FileNamePattern>
+      <FileNamePattern>/trace.%i.log.zip</FileNamePattern>
       <MinIndex>1</MinIndex>
       <MaxIndex>10</MaxIndex>
     </rollingPolicy>
@@ -65,13 +67,13 @@
   </appender>
 
   <appender name="METRIC_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>act-metric.log</file>
+    <file>act.metric.log</file>
     <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
       <Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-      <FileNamePattern>/act-metric.%i.log.zip</FileNamePattern>
+      <FileNamePattern>/jcg.%i.log.zip</FileNamePattern>
       <MinIndex>1</MinIndex>
       <MaxIndex>10</MaxIndex>
     </rollingPolicy>
@@ -86,29 +88,41 @@
     <appender-ref ref="STDOUT" />
   </logger>
 
-  <logger name="act.mail" level="DEBUG" additivity="false">
+  <logger name="act.db" level="TRACE" additivity="false">
+    <appender-ref ref="FILE" />
+  </logger>
+
+  <logger name="act.ws" level="DEBUG" additivity="false">
+    <appender-ref ref="FILE"/>
     <appender-ref ref="STDOUT"/>
   </logger>
 
-  <logger name="act.db" level="INFO" additivity="false">
-    <appender-ref ref="DB_FILE" />
+  <logger name="act.mail" level="DEBUG" additivity="false">
+    <appender-ref ref="FILE"/>
   </logger>
 
-  <logger name="act.e2e" level="INFO" additivity="false">
-    <appender-ref ref="E2E_STDOUT"/>
-    <appender-ref ref="E2E_FILE"/>
-  </logger>
-
-  <logger name="act.metric" level="TRACE">
+  <logger name="metric.act" level="TRACE">
     <appender-ref ref="METRIC_FILE" />
   </logger>
 
-  <logger name="com.mycom.helloservice" level="DEBUG" additivity="false">
+  <logger name="metric.app" level="TRACE">
+    <appender-ref ref="METRIC_FILE" />
+  </logger>
+
+  <logger name="demo.helloworld" level="DEBUG" additivity="false">
     <appender-ref ref="FILE" />
     <appender-ref ref="STDOUT" />
   </logger>
 
-  <!-- By default, the level of the root level is set to INFO -->
+  <logger name="act.trace.request" level="TRACE">
+    <appender-ref ref="ACCESS_LOG_FILE" />
+  </logger>
+
+  <logger name="act.trace.handler" level="TRACE">
+    <appender-ref ref="TRACE_FILE" />
+  </logger>
+
+  <!-- By default, the level of the root level is set to DEBUG -->
   <root level="INFO">
     <appender-ref ref="STDOUT" />
   </root>

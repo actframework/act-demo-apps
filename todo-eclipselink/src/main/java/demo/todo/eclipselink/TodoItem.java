@@ -29,9 +29,6 @@ import javax.persistence.Id;
 
 @Entity(name = "todo")
 public class TodoItem extends ModelBase {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long _id;
     private String desc;
 
     private TodoItem() {

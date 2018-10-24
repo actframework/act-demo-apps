@@ -29,6 +29,11 @@
       <artifactId>act</artifactId>
       <version>1.8.8-RC12-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>org.actframework</groupId>
+      <artifactId>act-e2e</artifactId>
+      <version>1.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
 </project>
