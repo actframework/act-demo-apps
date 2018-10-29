@@ -1,5 +1,15 @@
 ### ACT Framework Demo Applications
 
+#### Important notice:
+
+All of the demo apps in this repo are split to standalone repos, and moved to <https://github.com/act-gallery>.
+
+You can search and clone the demos there.
+
+This repo will not be maintained and may be deleted in near future.
+
+----
+
 Usage:
 
 To start in dev mode:
